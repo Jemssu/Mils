@@ -3,345 +3,1111 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Marketing Portfolio | Y2K Era</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>Coquette E-Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,700&family=Cormorant+Garamond:ital,wght@0,400;0,600&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --rose-pink: #f4a6c1;
+            --deep-rose: #d4758a;
+            --blush: #fdd7e4;
+            --light-pink: #fce4ec;
+            --cream: #fffbf7;
+            --champagne: #f5e6d3;
+            --mauve: #d4a5b0;
+            --text-dark: #6b3e47;
+            --text-light: #8b5563;
+            --gold: #d4a574;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Cormorant Garamond', serif;
+            background: linear-gradient(135deg, var(--rose-pink) 0%, #f0a8bf 100%);
+            background-attachment: fixed;
+            color: var(--text-dark);
+            min-height: 100vh;
+            position: relative;
+        }
+
+        /* Decorative elements */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 50%;
+            right: 10%;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1), transparent);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            bottom: 10%;
+            left: 5%;
+            width: 250px;
+            height: 250px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.08), transparent);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* ================= NAVIGATION ================= */
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 251, 247, 0.98);
+            backdrop-filter: blur(10px);
+            padding: 1.2rem 5%;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(244, 166, 193, 0.15);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-brand {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--deep-rose);
+            text-decoration: none;
+            min-width: 80px;
+        }
+
+        .nav-divider {
+            flex: 1;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--rose-pink), transparent);
+            margin: 0 2rem;
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            list-style: none;
+            margin: 0;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            font-size: 0.85rem;
+            transition: color 0.3s ease;
+            position: relative;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-menu a:hover {
+            color: var(--deep-rose);
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--rose-pink);
+            transition: width 0.3s ease;
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+
+        /* Dropdown */
+        .nav-dropdown {
+            position: relative;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #ffffff;
+            border-radius: 12px;
+            min-width: 120px;
+            box-shadow: 0 8px 25px rgba(244, 166, 193, 0.2);
+            list-style: none;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            margin-top: 10px;
+            overflow: hidden;
+        }
+
+        .nav-dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-menu li a {
+            display: block;
+            padding: 10px 18px;
+            color: var(--text-dark);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 0.85rem;
+        }
+
+        .dropdown-menu li a:hover {
+            background: #fff5f7;
+            color: var(--deep-rose);
+            padding-left: 23px;
+        }
+
+        /* Hamburger */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+            background: none;
+            border: none;
+            padding: 0;
+        }
+
+        .hamburger span {
+            width: 24px;
+            height: 2.5px;
+            background: var(--deep-rose);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+            display: block;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+            transform: translateX(-10px);
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 60px;
+            left: 0;
+            right: 0;
+            background: #ffffff;
+            flex-direction: column;
+            gap: 0;
+            padding: 0;
+            z-index: 999;
+            box-shadow: 0 8px 25px rgba(244, 166, 193, 0.2);
+            max-height: calc(100vh - 60px);
+            overflow-y: auto;
+        }
+
+        .mobile-menu.active {
+            display: flex;
+        }
+
+        .mobile-menu a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            padding: 14px 5%;
+            border-bottom: 1px solid #ffeef3;
+            display: block;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu a:hover {
+            background: #fff5f7;
+            color: var(--deep-rose);
+            padding-left: 7%;
+        }
+
+        .mobile-dropdown {
+            display: none;
+            flex-direction: column;
+            gap: 0;
+            padding-left: 0;
+            margin-top: 0;
+        }
+
+        .mobile-dropdown.active {
+            display: flex;
+        }
+
+        .mobile-dropdown a {
+            padding-left: 10%;
+            font-size: 0.85rem;
+            border-bottom: none;
+            padding-right: 5%;
+        }
+
+        main {
+            position: relative;
+            z-index: 10;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-top: 90px;
+            margin-bottom: 3rem;
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 8vw, 3.8rem);
+            color: rgba(255, 255, 255, 0.95);
+            margin-bottom: 0.5rem;
+            font-style: italic;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            letter-spacing: 2px;
+        }
+
+        .header-subtitle {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.4rem;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 400;
+        }
+
+        /* Dashboard */
+        .dashboard {
+            background: var(--cream);
+            border-radius: 30px;
+            padding: 3rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            border: 3px solid rgba(255, 255, 255, 0.6);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .hero-container {
+            position: relative;
+            height: 400px;
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(244, 166, 193, 0.25);
+            background: linear-gradient(135deg, var(--rose-pink), var(--blush));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+
+        .hero-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            color: rgba(255, 255, 255, 0.3);
+            position: relative;
+        }
+
+        .hero-placeholder::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.08) 50%, transparent 70%);
+            animation: shine 3s infinite;
+        }
+
+        @keyframes shine {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        .hero-text {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.4), transparent);
+            padding: 2rem;
+            color: #fff;
+        }
+
+        .hero-text h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            font-style: italic;
+        }
+
+        .hero-text p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .hero-btn {
+            padding: 12px 28px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 0.95rem;
+        }
+
+        .hero-btn-primary {
+            background: linear-gradient(135deg, var(--rose-pink), var(--deep-rose));
+            color: #fff;
+            box-shadow: 0 8px 20px rgba(244, 166, 193, 0.3);
+        }
+
+        .hero-btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(244, 166, 193, 0.4);
+        }
+
+        .hero-btn-secondary {
+            background: transparent;
+            color: #fff;
+            border: 2px solid #fff;
+        }
+
+        .hero-btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-3px);
+        }
+
+        /* Section Title */
+        .section-header {
+            margin-bottom: 2rem;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--text-dark);
+            font-style: italic;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .section-title::before,
+        .section-title::after {
+            content: '✧';
+            color: var(--rose-pink);
+        }
+
+        .section-divider {
+            width: 100px;
+            height: 2px;
+            background: linear-gradient(90deg, var(--rose-pink), transparent);
+            margin-top: 0.5rem;
+        }
+
+        /* Creative Process Slider */
+        .creative-section {
+            margin-bottom: 3rem;
+            background: linear-gradient(135deg, rgba(244, 166, 193, 0.08), rgba(253, 215, 228, 0.08));
+            border-radius: 25px;
+            padding: 2rem;
+            border: 2px solid var(--blush);
+        }
+
+        .creative-slider {
+            position: relative;
+            width: 100%;
+            height: 350px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 12px 30px rgba(244, 166, 193, 0.2);
+            background: linear-gradient(135deg, var(--rose-pink), var(--blush));
+            margin-top: 2rem;
+        }
+
+        .creative-slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+            opacity: 0;
+            transition: opacity 0.6s ease-in-out;
+        }
+
+        .creative-slide.active {
+            opacity: 1;
+        }
+
+        .creative-slide-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            color: rgba(255, 255, 255, 0.3);
+        }
+
+        .creative-slide-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: #fff;
+            margin-bottom: 0.5rem;
+            font-style: italic;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        .creative-slide-desc {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.95);
+            max-width: 400px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        .creative-controls {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .slider-btn {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--light-pink), var(--blush));
+            border: 2px solid var(--rose-pink);
+            color: var(--rose-pink);
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .slider-btn:hover {
+            background: linear-gradient(135deg, var(--rose-pink), var(--deep-rose));
+            color: #fff;
+            transform: scale(1.1);
+        }
+
+        .creative-dots {
+            display: flex;
+            justify-content: center;
+            gap: 0.8rem;
+            margin-top: 1.5rem;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--blush);
+            border: 2px solid var(--rose-pink);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .dot.active {
+            background: var(--rose-pink);
+            width: 30px;
+            border-radius: 6px;
+        }
+
+        /* Projects Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .project-card {
+            background: linear-gradient(135deg, rgba(244, 166, 193, 0.1), rgba(253, 215, 228, 0.08));
+            border-radius: 20px;
+            overflow: hidden;
+            border: 2px solid var(--blush);
+            box-shadow: 0 8px 20px rgba(244, 166, 193, 0.15);
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 35px rgba(244, 166, 193, 0.25);
+            border-color: var(--rose-pink);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, var(--rose-pink), var(--blush));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: rgba(255, 255, 255, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%);
+            animation: shine 3s infinite;
+        }
+
+        .project-content {
+            padding: 1.8rem;
+        }
+
+        .project-content h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            color: var(--deep-rose);
+            margin-bottom: 0.8rem;
+            font-style: italic;
+        }
+
+        .project-content p {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        /* About & Contact */
+        .about-contact {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .about-card, .contact-card {
+            background: linear-gradient(135deg, rgba(244, 166, 193, 0.08), rgba(253, 215, 228, 0.08));
+            border-radius: 20px;
+            padding: 2.5rem;
+            border: 2px solid var(--blush);
+            box-shadow: 0 8px 20px rgba(244, 166, 193, 0.12);
+        }
+
+        .about-card h3, .contact-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--deep-rose);
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+
+        .about-card p {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .skills-list {
+            list-style: none;
+            margin-top: 1.5rem;
+        }
+
+        .skills-list li {
+            padding: 0.6rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            font-size: 0.95rem;
+            color: var(--text-light);
+        }
+
+        .skills-list li::before {
+            content: '✧';
+            position: absolute;
+            left: 0;
+            color: var(--rose-pink);
+        }
+
+        .contact-icons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--light-pink), var(--blush));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--rose-pink);
+            text-decoration: none;
+            border: 2px solid var(--blush);
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 15px rgba(244, 166, 193, 0.15);
+        }
+
+        .contact-icon:hover {
+            background: linear-gradient(135deg, var(--rose-pink), var(--deep-rose));
+            color: #fff;
+            transform: translateY(-5px) scale(1.1);
+            border-color: var(--deep-rose);
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .contact-item {
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.4);
+            border-radius: 12px;
+            border: 1px solid var(--blush);
+        }
+
+        .contact-item label {
+            font-family: 'Playfair Display', serif;
+            font-size: 0.95rem;
+            color: var(--deep-rose);
+            display: block;
+            margin-bottom: 0.3rem;
+            font-style: italic;
+        }
+
+        .contact-item p, .contact-item a {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            text-decoration: none;
+        }
+
+        .contact-item a:hover {
+            color: var(--rose-pink);
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 3rem;
+            border-top: 2px solid var(--blush);
+            font-family: 'Dancing Script', cursive;
+            color: var(--text-light);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem 5%;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-menu {
+                display: none;
+            }
+
+            .dashboard {
+                padding: 1.5rem;
+                border-radius: 20px;
+            }
+
+            .header {
+                margin-top: 90px;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .hero-container {
+                height: 300px;
+            }
+
+            .hero-text h2 {
+                font-size: 1.5rem;
+            }
+
+            .hero-buttons {
+                gap: 10px;
+            }
+
+            .hero-btn {
+                padding: 10px 20px;
+                font-size: 0.85rem;
+            }
+
+            .about-contact {
+                grid-template-columns: 1fr;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .creative-slider {
+                height: 300px;
+            }
+
+            .creative-slide-icon {
+                font-size: 3rem;
+            }
+
+            .creative-slide-title {
+                font-size: 1.3rem;
+            }
+
+            .creative-slide-desc {
+                font-size: 0.9rem;
+            }
+
+            main {
+                padding: 0 1rem;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- NAVIGATION -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="logo">
-                <a href="index.html">BRAND</a>
-            </div>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="#home" class="nav-link active-page" data-page="home">Home</a></li>
-                <li><a href="#about" class="nav-link" data-page="about">About</a></li>
-                <li><a href="#highlights" class="nav-link" data-page="highlights">Highlights</a></li>
-                <li><a href="#contact" class="nav-link" data-page="contact">Contact</a></li>
-                <li class="nav-divider"></li>
-                <li class="nav-dropdown">
-                    <span class="nav-link">More ▼</span>
-                    <div class="dropdown-menu">
-                        <a href="freshman.html" class="dropdown-link">📚 Freshman</a>
-                        <a href="sophomore.html" class="dropdown-link">📚 Sophomore</a>
-                        <a href="junior.html" class="dropdown-link">📚 Junior</a>
-                        <a href="senior.html" class="dropdown-link">🎓 Senior</a>
-                    </div>
-                </li>
-            </ul>
-            <!-- BURGER MENU ICON -->
-            <div class="burger" id="burger">
-                <span class="line1"></span>
-                <span class="line2"></span>
-                <span class="line3"></span>
-            </div>
-        </div>
+    <nav>
+        <a href="#home" class="nav-brand">HSU</a>
+        
+        <div class="nav-divider"></div>
+        
+        <ul class="nav-menu">
+            <li><a href="#home">HOME</a></li>
+            <li><a href="#about">ABOUT</a></li>
+            <li><a href="#highlights">HIGHLIGHTS</a></li>
+            <li><a href="#contact">CONTACT</a></li>
+            <li class="nav-dropdown">
+                <a href="#">MORE</a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Page 1</a></li>
+                    <li><a href="#">Page 2</a></li>
+                    <li><a href="#">Page 3</a></li>
+                </ul>
+            </li>
+        </ul>
+
+        <button class="hamburger" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
     </nav>
 
-    <!-- HERO SECTION -->
-    <section id="home" class="hero">
-        <div class="hero-container">
-            <div class="hero-content">
-                <h1 class="hero-headline">Turning Ideas Into Impact</h1>
-                <p class="hero-subheadline">Marketing student with experience in campaigns, content creation, and analytics—documenting my growth from freshman to graduate.</p>
-                <div class="cta-buttons">
-                    <button class="btn btn-primary">Get in Touch</button>
-                    <button class="btn btn-secondary">View Highlights</button>
-                </div>
-            </div>
-            <div class="hero-image">
-                <div class="image-placeholder">
-                    <span>Your Image Here</span>
-                </div>
-            </div>
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#home" onclick="closeMenu()">HOME</a>
+        <a href="#about" onclick="closeMenu()">ABOUT</a>
+        <a href="#highlights" onclick="closeMenu()">HIGHLIGHTS</a>
+        <a href="#contact" onclick="closeMenu()">CONTACT</a>
+        <a href="#" onclick="toggleMoreMenu(event)">MORE</a>
+        <div class="mobile-dropdown" id="moreMenu">
+            <a href="#">Page 1</a>
+            <a href="#">Page 2</a>
+            <a href="#">Page 3</a>
         </div>
-    </section>
-
-    <!-- GALLERY / IMAGE SLIDER SECTION -->
-    <section class="gallery">
-        <div class="gallery-container">
-            <h2>Portfolio Gallery</h2>
-            <div class="slider-wrapper">
-                <div class="slider" id="mainSlider">
-                    <div class="slide active">
-                        <div class="slide-image">
-                            <img src="assets/images/portfolio-1.jpg" alt="Portfolio Project 1">
-                        </div>
-                        <div class="slide-caption">
-                            <h3>Campaign Design 01</h3>
-                            <p>Creative marketing campaign design</p>
-                        </div>
-                    </div>
-                    <div class="slide">
-                        <div class="slide-image">
-                            <img src="assets/images/portfolio-2.jpg" alt="Portfolio Project 2">
-                        </div>
-                        <div class="slide-caption">
-                            <h3>Social Media Strategy 02</h3>
-                            <p>Multi-platform content strategy</p>
-                        </div>
-                    </div>
-                    <div class="slide">
-                        <div class="slide-image">
-                            <img src="assets/images/portfolio-3.jpg" alt="Portfolio Project 3">
-                        </div>
-                        <div class="slide-caption">
-                            <h3>Brand Identity 03</h3>
-                            <p>Complete branding system</p>
-                        </div>
-                    </div>
-                    <div class="slide">
-                        <div class="slide-image">
-                            <img src="assets/images/portfolio-4.jpg" alt="Portfolio Project 4">
-                        </div>
-                        <div class="slide-caption">
-                            <h3>Analytics Report 04</h3>
-                            <p>Data-driven insights & recommendations</p>
-                        </div>
-                    </div>
-                    <div class="slide">
-                        <div class="slide-image">
-                            <img src="assets/images/portfolio-5.jpg" alt="Portfolio Project 5">
-                        </div>
-                        <div class="slide-caption">
-                            <h3>Content Creation 05</h3>
-                            <p>Visual storytelling & engagement</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Slider Controls -->
-                <button class="slider-btn prev" id="prevBtn">❮</button>
-                <button class="slider-btn next" id="nextBtn">❯</button>
-
-                <!-- Slider Indicators -->
-                <div class="slider-indicators" id="indicators">
-                    <span class="indicator active" onclick="currentSlide(0)"></span>
-                    <span class="indicator" onclick="currentSlide(1)"></span>
-                    <span class="indicator" onclick="currentSlide(2)"></span>
-                    <span class="indicator" onclick="currentSlide(3)"></span>
-                    <span class="indicator" onclick="currentSlide(4)"></span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ABOUT ME SECTION -->
-    <section id="about" class="about">
-        <div class="about-container">
-            <div class="about-bio">
-                <h2>About Me</h2>
-                <p>I'm a marketing student passionate about building meaningful campaigns through strategy, creativity, and data. I enjoy exploring branding, social media, and analytics while continuously improving my skills through real projects and academic work.</p>
-            </div>
-            <div class="about-skills">
-                <h3>Skills & Tools</h3>
-                <div class="skills-grid">
-                    <div class="skill-category">
-                        <h4>Marketing</h4>
-                        <ul>
-                            <li>Social Media</li>
-                            <li>Content Strategy</li>
-                            <li>SEO</li>
-                            <li>Branding</li>
-                        </ul>
-                    </div>
-                    <div class="skill-category">
-                        <h4>Tools</h4>
-                        <ul>
-                            <li>Canva</li>
-                            <li>Meta Ads</li>
-                            <li>Google Analytics</li>
-                        </ul>
-                    </div>
-                    <div class="skill-category">
-                        <h4>Soft Skills</h4>
-                        <ul>
-                            <li>Communication</li>
-                            <li>Research</li>
-                            <li>Teamwork</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ABOUT GALLERY SECTION -->
-    <section class="about-gallery">
-        <div class="gallery-container">
-            <h2>My Creative Process</h2>
-            <div class="about-slider-wrapper">
-                <div class="about-slider" id="aboutSlider">
-                    <div class="about-slide active">
-                        <div class="about-slide-image">
-                            <img src="assets/images/process-1.jpg" alt="Research & Strategy">
-                        </div>
-                        <h3>Research & Strategy</h3>
-                    </div>
-                    <div class="about-slide">
-                        <div class="about-slide-image">
-                            <img src="assets/images/process-2.jpg" alt="Design & Creation">
-                        </div>
-                        <h3>Design & Creation</h3>
-                    </div>
-                    <div class="about-slide">
-                        <div class="about-slide-image">
-                            <img src="assets/images/process-3.jpg" alt="Testing & Optimization">
-                        </div>
-                        <h3>Testing & Optimization</h3>
-                    </div>
-                    <div class="about-slide">
-                        <div class="about-slide-image">
-                            <img src="assets/images/process-4.jpg" alt="Analysis & Insights">
-                        </div>
-                        <h3>Analysis & Insights</h3>
-                    </div>
-                </div>
-
-                <!-- About Slider Controls -->
-                <button class="slider-btn about-prev" id="aboutPrevBtn">❮</button>
-                <button class="slider-btn about-next" id="aboutNextBtn">❯</button>
-
-                <!-- About Slider Indicators -->
-                <div class="slider-indicators" id="aboutIndicators">
-                    <span class="indicator active" onclick="currentAboutSlide(0)"></span>
-                    <span class="indicator" onclick="currentAboutSlide(1)"></span>
-                    <span class="indicator" onclick="currentAboutSlide(2)"></span>
-                    <span class="indicator" onclick="currentAboutSlide(3)"></span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- HIGHLIGHTS SECTION -->
-    <section id="highlights" class="highlights">
-        <div class="highlights-container">
-            <h2>Highlights</h2>
-            <div class="highlights-grid">
-                <!-- Card 1 -->
-                <div class="highlight-card">
-                    <div class="card-image">
-                        <div class="image-placeholder-small">Image</div>
-                    </div>
-                    <div class="card-content">
-                        <span class="card-category">Project</span>
-                        <h3>Social Media Campaign</h3>
-                        <p>Planned and analyzed a multi-platform campaign focused on brand awareness and engagement.</p>
-                        <a href="#" class="card-link">View Case Study →</a>
-                    </div>
-                </div>
-
-                <!-- Card 2 -->
-                <div class="highlight-card">
-                    <div class="card-image">
-                        <div class="image-placeholder-small">Image</div>
-                    </div>
-                    <div class="card-content">
-                        <span class="card-category">Thesis</span>
-                        <h3>Branding Strategy</h3>
-                        <p>Comprehensive analysis of brand positioning and customer engagement across digital platforms.</p>
-                        <a href="#" class="card-link">View Case Study →</a>
-                    </div>
-                </div>
-
-                <!-- Card 3 -->
-                <div class="highlight-card">
-                    <div class="card-image">
-                        <div class="image-placeholder-small">Image</div>
-                    </div>
-                    <div class="card-content">
-                        <span class="card-category">Campaign</span>
-                        <h3>Content Strategy</h3>
-                        <p>Developed data-driven content calendar and execution strategy for lifestyle brand.</p>
-                        <a href="#" class="card-link">View Case Study →</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- EDUCATION TIMELINE SECTION -->
-    <section id="education" class="education">
-        <div class="education-container">
-            <h2>Education & Growth</h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <h3>Senior Year / Graduate</h3>
-                        <p class="timeline-date">2024 – Present</p>
-                        <p>Bachelor of Science in Marketing | University Name</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <h3>Junior Year</h3>
-                        <p class="timeline-date">2023 – 2024</p>
-                        <p>Bachelor of Science in Marketing | University Name</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <h3>Sophomore Year</h3>
-                        <p class="timeline-date">2022 – 2023</p>
-                        <p>Bachelor of Science in Marketing | University Name</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <h3>Freshman Year</h3>
-                        <p class="timeline-date">2021 – 2022</p>
-                        <p>Bachelor of Science in Marketing | University Name</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CONTACT SECTION -->
-    <section id="contact" class="contact">
-        <div class="contact-container">
-            <h2>Get In Touch</h2>
-            <p class="contact-cta">Let's collaborate or connect. I'm open to internships, projects, and learning opportunities.</p>
-            
-            <div class="social-icons">
-                <a href="#" class="social-link">
-                    <span>Facebook</span>
-                </a>
-                <a href="#" class="social-link">
-                    <span>Instagram</span>
-                </a>
-                <a href="#" class="social-link">
-                    <span>LinkedIn</span>
-                </a>
-                <a href="#" class="social-link">
-                    <span>Discord</span>
-                </a>
-                <a href="/cdn-cgi/l/email-protection#1c6573696e3279717d75705c79647d716c7079327f7371" class="social-link">
-                    <span>Email</span>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer class="footer">
-        <p>&copy; 2024 Your Name. All rights reserved.</p>
-    </footer>
-
-    <!-- LOADING BAR -->
-    <div class="loading-bar-container" id="loadingBar">
-        <div class="loading-bar-progress" id="loadingBarProgress"></div>
-        <p class="loading-bar-text">LOADING...</p>
     </div>
 
-    <!-- JAVASCRIPT -->
-    <script src="js/script.js"></script>
+    <main>
+        <!-- Header -->
+        <div class="header" id="home">
+            <h1>Your Portfolio</h1>
+            <div class="header-subtitle">A Coquette Creation</div>
+        </div>
+
+        <!-- Dashboard -->
+        <div class="dashboard">
+            <!-- Hero Section -->
+            <section class="hero-section">
+                <div class="hero-container">
+                    <img 
+                      src="https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=800&auto=format&fit=crop"
+                      alt="Editorial portrait"
+                      style="width:100%; height:100%; object-fit:cover;"
+                    >
+                    <div class="hero-text">
+                        <h2>Welcome to My World</h2>
+                        <p>A refined collection of my creative works and passions</p>
+                        <div class="hero-buttons">
+                            <button class="hero-btn hero-btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">Contact Me</button>
+                            <button class="hero-btn hero-btn-secondary" onclick="document.getElementById('highlights').scrollIntoView({behavior: 'smooth'})">View My Work</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Creative Process Slider -->
+            <section class="creative-section" id="highlights">
+                <div class="section-header">
+                    <h2 class="section-title">My Creative Process</h2>
+                    <div class="section-divider"></div>
+                </div>
+                <div class="creative-slider">
+                    <div class="creative-slide active" style="background: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url('https://images.unsplash.com/photo-1506784983877-45594efa4cbe?q=80&w=1600&auto=format&fit=crop') center/cover;">
+                        <div class="creative-slide-content">
+                            <div class="creative-slide-icon">💡</div>
+                            <div class="creative-slide-title">Ideation</div>
+                            <div class="creative-slide-desc">Brainstorming and conceptualizing innovative ideas that resonate with audiences</div>
+                        </div>
+                    </div>
+                    <div class="creative-slide" style="background: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url('https://images.unsplash.com/photo-1492724441997-5dc865305da7?q=80&w=1600&auto=format&fit=crop') center/cover;">
+                        <div class="creative-slide-content">
+                            <div class="creative-slide-icon">🎨</div>
+                            <div class="creative-slide-title">Design</div>
+                            <div class="creative-slide-desc">Crafting visually stunning designs that bring concepts to life</div>
+                        </div>
+                    </div>
+                    <div class="creative-slide" style="background: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url('https://images.unsplash.com/photo-1556761175-4b46a572b786?q=80&w=1600&auto=format&fit=crop') center/cover;">
+                        <div class="creative-slide-content">
+                            <div class="creative-slide-icon">📊</div>
+                            <div class="creative-slide-title">Strategy</div>
+                            <div class="creative-slide-desc">Building data-driven strategies to maximize impact and engagement</div>
+                        </div>
+                    </div>
+                    <div class="creative-slide" style="background: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url('https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?q=80&w=1600&auto=format&fit=crop') center/cover;">
+                        <div class="creative-slide-content">
+                            <div class="creative-slide-icon">🚀</div>
+                            <div class="creative-slide-title">Execution</div>
+                            <div class="creative-slide-desc">Bringing everything together for seamless campaign implementation</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="creative-controls">
+                    <button class="slider-btn" onclick="prevCreativeSlide()">❮</button>
+                    <button class="slider-btn" onclick="nextCreativeSlide()">❯</button>
+                </div>
+                <div class="creative-dots">
+                    <span class="dot active" onclick="goToCreativeSlide(0)"></span>
+                    <span class="dot" onclick="goToCreativeSlide(1)"></span>
+                    <span class="dot" onclick="goToCreativeSlide(2)"></span>
+                    <span class="dot" onclick="goToCreativeSlide(3)"></span>
+                </div>
+            </section>
+
+            <!-- Projects Section -->
+            <section id="about">
+                <div class="section-header">
+                    <h2 class="section-title">Projects</h2>
+                    <div class="section-divider"></div>
+                </div>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-image" style="background: url('https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?q=80&w=1200&auto=format&fit=crop') center/cover;">
+                        </div>
+                        <div class="project-content">
+                            <h3>Project One</h3>
+                            <p>A refined exploration of creativity and artistic expression through thoughtful design and elegant execution.</p>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-image" style="background: url('https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?q=80&w=1200&auto=format&fit=crop') center/cover;">
+                        </div>
+                        <div class="project-content">
+                            <h3>Project Two</h3>
+                            <p>Demonstrating sophisticated design principles and a deep commitment to visual storytelling and aesthetic excellence.</p>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-image" style="background: url('https://images.unsplash.com/photo-1490474418585-ba9bad8fd0ea?q=80&w=1200&auto=format&fit=crop') center/cover;">
+                        </div>
+                        <div class="project-content">
+                            <h3>Project Three</h3>
+                            <p>An elegant showcase of innovative ideas and refined craftsmanship, bringing vision to life with passion and dedication.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- About & Contact -->
+            <div class="about-contact" id="contact">
+                <!-- About -->
+                <div class="about-card">
+                    <img 
+                      src="https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=800&auto=format&fit=crop"
+                      style="width:100%; border-radius:18px; margin-bottom:1.2rem;"
+                      alt="About me"
+                    >
+                    <h3>About Me</h3>
+                    <p>I am a passionate creator dedicated to bringing elegance and sophistication to every project. With an eye for detail and a heart for artistic expression, I believe in the power of thoughtful design.</p>
+                    <ul class="skills-list">
+                        <li>Creative Design & Art</li>
+                        <li>Visual Storytelling</li>
+                        <li>Aesthetic Curation</li>
+                        <li>Refined Craftsmanship</li>
+                        <li>Artistic Direction</li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div class="contact-card">
+                    <h3>Let's Connect</h3>
+                    <p>I'd love to hear from you and discuss new opportunities. Feel free to reach out through any of these channels.</p>
+                    
+                    <div class="contact-icons">
+                        <a href="https://instagram.com/yourprofile" class="contact-icon" title="Instagram" target="_blank">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://facebook.com/yourprofile" class="contact-icon" title="Facebook" target="_blank">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://linkedin.com/in/yourprofile" class="contact-icon" title="LinkedIn" target="_blank">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="mailto:youremail@example.com" class="contact-icon" title="Email">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <label>📧 Email</label>
+                            <a href="mailto:youremail@example.com">youremail@example.com</a>
+                        </div>
+                        <div class="contact-item">
+                            <label>📱 Phone</label>
+                            <p>+63 XXX XXX XXXX</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <div class="footer">
+                <p>✨ Made with love & elegance ♡ © 2024 ✨</p>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Navigation Toggle
+        function toggleMenu() {
+            const hamburger = document.querySelector('.hamburger');
+            const mobileMenu = document.getElementById('mobileMenu');
+            hamburger.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+        }
+
+        function closeMenu() {
+            const hamburger = document.querySelector('.hamburger');
+            const mobileMenu = document.getElementById('mobileMenu');
+            hamburger.classList.remove('active');
+            mobileMenu.classList.remove('active');
+        }
+
+        function toggleMoreMenu(e) {
+            e.preventDefault();
+            document.getElementById('moreMenu').classList.toggle('active');
+        }
+
+        // Creative Process Slider
+        let currentCreativeSlide = 0;
+
+        function showCreativeSlide(index) {
+            const slides = document.querySelectorAll('.creative-slide');
+            const dots = document.querySelectorAll('.creative-dots .dot');
+            
+            if (index >= slides.length) currentCreativeSlide = 0;
+            if (index < 0) currentCreativeSlide = slides.length - 1;
+            
+            slides.forEach(slide => slide.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            
+            slides[currentCreativeSlide].classList.add('active');
+            dots[currentCreativeSlide].classList.add('active');
+        }
+
+        function nextCreativeSlide() {
+            currentCreativeSlide++;
+            showCreativeSlide(currentCreativeSlide);
+        }
+
+        function prevCreativeSlide() {
+            currentCreativeSlide--;
+            showCreativeSlide(currentCreativeSlide);
+        }
+
+        function goToCreativeSlide(index) {
+            currentCreativeSlide = index;
+            showCreativeSlide(currentCreativeSlide);
+        }
+
+        // Auto-advance slider
+        setInterval(nextCreativeSlide, 6000);
+
+        // Close menu on link click
+        document.querySelectorAll('.mobile-menu a').forEach(link => {
+            link.addEventListener('click', closeMenu);
+        });
+    </script>
+
 </body>
 </html>
