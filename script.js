@@ -1,90 +1,110 @@
-// Navigation Toggle
+// ==================== NAVIGATION ====================
+
+// Toggle mobile menu
 function toggleMenu() {
     const hamburger = document.querySelector('.hamburger');
-    const mobileMenu = document.querySelector('.mobile-menu');
+    const mobileMenu = document.getElementById('mobileMenu');
     hamburger.classList.toggle('active');
     mobileMenu.classList.toggle('active');
 }
 
+// Close mobile menu
 function closeMenu() {
     const hamburger = document.querySelector('.hamburger');
-    const mobileMenu = document.querySelector('.mobile-menu');
+    const mobileMenu = document.getElementById('mobileMenu');
     hamburger.classList.remove('active');
     mobileMenu.classList.remove('active');
 }
 
-// Set active navigation based on current page
-function setActiveNav() {
-    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-    const navLinks = document.querySelectorAll('.nav-menu a, .mobile-menu a');
-    
-    navLinks.forEach(link => {
-        const href = link.getAttribute('href');
-        if (href === currentPage || (currentPage === '' && href === 'index.html')) {
-            link.classList.add('active');
-        }
-    });
+// Toggle MORE dropdown in mobile menu
+function toggleMoreMenu(e) {
+    e.preventDefault();
+    document.getElementById('moreMenu').classList.toggle('active');
 }
 
-// Initialize on page load
+// Close menu when clicking on any mobile menu link
 document.addEventListener('DOMContentLoaded', function() {
-    setActiveNav();
-    
-    // Close mobile menu when clicking outside
-    document.addEventListener('click', function(event) {
-        const nav = document.querySelector('nav');
-        const mobileMenu = document.querySelector('.mobile-menu');
-        const hamburger = document.querySelector('.hamburger');
-        
-        if (!nav.contains(event.target) && mobileMenu.classList.contains('active')) {
-            closeMenu();
-        }
-    });
-    
-    // Close mobile menu when window is resized to desktop
-    window.addEventListener('resize', function() {
-        if (window.innerWidth > 768) {
-            closeMenu();
-        }
-    });
-});
-
-// Smooth scroll for anchor links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-            closeMenu();
-        }
-    });
-});
-
-// Image lazy loading with placeholder
-function setupImagePlaceholders() {
-    const images = document.querySelectorAll('.collage-item img[data-src]');
-    
-    const imageObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const img = entry.target;
-                img.src = img.dataset.src;
-                img.removeAttribute('data-src');
-                observer.unobserve(img);
+    document.querySelectorAll('.mobile-menu a').forEach(link => {
+        link.addEventListener('click', function(e) {
+            // Only close menu if it's not the "MORE" link
+            if (!this.getAttribute('onclick')?.includes('toggleMoreMenu')) {
+                closeMenu();
             }
         });
     });
+});
+
+// ==================== CREATIVE PROCESS SLIDER ====================
+
+let currentCreativeSlide = 0;
+
+// Show specific slide
+function showCreativeSlide(index) {
+    const slides = document.querySelectorAll('.creative-slide');
+    const dots = document.querySelectorAll('.creative-dots .dot');
     
-    images.forEach(img => imageObserver.observe(img));
+    // Handle wrapping
+    if (index >= slides.length) {
+        currentCreativeSlide = 0;
+    } else if (index < 0) {
+        currentCreativeSlide = slides.length - 1;
+    } else {
+        currentCreativeSlide = index;
+    }
+    
+    // Remove active class from all slides and dots
+    slides.forEach(slide => slide.classList.remove('active'));
+    dots.forEach(dot => dot.classList.remove('active'));
+    
+    // Add active class to current slide and dot
+    slides[currentCreativeSlide].classList.add('active');
+    dots[currentCreativeSlide].classList.add('active');
 }
 
-// Call setup functions
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', setupImagePlaceholders);
-} else {
-    setupImagePlaceholders();
+// Next slide
+function nextCreativeSlide() {
+    currentCreativeSlide++;
+    showCreativeSlide(currentCreativeSlide);
 }
+
+// Previous slide
+function prevCreativeSlide() {
+    currentCreativeSlide--;
+    showCreativeSlide(currentCreativeSlide);
+}
+
+// Go to specific slide
+function goToCreativeSlide(index) {
+    currentCreativeSlide = index;
+    showCreativeSlide(currentCreativeSlide);
+}
+
+// Auto-advance slider every 6 seconds
+setInterval(nextCreativeSlide, 6000);
+
+// ==================== SMOOTH SCROLL HANDLING ====================
+
+// Smooth scroll to sections (for browsers that don't support CSS scroll-behavior)
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            
+            // Don't prevent default for the MORE dropdown toggle
+            if (href === '#' && this.getAttribute('onclick')) {
+                return;
+            }
+            
+            if (href !== '#') {
+                e.preventDefault();
+                const target = document.querySelector(href);
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            }
+        });
+    });
+});

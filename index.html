@@ -3,242 +3,238 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>E-Portfolio - Home</title>
+    <title>Coquette E-Portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,700&family=Cormorant+Garamond:ital,wght@0,400;0,600&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
-    <style>
-        .hero-section {
-            min-height: 80vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 4rem 5%;
-        }
-
-        .hero-content h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 4rem;
-            font-weight: 800;
-            color: var(--text-dark);
-            margin-bottom: 1.5rem;
-            line-height: 1.2;
-        }
-
-        .hero-content p {
-            font-size: 1.5rem;
-            color: var(--text-light);
-            font-style: italic;
-            margin-bottom: 3rem;
-        }
-
-        .page-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 5%;
-        }
-
-        .page-card {
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 2.5rem;
-            text-align: center;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            text-decoration: none;
-            color: var(--text-dark);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .page-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            transition: height 0.3s ease;
-        }
-
-        .page-card.prelim::before {
-            background: linear-gradient(90deg, var(--prelim-color), #ff8fb3);
-        }
-
-        .page-card.midterm::before {
-            background: linear-gradient(90deg, var(--midterm-color), #a569bd);
-        }
-
-        .page-card.prefi::before {
-            background: linear-gradient(90deg, var(--prefi-color), #5dade2);
-        }
-
-        .page-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
-        }
-
-        .page-card:hover::before {
-            height: 100%;
-            opacity: 0.1;
-        }
-
-        .page-card-icon {
-            font-size: 3rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .page-card h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-        }
-
-        .page-card p {
-            font-size: 1.1rem;
-            color: var(--text-light);
-            line-height: 1.6;
-        }
-
-        .page-card-arrow {
-            margin-top: 1.5rem;
-            font-size: 1.5rem;
-            transition: transform 0.3s ease;
-        }
-
-        .page-card:hover .page-card-arrow {
-            transform: translateX(10px);
-        }
-
-        @media (max-width: 768px) {
-            .hero-content h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero-content p {
-                font-size: 1.2rem;
-            }
-
-            .page-cards {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
 </head>
 <body>
-    <!-- Navigation -->
+    <!-- NAVIGATION -->
     <nav>
-        <a href="index.html" class="nav-brand">E-Portfolio</a>
+        <a href="#home" class="nav-brand">HSU</a>
+        
         <div class="nav-divider"></div>
+        
         <ul class="nav-menu">
-            <li><a href="prelim.html" class="prelim-page">Prelim</a></li>
-            <li><a href="midterm.html" class="midterm-page">Midterm</a></li>
-            <li><a href="prefi.html" class="prefi-page">Prefi</a></li>
+            <li><a href="#home">HOME</a></li>
+            <li><a href="#about">ABOUT</a></li>
+            <li><a href="#highlights">HIGHLIGHTS</a></li>
+            <li><a href="#contact">CONTACT</a></li>
+            <li class="nav-dropdown">
+                <a href="#">CHAPTERS</a>
+                <ul class="dropdown-menu">
+                    <li><a href="prelim.html">PRELIM</a></li>
+                    <li><a href="midterm.html">MIDTERM</a></li>
+                    <li><a href="prefi.html">PREFI</a></li>
+                </ul>
+            </li>
         </ul>
-        <div class="hamburger" onclick="toggleMenu()">
+
+        <button class="hamburger" onclick="toggleMenu()">
             <span></span>
             <span></span>
             <span></span>
-        </div>
+        </button>
     </nav>
 
     <!-- Mobile Menu -->
-    <div class="mobile-menu">
-        <ul>
-            <li><a href="prelim.html" class="prelim-page" onclick="closeMenu()">Prelim</a></li>
-            <li><a href="midterm.html" class="midterm-page" onclick="closeMenu()">Midterm</a></li>
-            <li><a href="prefi.html" class="prefi-page" onclick="closeMenu()">Prefi</a></li>
-        </ul>
-    </div>
-
-    <!-- Hero Section -->
-    <section class="hero-section">
-        <div class="hero-content">
-            <h1>Welcome to My E-Portfolio</h1>
-            <p>A Journey Through Creative Excellence</p>
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#home" onclick="closeMenu()">HOME</a>
+        <a href="#about" onclick="closeMenu()">ABOUT</a>
+        <a href="#highlights" onclick="closeMenu()">HIGHLIGHTS</a>
+        <a href="#contact" onclick="closeMenu()">CONTACT</a>
+        <a href="#" onclick="toggleMoreMenu(event)">PAGES</a>
+        <div class="mobile-dropdown" id="moreMenu">
+            <a href="prelim.html">Prelim</a>
+            <a href="midterm.html">Midterm</a>
+            <a href="prefi.html">Prefi</a>
         </div>
-    </section>
-
-    <!-- Page Cards -->
-    <div class="page-cards">
-        <a href="prelim.html" class="page-card prelim">
-            <div class="page-card-icon">📚</div>
-            <h2>Prelim</h2>
-            <p>Explore the foundational works and early projects that established the groundwork for my creative journey.</p>
-            <div class="page-card-arrow">→</div>
-        </a>
-
-        <a href="midterm.html" class="page-card midterm">
-            <div class="page-card-icon">🎯</div>
-            <h2>Midterm</h2>
-            <p>Discover the progress and major milestones achieved through advanced projects and collaborative efforts.</p>
-            <div class="page-card-arrow">→</div>
-        </a>
-
-        <a href="prefi.html" class="page-card prefi">
-            <div class="page-card-icon">⭐</div>
-            <h2>Prefi</h2>
-            <p>Experience the culmination of learning and mastery through refined, professional-level work.</p>
-            <div class="page-card-arrow">→</div>
-        </a>
     </div>
 
-    <!-- Spacer -->
-    <div style="height: 4rem;"></div>
+    <main>
+        <!-- Header -->
+        <div class="header" id="home">
+            <h1>Your Portfolio</h1>
+            <div class="header-subtitle">A Coquette Creation</div>
+        </div>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-content">
-            <h3 class="footer-title">Get In Touch</h3>
-            
-            <div class="footer-contact">
-                <div class="contact-item">
-                    <i class="fas fa-envelope"></i>
-                    <label>Email</label>
-                    <a href="mailto:your.email@example.com">your.email@example.com</a>
+        <!-- Dashboard -->
+        <div class="dashboard">
+            <!-- Hero Section -->
+            <section class="hero-section">
+                <div class="hero-container">
+                    <img 
+                      src="https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=800&auto=format&fit=crop"
+                      alt="Editorial portrait"
+                      style="width:100%; height:100%; object-fit:cover;"
+                    >
+                    <div class="hero-text">
+                        <h2>Welcome to My World</h2>
+                        <p>A refined collection of my creative works and passions</p>
+                        <div class="hero-buttons">
+                            <button class="hero-btn hero-btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">Contact Me</button>
+                            <button class="hero-btn hero-btn-secondary" onclick="document.getElementById('highlights').scrollIntoView({behavior: 'smooth'})">View My Work</button>
+                        </div>
+                    </div>
                 </div>
-                <div class="contact-item">
-                    <i class="fas fa-phone"></i>
-                    <label>Phone</label>
-                    <p>+63 XXX XXX XXXX</p>
+            </section>
+
+            <!-- Creative Process Slider -->
+            <section class="creative-section" id="highlights">
+                <div class="section-header">
+                    <h2 class="section-title">My Creative Process</h2>
+                    <div class="section-divider"></div>
                 </div>
-                <div class="contact-item">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <label>Location</label>
-                    <p>Davao City, Philippines</p>
+                <div class="creative-slider">
+                    <div class="creative-slide active" style="background: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url('https://images.unsplash.com/photo-1506784983877-45594efa4cbe?q=80&w=1600&auto=format&fit=crop') center/cover;">
+                        <div class="creative-slide-content">
+                            <div class="creative-slide-icon">💡</div>
+                            <div class="creative-slide-title">Ideation</div>
+                            <div class="creative-slide-desc">Brainstorming and conceptualizing innovative ideas that resonate with audiences</div>
+                        </div>
+                    </div>
+                    <div class="creative-slide" style="background: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url('https://images.unsplash.com/photo-1492724441997-5dc865305da7?q=80&w=1600&auto=format&fit=crop') center/cover;">
+                        <div class="creative-slide-content">
+                            <div class="creative-slide-icon">🎨</div>
+                            <div class="creative-slide-title">Design</div>
+                            <div class="creative-slide-desc">Crafting visually stunning designs that bring concepts to life</div>
+                        </div>
+                    </div>
+                    <div class="creative-slide" style="background: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url('https://images.unsplash.com/photo-1556761175-4b46a572b786?q=80&w=1600&auto=format&fit=crop') center/cover;">
+                        <div class="creative-slide-content">
+                            <div class="creative-slide-icon">📊</div>
+                            <div class="creative-slide-title">Strategy</div>
+                            <div class="creative-slide-desc">Building data-driven strategies to maximize impact and engagement</div>
+                        </div>
+                    </div>
+                    <div class="creative-slide" style="background: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url('https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?q=80&w=1600&auto=format&fit=crop') center/cover;">
+                        <div class="creative-slide-content">
+                            <div class="creative-slide-icon">🚀</div>
+                            <div class="creative-slide-title">Execution</div>
+                            <div class="creative-slide-desc">Bringing everything together for seamless campaign implementation</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="creative-controls">
+                    <button class="slider-btn" onclick="prevCreativeSlide()">❮</button>
+                    <button class="slider-btn" onclick="nextCreativeSlide()">❯</button>
+                </div>
+                <div class="creative-dots">
+                    <span class="dot active" onclick="goToCreativeSlide(0)"></span>
+                    <span class="dot" onclick="goToCreativeSlide(1)"></span>
+                    <span class="dot" onclick="goToCreativeSlide(2)"></span>
+                    <span class="dot" onclick="goToCreativeSlide(3)"></span>
+                </div>
+            </section>
+
+            <!-- Projects Section -->
+            <section id="projects">
+                <div class="section-header">
+                    <h2 class="section-title">Projects</h2>
+                    <div class="section-divider"></div>
+                </div>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-image" style="background: url('https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?q=80&w=1200&auto=format&fit=crop') center/cover;">
+                        </div>
+                        <div class="project-content">
+                            <h3>Project One</h3>
+                            <p>A refined exploration of creativity and artistic expression through thoughtful design and elegant execution.</p>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-image" style="background: url('https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?q=80&w=1200&auto=format&fit=crop') center/cover;">
+                        </div>
+                        <div class="project-content">
+                            <h3>Project Two</h3>
+                            <p>Demonstrating sophisticated design principles and a deep commitment to visual storytelling and aesthetic excellence.</p>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-image" style="background: url('https://images.unsplash.com/photo-1490474418585-ba9bad8fd0ea?q=80&w=1200&auto=format&fit=crop') center/cover;">
+                        </div>
+                        <div class="project-content">
+                            <h3>Project Three</h3>
+                            <p>An elegant showcase of innovative ideas and refined craftsmanship, bringing vision to life with passion and dedication.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- About & Contact -->
+            <div class="about-contact">
+                <!-- About -->
+                <div class="about-card" id="about">
+                    <img 
+                      src="https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=800&auto=format&fit=crop"
+                      style="width:100%; border-radius:18px; margin-bottom:1.2rem;"
+                      alt="About me"
+                    >
+                    <h3>About Me</h3>
+                    <p>I am a passionate creator dedicated to bringing elegance and sophistication to every project. With an eye for detail and a heart for artistic expression, I believe in the power of thoughtful design.</p>
+                    <ul class="skills-list">
+                        <li>Creative Design & Art</li>
+                        <li>Visual Storytelling</li>
+                        <li>Aesthetic Curation</li>
+                        <li>Refined Craftsmanship</li>
+                        <li>Artistic Direction</li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div class="contact-card" id="contact">
+                    <h3>Let's Connect</h3>
+                    <p>I'd love to hear from you and discuss new opportunities. Feel free to reach out through any of these channels.</p>
+                    
+                    <div class="contact-icons">
+                        <a href="https://instagram.com/yourprofile" class="contact-icon" title="Instagram" target="_blank">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://facebook.com/yourprofile" class="contact-icon" title="Facebook" target="_blank">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://linkedin.com/in/yourprofile" class="contact-icon" title="LinkedIn" target="_blank">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="mailto:youremail@example.com" class="contact-icon" title="Email">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <label>📧 Email</label>
+                            <a href="mailto:youremail@example.com">youremail@example.com</a>
+                        </div>
+                        <div class="contact-item">
+                            <label>📱 Phone</label>
+                            <p>+63 XXX XXX XXXX</p>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div class="footer-social">
-                <a href="https://instagram.com/yourprofile" class="social-icon" target="_blank" title="Instagram">
-                    <i class="fab fa-instagram"></i>
-                </a>
-                <a href="https://facebook.com/yourprofile" class="social-icon" target="_blank" title="Facebook">
-                    <i class="fab fa-facebook-f"></i>
-                </a>
-                <a href="https://linkedin.com/in/yourprofile" class="social-icon" target="_blank" title="LinkedIn">
-                    <i class="fab fa-linkedin-in"></i>
-                </a>
-                <a href="https://github.com/yourprofile" class="social-icon" target="_blank" title="GitHub">
-                    <i class="fab fa-github"></i>
-                </a>
+            <!-- Footer -->
+            <div class="footer">
+                <div class="footer-content">
+                    <p class="footer-title">✨ Created with love & elegance ✨</p>
+                    <p class="footer-creator">Made by <strong>Your Name</strong></p>
+                    <div class="footer-contact">
+                        <a href="mailto:youremail@example.com">
+                            <i class="fas fa-envelope"></i> youremail@example.com
+                        </a>
+                        <span class="footer-divider">•</span>
+                        <a href="tel:+63XXXXXXXXX">
+                            <i class="fas fa-phone"></i> +63 XXX XXX XXXX
+                        </a>
+                    </div>
+                    <p class="footer-copyright">© 2024 All Rights Reserved</p>
+                </div>
             </div>
-
-            <div class="footer-divider"></div>
-
-            <p class="footer-copyright">
-                Created by <strong>Your Name</strong> | &copy; 2024 | All Rights Reserved ✨
-            </p>
         </div>
-    </footer>
+    </main>
 
     <script src="script.js"></script>
 </body>
