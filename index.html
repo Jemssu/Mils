@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marketing Portfolio | Y2K Era</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- NAVIGATION -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="index.html">BRAND</a>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home" class="nav-link active-page" data-page="home">Home</a></li>
+                <li><a href="#about" class="nav-link" data-page="about">About</a></li>
+                <li><a href="#highlights" class="nav-link" data-page="highlights">Highlights</a></li>
+                <li><a href="#contact" class="nav-link" data-page="contact">Contact</a></li>
+                <li class="nav-divider"></li>
+                <li class="nav-dropdown">
+                    <span class="nav-link">More ▼</span>
+                    <div class="dropdown-menu">
+                        <a href="freshman.html" class="dropdown-link">📚 Freshman</a>
+                        <a href="sophomore.html" class="dropdown-link">📚 Sophomore</a>
+                        <a href="junior.html" class="dropdown-link">📚 Junior</a>
+                        <a href="senior.html" class="dropdown-link">🎓 Senior</a>
+                    </div>
+                </li>
+            </ul>
+            <!-- BURGER MENU ICON -->
+            <div class="burger" id="burger">
+                <span class="line1"></span>
+                <span class="line2"></span>
+                <span class="line3"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-headline">Turning Ideas Into Impact</h1>
+                <p class="hero-subheadline">Marketing student with experience in campaigns, content creation, and analytics—documenting my growth from freshman to graduate.</p>
+                <div class="cta-buttons">
+                    <button class="btn btn-primary">Get in Touch</button>
+                    <button class="btn btn-secondary">View Highlights</button>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="image-placeholder">
+                    <span>Your Image Here</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALLERY / IMAGE SLIDER SECTION -->
+    <section class="gallery">
+        <div class="gallery-container">
+            <h2>Portfolio Gallery</h2>
+            <div class="slider-wrapper">
+                <div class="slider" id="mainSlider">
+                    <div class="slide active">
+                        <div class="slide-image">
+                            <img src="assets/images/portfolio-1.jpg" alt="Portfolio Project 1">
+                        </div>
+                        <div class="slide-caption">
+                            <h3>Campaign Design 01</h3>
+                            <p>Creative marketing campaign design</p>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <div class="slide-image">
+                            <img src="assets/images/portfolio-2.jpg" alt="Portfolio Project 2">
+                        </div>
+                        <div class="slide-caption">
+                            <h3>Social Media Strategy 02</h3>
+                            <p>Multi-platform content strategy</p>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <div class="slide-image">
+                            <img src="assets/images/portfolio-3.jpg" alt="Portfolio Project 3">
+                        </div>
+                        <div class="slide-caption">
+                            <h3>Brand Identity 03</h3>
+                            <p>Complete branding system</p>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <div class="slide-image">
+                            <img src="assets/images/portfolio-4.jpg" alt="Portfolio Project 4">
+                        </div>
+                        <div class="slide-caption">
+                            <h3>Analytics Report 04</h3>
+                            <p>Data-driven insights & recommendations</p>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <div class="slide-image">
+                            <img src="assets/images/portfolio-5.jpg" alt="Portfolio Project 5">
+                        </div>
+                        <div class="slide-caption">
+                            <h3>Content Creation 05</h3>
+                            <p>Visual storytelling & engagement</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slider Controls -->
+                <button class="slider-btn prev" id="prevBtn">❮</button>
+                <button class="slider-btn next" id="nextBtn">❯</button>
+
+                <!-- Slider Indicators -->
+                <div class="slider-indicators" id="indicators">
+                    <span class="indicator active" onclick="currentSlide(0)"></span>
+                    <span class="indicator" onclick="currentSlide(1)"></span>
+                    <span class="indicator" onclick="currentSlide(2)"></span>
+                    <span class="indicator" onclick="currentSlide(3)"></span>
+                    <span class="indicator" onclick="currentSlide(4)"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT ME SECTION -->
+    <section id="about" class="about">
+        <div class="about-container">
+            <div class="about-bio">
+                <h2>About Me</h2>
+                <p>I'm a marketing student passionate about building meaningful campaigns through strategy, creativity, and data. I enjoy exploring branding, social media, and analytics while continuously improving my skills through real projects and academic work.</p>
+            </div>
+            <div class="about-skills">
+                <h3>Skills & Tools</h3>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h4>Marketing</h4>
+                        <ul>
+                            <li>Social Media</li>
+                            <li>Content Strategy</li>
+                            <li>SEO</li>
+                            <li>Branding</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Tools</h4>
+                        <ul>
+                            <li>Canva</li>
+                            <li>Meta Ads</li>
+                            <li>Google Analytics</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Soft Skills</h4>
+                        <ul>
+                            <li>Communication</li>
+                            <li>Research</li>
+                            <li>Teamwork</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT GALLERY SECTION -->
+    <section class="about-gallery">
+        <div class="gallery-container">
+            <h2>My Creative Process</h2>
+            <div class="about-slider-wrapper">
+                <div class="about-slider" id="aboutSlider">
+                    <div class="about-slide active">
+                        <div class="about-slide-image">
+                            <img src="assets/images/process-1.jpg" alt="Research & Strategy">
+                        </div>
+                        <h3>Research & Strategy</h3>
+                    </div>
+                    <div class="about-slide">
+                        <div class="about-slide-image">
+                            <img src="assets/images/process-2.jpg" alt="Design & Creation">
+                        </div>
+                        <h3>Design & Creation</h3>
+                    </div>
+                    <div class="about-slide">
+                        <div class="about-slide-image">
+                            <img src="assets/images/process-3.jpg" alt="Testing & Optimization">
+                        </div>
+                        <h3>Testing & Optimization</h3>
+                    </div>
+                    <div class="about-slide">
+                        <div class="about-slide-image">
+                            <img src="assets/images/process-4.jpg" alt="Analysis & Insights">
+                        </div>
+                        <h3>Analysis & Insights</h3>
+                    </div>
+                </div>
+
+                <!-- About Slider Controls -->
+                <button class="slider-btn about-prev" id="aboutPrevBtn">❮</button>
+                <button class="slider-btn about-next" id="aboutNextBtn">❯</button>
+
+                <!-- About Slider Indicators -->
+                <div class="slider-indicators" id="aboutIndicators">
+                    <span class="indicator active" onclick="currentAboutSlide(0)"></span>
+                    <span class="indicator" onclick="currentAboutSlide(1)"></span>
+                    <span class="indicator" onclick="currentAboutSlide(2)"></span>
+                    <span class="indicator" onclick="currentAboutSlide(3)"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HIGHLIGHTS SECTION -->
+    <section id="highlights" class="highlights">
+        <div class="highlights-container">
+            <h2>Highlights</h2>
+            <div class="highlights-grid">
+                <!-- Card 1 -->
+                <div class="highlight-card">
+                    <div class="card-image">
+                        <div class="image-placeholder-small">Image</div>
+                    </div>
+                    <div class="card-content">
+                        <span class="card-category">Project</span>
+                        <h3>Social Media Campaign</h3>
+                        <p>Planned and analyzed a multi-platform campaign focused on brand awareness and engagement.</p>
+                        <a href="#" class="card-link">View Case Study →</a>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="highlight-card">
+                    <div class="card-image">
+                        <div class="image-placeholder-small">Image</div>
+                    </div>
+                    <div class="card-content">
+                        <span class="card-category">Thesis</span>
+                        <h3>Branding Strategy</h3>
+                        <p>Comprehensive analysis of brand positioning and customer engagement across digital platforms.</p>
+                        <a href="#" class="card-link">View Case Study →</a>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="highlight-card">
+                    <div class="card-image">
+                        <div class="image-placeholder-small">Image</div>
+                    </div>
+                    <div class="card-content">
+                        <span class="card-category">Campaign</span>
+                        <h3>Content Strategy</h3>
+                        <p>Developed data-driven content calendar and execution strategy for lifestyle brand.</p>
+                        <a href="#" class="card-link">View Case Study →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EDUCATION TIMELINE SECTION -->
+    <section id="education" class="education">
+        <div class="education-container">
+            <h2>Education & Growth</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Senior Year / Graduate</h3>
+                        <p class="timeline-date">2024 – Present</p>
+                        <p>Bachelor of Science in Marketing | University Name</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Junior Year</h3>
+                        <p class="timeline-date">2023 – 2024</p>
+                        <p>Bachelor of Science in Marketing | University Name</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Sophomore Year</h3>
+                        <p class="timeline-date">2022 – 2023</p>
+                        <p>Bachelor of Science in Marketing | University Name</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Freshman Year</h3>
+                        <p class="timeline-date">2021 – 2022</p>
+                        <p>Bachelor of Science in Marketing | University Name</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="contact">
+        <div class="contact-container">
+            <h2>Get In Touch</h2>
+            <p class="contact-cta">Let's collaborate or connect. I'm open to internships, projects, and learning opportunities.</p>
+            
+            <div class="social-icons">
+                <a href="#" class="social-link">
+                    <span>Facebook</span>
+                </a>
+                <a href="#" class="social-link">
+                    <span>Instagram</span>
+                </a>
+                <a href="#" class="social-link">
+                    <span>LinkedIn</span>
+                </a>
+                <a href="#" class="social-link">
+                    <span>Discord</span>
+                </a>
+                <a href="/cdn-cgi/l/email-protection#1c6573696e3279717d75705c79647d716c7079327f7371" class="social-link">
+                    <span>Email</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p>&copy; 2024 Your Name. All rights reserved.</p>
+    </footer>
+
+    <!-- LOADING BAR -->
+    <div class="loading-bar-container" id="loadingBar">
+        <div class="loading-bar-progress" id="loadingBarProgress"></div>
+        <p class="loading-bar-text">LOADING...</p>
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Junior Year | Marketing Portfolio</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- NAVIGATION -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="index.html">BRAND</a>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html#home" class="nav-link" data-page="home">Home</a></li>
+                <li><a href="index.html#about" class="nav-link" data-page="about">About</a></li>
+                <li><a href="index.html#highlights" class="nav-link" data-page="highlights">Highlights</a></li>
+                <li><a href="index.html#contact" class="nav-link" data-page="contact">Contact</a></li>
+                <li class="nav-divider"></li>
+                <li class="nav-dropdown">
+                    <span class="nav-link active-page" data-page="junior">More ▼</span>
+                    <div class="dropdown-menu">
+                        <a href="freshman.html" class="dropdown-link">📚 Freshman</a>
+                        <a href="sophomore.html" class="dropdown-link">📚 Sophomore</a>
+                        <a href="junior.html" class="dropdown-link active-year">📚 Junior</a>
+                        <a href="senior.html" class="dropdown-link">🎓 Senior</a>
+                    </div>
+                </li>
+            </ul>
+            <!-- BURGER MENU ICON -->
+            <div class="burger" id="burger">
+                <span class="line1"></span>
+                <span class="line2"></span>
+                <span class="line3"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- MINI HERO SECTION -->
+    <section class="mini-hero">
+        <div class="mini-hero-container">
+            <h1>Data-Driven and Campaign-Focused</h1>
+            <p>Junior Year | 2023-2024</p>
+            <div class="cta-buttons" style="margin-top: 2rem;">
+                <a href="index.html#home" class="btn btn-secondary">← Back to Home</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- YEAR GALLERY SECTION -->
+    <section class="year-gallery">
+        <div class="gallery-container">
+            <h2>Junior Year Highlights</h2>
+            <div class="slider-wrapper">
+                <div class="slider" id="yearSlider">
+                    <div class="slide active">
+                        <div class="slide-image">
+                            <img src="assets/images/junior-1.jpg" alt="Junior Project 1">
+                        </div>
+                        <div class="slide-caption">
+                            <h3>Campaign Execution</h3>
+                            <p>Full campaign implementation</p>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <div class="slide-image">
+                            <img src="assets/images/junior-2.jpg" alt="Junior Project 2">
+                        </div>
+                        <div class="slide-caption">
+                            <h3>Analytics Dashboard</h3>
+                            <p>Data visualization and insights</p>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <div class="slide-image">
+                            <img src="assets/images/junior-3.jpg" alt="Junior Project 3">
+                        </div>
+                        <div class="slide-caption">
+                            <h3>Team Collaboration</h3>
+                            <p>Group project results</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Year Slider Controls -->
+                <button class="slider-btn prev" id="yearPrevBtn">❮</button>
+                <button class="slider-btn next" id="yearNextBtn">❯</button>
+
+                <!-- Year Slider Indicators -->
+                <div class="slider-indicators" id="yearIndicators">
+                    <span class="indicator active" onclick="currentYearSlide(0)"></span>
+                    <span class="indicator" onclick="currentYearSlide(1)"></span>
+                    <span class="indicator" onclick="currentYearSlide(2)"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="projects">
+        <div class="projects-container">
+            <h2>Featured Work</h2>
+            
+            <div class="projects-grid">
+                <!-- Project 1 -->
+                <div class="project-card">
+                    <div class="card-image">
+                        <div class="image-placeholder-small">Project Image</div>
+                    </div>
+                    <div class="card-content">
+                        <span class="card-category">Campaign</span>
+                        <h3>Campaign Proposal</h3>
+                        <p>Designed and pitched a comprehensive marketing campaign including objectives, target audience, and ROI projections.</p>
+                        <a href="#" class="card-link">View Project →</a>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card">
+                    <div class="card-image">
+                        <div class="image-placeholder-small">Project Image</div>
+                    </div>
+                    <div class="card-content">
+                        <span class="card-category">Analytics</span>
+                        <h3>Analytics Report</h3>
+                        <p>Analyzed campaign performance data, created visualizations, and provided actionable insights for optimization.</p>
+                        <a href="#" class="card-link">View Project →</a>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card">
+                    <div class="card-image">
+                        <div class="image-placeholder-small">Project Image</div>
+                    </div>
+                    <div class="card-content">
+                        <span class="card-category">Collaboration</span>
+                        <h3>Group Marketing Project</h3>
+                        <p>Led a team project developing integrated marketing strategy for a hypothetical brand launch.</p>
+                        <a href="#" class="card-link">View Project →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- REFLECTION SECTION -->
+    <section class="reflection">
+        <div class="reflection-container">
+            <h2>Reflection</h2>
+            <div class="reflection-content">
+                <p>I focused on data analysis, collaboration, and campaign execution. This year was transformative—I moved from understanding marketing theory to executing real strategies. Working with analytics tools showed me the power of data-driven decision making. Leading the group project taught me valuable leadership and communication skills, and I realized how important collaboration is in modern marketing.</p>
+                <div class="reflection-skills">
+                    <h3>Key Skills Gained</h3>
+                    <ul>
+                        <li>Campaign Execution</li>
+                        <li>Data Analytics</li>
+                        <li>ROI Analysis</li>
+                        <li>Team Leadership</li>
+                        <li>Strategic Recommendations</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- YEAR NAVIGATION -->
+    <section class="year-nav">
+        <div class="year-nav-container">
+            <h3>Continue Your Journey</h3>
+            <div class="year-buttons">
+                <a href="sophomore.html" class="year-btn year-btn-secondary">← Sophomore Year</a>
+                <a href="senior.html" class="year-btn">Senior Year →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p>&copy; 2024 Your Name. All rights reserved.</p>
+    </footer>
+
+    <!-- LOADING BAR -->
+    <div class="loading-bar-container" id="loadingBar">
+        <div class="loading-bar-progress" id="loadingBarProgress"></div>
+        <p class="loading-bar-text">LOADING...</p>
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script src="js/script.js"></script>
+</body>
+</html>
