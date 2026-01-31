@@ -3,33 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prelim - Coquette E-Portfolio</title>
+    <title>PRELIM - Mila's Path of Glimmering Embers</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,700&family=Cormorant+Garamond:ital,wght@0,400;0,600&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/season-pages.css">
 </head>
 <body>
     <!-- NAVIGATION -->
     <nav>
-        <a href="index.html" class="nav-brand">HSU</a>
+        <a href="index.html" class="nav-brand">Mila's Path ✨</a>
         
         <div class="nav-divider"></div>
         
         <ul class="nav-menu">
             <li><a href="index.html">HOME</a></li>
-            <li><a href="index.html#about">ABOUT</a></li>
-            <li><a href="index.html#highlights">HIGHLIGHTS</a></li>
-            <li><a href="index.html#contact">CONTACT</a></li>
             <li class="nav-dropdown">
-                <a href="#" class="active">CHAPTERS</a>
+                <a href="#" class="active">SEASONS <i class="fas fa-chevron-down"></i></a>
                 <ul class="dropdown-menu">
-                    <li><a href="prelim.html">PRELIM</a></li>
+                    <li><a href="prelim.html" class="active">PRELIM</a></li>
                     <li><a href="midterm.html">MIDTERM</a></li>
                     <li><a href="prefi.html">PREFI</a></li>
                 </ul>
             </li>
+            <li><a href="faves.html">MY FAVES</a></li>
+            <li><a href="others.html">OTHERS</a></li>
+            <li><a href="index.html#contact-section" class="nav-cta">CONTACT ME</a></li>
         </ul>
 
         <button class="hamburger" onclick="toggleMenu()">
@@ -42,131 +43,81 @@
     <!-- Mobile Menu -->
     <div class="mobile-menu" id="mobileMenu">
         <a href="index.html" onclick="closeMenu()">HOME</a>
-        <a href="index.html#about" onclick="closeMenu()">ABOUT</a>
-        <a href="index.html#highlights" onclick="closeMenu()">HIGHLIGHTS</a>
-        <a href="index.html#contact" onclick="closeMenu()">CONTACT</a>
-        <a href="#" onclick="toggleMoreMenu(event)">PAGES</a>
+        <a href="#" onclick="toggleMoreMenu(event)">SEASONS <i class="fas fa-chevron-down"></i></a>
         <div class="mobile-dropdown" id="moreMenu">
-            <a href="prelim.html" class="active">Prelim</a>
-            <a href="midterm.html">Midterm</a>
-            <a href="prefi.html">Prefi</a>
+            <a href="prelim.html" onclick="closeMenu()" class="active">PRELIM</a>
+            <a href="midterm.html" onclick="closeMenu()">MIDTERM</a>
+            <a href="prefi.html" onclick="closeMenu()">PREFI</a>
         </div>
+        <a href="faves.html" onclick="closeMenu()">MY FAVES</a>
+        <a href="others.html" onclick="closeMenu()">OTHERS</a>
+        <a href="index.html#contact-section" onclick="closeMenu()" class="mobile-cta">CONTACT ME</a>
     </div>
 
     <main>
         <!-- Header -->
-        <div class="header">
-            <h1>Prelim Period</h1>
-            <div class="header-subtitle">First Quarter Journey</div>
+        <div class="header season-header" id="home">
+            <h1>PRELIM Season</h1>
+            <div class="header-subtitle">The Beginning of My Journey ✨</div>
         </div>
 
         <!-- Dashboard -->
         <div class="dashboard">
-            <!-- Section 1 -->
+            <!-- Section 1: Image Slider Left, Text Right -->
             <section class="content-section">
-                <h2 class="section-title-main">Introduction & Overview</h2>
-                
-                <!-- Collage Grid with 3 images -->
-                <div class="collage-grid grid-3">
-                    <div class="collage-item">
-                        <div class="collage-placeholder">
-                            <i class="fas fa-image"></i>
+                <div class="content-row">
+                    <div class="content-col-left">
+                        <div class="image-slider" id="slider1">
+                            <div class="slide active">
+                                <div class="slide-placeholder">📸</div>
+                            </div>
+                            <div class="slide">
+                                <div class="slide-placeholder">📸</div>
+                            </div>
+                            <div class="slide">
+                                <div class="slide-placeholder">📸</div>
+                            </div>
+                        </div>
+                        <div class="slider-dots">
+                            <span class="dot active" onclick="goToSlide(1, 0)"></span>
+                            <span class="dot" onclick="goToSlide(1, 1)"></span>
+                            <span class="dot" onclick="goToSlide(1, 2)"></span>
                         </div>
                     </div>
-                    <div class="collage-item">
-                        <div class="collage-placeholder">
-                            <i class="fas fa-image"></i>
-                        </div>
+                    <div class="content-col-right">
+                        <h2>Paragraph Title One</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                     </div>
-                    <div class="collage-item">
-                        <div class="collage-placeholder">
-                            <i class="fas fa-image"></i>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Text Content -->
-                <div class="text-content">
-                    <h3>About This Period</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
-                    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                 </div>
             </section>
 
-            <!-- Section 2 -->
+            <!-- Section 2: Text Left, Image Slider Right -->
             <section class="content-section">
-                <!-- Collage Grid with 4 images -->
-                <div class="collage-grid grid-4">
-                    <div class="collage-item">
-                        <div class="collage-placeholder">
-                            <i class="fas fa-image"></i>
+                <div class="content-row">
+                    <div class="content-col-left">
+                        <h2>Paragraph Title Two</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    </div>
+                    <div class="content-col-right">
+                        <div class="image-slider" id="slider2">
+                            <div class="slide active">
+                                <div class="slide-placeholder">📸</div>
+                            </div>
+                            <div class="slide">
+                                <div class="slide-placeholder">📸</div>
+                            </div>
+                            <div class="slide">
+                                <div class="slide-placeholder">📸</div>
+                            </div>
+                        </div>
+                        <div class="slider-dots">
+                            <span class="dot active" onclick="goToSlide(2, 0)"></span>
+                            <span class="dot" onclick="goToSlide(2, 1)"></span>
+                            <span class="dot" onclick="goToSlide(2, 2)"></span>
                         </div>
                     </div>
-                    <div class="collage-item">
-                        <div class="collage-placeholder">
-                            <i class="fas fa-image"></i>
-                        </div>
-                    </div>
-                    <div class="collage-item">
-                        <div class="collage-placeholder">
-                            <i class="fas fa-image"></i>
-                        </div>
-                    </div>
-                    <div class="collage-item">
-                        <div class="collage-placeholder">
-                            <i class="fas fa-image"></i>
-                        </div>
-                    </div>
-                </div>
-
-                <h2 class="section-title-main">Learning Experiences</h2>
-
-                <!-- Text Content -->
-                <div class="text-content">
-                    <h3>Key Takeaways</h3>
-                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-                    <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
-                </div>
-            </section>
-
-            <!-- Section 3 -->
-            <section class="content-section">
-                <h2 class="section-title-main">Projects & Achievements</h2>
-                
-                <!-- Collage Grid with 5 images -->
-                <div class="collage-grid grid-5">
-                    <div class="collage-item">
-                        <div class="collage-placeholder">
-                            <i class="fas fa-image"></i>
-                        </div>
-                    </div>
-                    <div class="collage-item">
-                        <div class="collage-placeholder">
-                            <i class="fas fa-image"></i>
-                        </div>
-                    </div>
-                    <div class="collage-item">
-                        <div class="collage-placeholder">
-                            <i class="fas fa-image"></i>
-                        </div>
-                    </div>
-                    <div class="collage-item">
-                        <div class="collage-placeholder">
-                            <i class="fas fa-image"></i>
-                        </div>
-                    </div>
-                    <div class="collage-item">
-                        <div class="collage-placeholder">
-                            <i class="fas fa-image"></i>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Text Content -->
-                <div class="text-content">
-                    <h3>Reflections</h3>
-                    <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.</p>
-                    <p>Similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio.</p>
                 </div>
             </section>
 
@@ -174,22 +125,23 @@
             <div class="footer">
                 <div class="footer-content">
                     <p class="footer-title">✨ Created with love & elegance ✨</p>
-                    <p class="footer-creator">Made by <strong>Your Name</strong></p>
+                    <p class="footer-creator">Made by <strong>Mila</strong></p>
                     <div class="footer-contact">
-                        <a href="mailto:youremail@example.com">
-                            <i class="fas fa-envelope"></i> youremail@example.com
+                        <a href="mailto:milaanahsu@gmail.com">
+                            <i class="fas fa-envelope"></i> milaanahsu@gmail.com
                         </a>
                         <span class="footer-divider">•</span>
-                        <a href="tel:+63XXXXXXXXX">
-                            <i class="fas fa-phone"></i> +63 XXX XXX XXXX
+                        <a href="tel:+639171587596">
+                            <i class="fas fa-phone"></i> +63 917 158 7596
                         </a>
                     </div>
-                    <p class="footer-copyright">© 2024 All Rights Reserved</p>
+                    <p class="footer-copyright">© 2026 All Rights Reserved</p>
                 </div>
             </div>
         </div>
     </main>
 
-    <script src="script.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/season-sliders.js"></script>
 </body>
 </html>

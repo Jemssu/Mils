@@ -61,14 +61,31 @@ function goToCreativeSlide(n) {
     showCreativeSlide(currentCreativeSlide);
 }
 
+// Auto-advance slider
+let sliderInterval;
+
+function startSliderTimer() {
+    sliderInterval = setInterval(() => {
+        nextCreativeSlide();
+    }, 7000);
+}
+
+function resetSliderTimer() {
+    clearInterval(sliderInterval);
+    startSliderTimer();
+}
+
 // Initialize slider on page load
 document.addEventListener('DOMContentLoaded', function() {
     showCreativeSlide(currentCreativeSlide);
-    
-    // Auto-advance slider every 8 seconds
-    setInterval(() => {
-        nextCreativeSlide();
-    }, 8000);
+    startSliderTimer();
+});
+
+// Reset timer when user manually navigates
+document.addEventListener('click', function(e) {
+    if (e.target.classList.contains('slider-btn') || e.target.classList.contains('dot')) {
+        resetSliderTimer();
+    }
 });
 
 // ==================== SMOOTH SCROLL BEHAVIOR ====================

@@ -1,207 +1,208 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mila's Path of Glimmering Embers - E-Portfolio</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,700&family=Cormorant+Garamond:ital,wght@0,400;0,600&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <!-- NAVIGATION -->
-    <nav>
-        <a href="index.html" class="nav-brand">Mila's Path ✨</a>
-        
-        <div class="nav-divider"></div>
-        
-        <ul class="nav-menu">
-            <li><a href="index.html">HOME</a></li>
-            <li class="nav-dropdown">
-                <a href="#">SEASONS <i class="fas fa-chevron-down"></i></a>
-                <ul class="dropdown-menu">
-                    <li><a href="prelim.html">PRELIM</a></li>
-                    <li><a href="midterm.html">MIDTERM</a></li>
-                    <li><a href="prefi.html">PREFI</a></li>
-                </ul>
-            </li>
-            <li><a href="faves.html">MY FAVES</a></li>
-            <li><a href="others.html">OTHERS</a></li>
-            <li><a href="#contact-section" class="nav-cta">CONTACT ME</a></li>
-        </ul>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Mila's Path of Glimmering Embers - E-Portfolio</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,700&family=Cormorant+Garamond:ital,wght@0,400;0,600&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <link rel="stylesheet" href="css/styles.css">
+    </head>
+    <body>
+        <!-- NAVIGATION -->
+        <nav>
+            <a href="index.html" class="nav-brand">Mila's Path ✨</a>
+            
+            <div class="nav-divider"></div>
+            
+            <ul class="nav-menu">
+                <li><a href="index.html">HOME</a></li>
+                <li class="nav-dropdown">
+                    <a href="#">SEASONS <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="prelim.html">PRELIM</a></li>
+                        <li><a href="midterm.html">MIDTERM</a></li>
+                        <li><a href="prefi.html">PREFI</a></li>
+                    </ul>
+                </li>
+                <li><a href="faves.html">MY FAVES</a></li>
+                <li><a href="others.html">OTHERS</a></li>
+                <li><a href="#contact-section" class="nav-cta">CONTACT ME</a></li>
+            </ul>
 
-        <button class="hamburger" onclick="toggleMenu()">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-    </nav>
+            <button class="hamburger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
 
-    <!-- Mobile Menu -->
-    <div class="mobile-menu" id="mobileMenu">
-        <a href="index.html" onclick="closeMenu()">HOME</a>
-        <a href="#highlights" onclick="closeMenu()">HIGHLIGHTS</a>
-        <a href="faves.html" onclick="closeMenu()">MY FAVES</a>
-        <a href="others.html" onclick="closeMenu()">OTHERS</a>
-        <a href="#contact-section" onclick="closeMenu()" class="mobile-cta">CONTACT ME</a>
-        <a href="#" onclick="toggleMoreMenu(event)">SEASONS</a>
-        <div class="mobile-dropdown" id="moreMenu">
-            <a href="prelim.html">PRELIM</a>
-            <a href="midterm.html">MIDTERM</a>
-            <a href="prefi.html">PREFI</a>
-        </div>
-    </div>
-
-    <main>
-        <!-- Header -->
-        <div class="header" id="home">
-            <h1>Mila's Path of Glimmering Embers</h1>
-            <div class="header-subtitle">A Digital Portfolio of My SIP Journey? Putangina to kainis mamatai nako &lt;3</div>
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="index.html" onclick="closeMenu()">HOME</a>
+            <a href="#" onclick="toggleMoreMenu(event)">SEASONS <i class="fas fa-chevron-down"></i></a>
+            <div class="mobile-dropdown" id="moreMenu">
+                <a href="prelim.html">PRELIM</a>
+                <a href="midterm.html">MIDTERM</a>
+                <a href="prefi.html">PREFI</a>
+            </div>
+            <a href="faves.html" onclick="closeMenu()">MY FAVES</a>
+            <a href="others.html" onclick="closeMenu()">OTHERS</a>
+            <a href="#contact-section" onclick="closeMenu()" class="mobile-cta">CONTACT ME</a>
         </div>
 
-        <!-- Dashboard -->
-        <div class="dashboard">
-            <!-- Hero Section -->
-            <section class="hero-section">
-                <div class="hero-container">
-                    <div class="hero-placeholder">✨</div>
-                    <div class="hero-text">
-                        <h2>Welcome to My World</h2>
-                        <p>A refined collection of my creative works and passions</p>
-                        <div class="hero-buttons">
-                            <button class="hero-btn hero-btn-primary" onclick="document.getElementById('contact-section').scrollIntoView({behavior: 'smooth'})">Contact Me</button>
-                            <button class="hero-btn hero-btn-secondary" onclick="document.getElementById('highlights').scrollIntoView({behavior: 'smooth'})">View My Works!</button>
-                        </div>
-                    </div>
-                </div>
-            </section>
+        <main>
+            <!-- Header -->
+            <div class="header" id="home">
+                <h1>Mila's Path of Glimmering Embers</h1>
+                <div class="header-subtitle">A Digital Portfolio of My SIP Journey? Putangina to kainis mamatai nako &lt;3</div>
+            </div>
 
-            <!-- Get to Know Me Section -->
-            <section class="creative-section" id="highlights">
-                <div class="section-header">
-                    <h2 class="section-title">Get to Know Me! Or, Who am I?</h2>
-                    <div class="section-divider"></div>
-                </div>
-                <div class="creative-slider">
-                    <div class="creative-slide active">
-                        <div class="creative-slide-icon">💡</div>
-                        <div class="creative-slide-title">Ideation</div>
-                        <div class="creative-slide-desc">Brainstorming and conceptualizing innovative ideas that resonate with audiences</div>
+            <!-- Dashboard -->
+            <div class="dashboard">
+                <!-- Hero Section -->
+                <section class="hero-section">
+                    <div class="hero-container">
+                        <div class="hero-placeholder">✨</div>
+                        <div class="hero-text">
+                            <h2>Welcome to My World</h2>
+                            <p>A refined collection of my creative works and passions</p>
+                            <div class="hero-buttons">
+                                <button class="hero-btn hero-btn-primary" onclick="document.getElementById('contact-section').scrollIntoView({behavior: 'smooth'})">Contact Me</button>
+                                <button class="hero-btn hero-btn-secondary" onclick="document.getElementById('highlights').scrollIntoView({behavior: 'smooth'})">View My Work</button>
+                            </div>
+                        </div>
                     </div>
-                    <div class="creative-slide">
-                        <div class="creative-slide-icon">🎨</div>
-                        <div class="creative-slide-title">Design</div>
-                        <div class="creative-slide-desc">Crafting visually stunning designs that bring concepts to life</div>
-                    </div>
-                    <div class="creative-slide">
-                        <div class="creative-slide-icon">📊</div>
-                        <div class="creative-slide-title">Strategy</div>
-                        <div class="creative-slide-desc">Building data-driven strategies to maximize impact and engagement</div>
-                    </div>
-                    <div class="creative-slide">
-                        <div class="creative-slide-icon">🚀</div>
-                        <div class="creative-slide-title">Execution</div>
-                        <div class="creative-slide-desc">Bringing everything together for seamless campaign implementation</div>
-                    </div>
-                </div>
-                <div class="creative-controls">
-                    <button class="slider-btn" onclick="prevCreativeSlide()">❮</button>
-                    <button class="slider-btn" onclick="nextCreativeSlide()">❯</button>
-                </div>
-                <div class="creative-dots">
-                    <span class="dot active" onclick="goToCreativeSlide(0)"></span>
-                    <span class="dot" onclick="goToCreativeSlide(1)"></span>
-                    <span class="dot" onclick="goToCreativeSlide(2)"></span>
-                    <span class="dot" onclick="goToCreativeSlide(3)"></span>
-                </div>
-            </section>
+                </section>
 
-            <!-- Magis Highlights Section -->
-            <section id="projects">
-                <div class="section-header">
-                    <h2 class="section-title">Magis Highlights</h2>
-                    <div class="section-divider"></div>
-                </div>
-                <div class="projects-grid">
-                    <div class="project-card">
-                        <div class="project-image">📚</div>
-                        <div class="project-content">
-                            <h3>NSTP</h3>
-                            <p>A refined exploration of community service and social responsibility through thoughtful engagement and civic commitment.</p>
+                <!-- Get to Know Me Section -->
+                <section class="creative-section" id="highlights">
+                    <div class="section-header">
+                        <h2 class="section-title">Get to Know Me! Or, Who am I?</h2>
+                        <div class="section-divider"></div>
+                    </div>
+                    <div class="creative-slider">
+                        <div class="creative-slide active">
+                            <div class="creative-slide-icon">💡</div>
+                            <div class="creative-slide-title">Ideation</div>
+                            <div class="creative-slide-desc">Brainstorming and conceptualizing innovative ideas that resonate with audiences</div>
+                        </div>
+                        <div class="creative-slide">
+                            <div class="creative-slide-icon">🎨</div>
+                            <div class="creative-slide-title">Design</div>
+                            <div class="creative-slide-desc">Crafting visually stunning designs that bring concepts to life</div>
+                        </div>
+                        <div class="creative-slide">
+                            <div class="creative-slide-icon">📊</div>
+                            <div class="creative-slide-title">Strategy</div>
+                            <div class="creative-slide-desc">Building data-driven strategies to maximize impact and engagement</div>
+                        </div>
+                        <div class="creative-slide">
+                            <div class="creative-slide-icon">🚀</div>
+                            <div class="creative-slide-title">Execution</div>
+                            <div class="creative-slide-desc">Bringing everything together for seamless campaign implementation</div>
                         </div>
                     </div>
-                    <div class="project-card">
-                        <div class="project-image">💬</div>
-                        <div class="project-content">
-                            <h3>SLP</h3>
-                            <p>Demonstrating sophisticated communication principles and a deep commitment to language development and professional excellence.</p>
-                        </div>
+                    <div class="creative-controls">
+                        <button class="slider-btn" onclick="prevCreativeSlide()">❮</button>
+                        <button class="slider-btn" onclick="nextCreativeSlide()">❯</button>
                     </div>
-                    <div class="project-card">
-                        <div class="project-image">💼</div>
-                        <div class="project-content">
-                            <h3>SIP</h3>
-                            <p>An elegant showcase of internship journey and professional development, bringing vision to life with passion and dedication.</p>
-                        </div>
+                    <div class="creative-dots">
+                        <span class="dot active" onclick="goToCreativeSlide(0)"></span>
+                        <span class="dot" onclick="goToCreativeSlide(1)"></span>
+                        <span class="dot" onclick="goToCreativeSlide(2)"></span>
+                        <span class="dot" onclick="goToCreativeSlide(3)"></span>
                     </div>
-                </div>
-            </section>
+                </section>
 
-            <!-- Contact Section -->
-            <div class="about-contact">
-                <div class="contact-card" id="contact-section">
-                    <h3>Let's Connect!</h3>
-                    <p>I'd love to hear from you and discuss new opportunities. Feel free to reach out through any of these channels.</p>
-                    
-                    <div class="contact-icons">
-                        <a href="https://www.instagram.com/mila.teris" class="contact-icon" title="Instagram" target="_blank">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="https://www.facebook.com/mmila.ana" class="contact-icon" title="Facebook" target="_blank">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="https://www.linkedin.com/in/milaana-hsu/" class="contact-icon" title="LinkedIn" target="_blank">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
+                <!-- Magis Highlights Section -->
+                <section id="projects">
+                    <div class="section-header">
+                        <h2 class="section-title">Magis Highlights</h2>
+                        <div class="section-divider"></div>
                     </div>
+                    <div class="projects-grid">
+                        <div class="project-card">
+                            <div class="project-image">📚</div>
+                            <div class="project-content">
+                                <h3>NSTP</h3>
+                                <p>A refined exploration of community service and social responsibility through thoughtful engagement and civic commitment.</p>
+                            </div>
+                        </div>
+                        <div class="project-card">
+                            <div class="project-image">💬</div>
+                            <div class="project-content">
+                                <h3>SLP</h3>
+                                <p>Demonstrating sophisticated communication principles and a deep commitment to language development and professional excellence.</p>
+                            </div>
+                        </div>
+                        <div class="project-card">
+                            <div class="project-image">💼</div>
+                            <div class="project-content">
+                                <h3>SIP</h3>
+                                <p>An elegant showcase of internship journey and professional development, bringing vision to life with passion and dedication.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
 
-                    <div class="contact-info">
-                        <div class="contact-item">
-                            <label>📧 Email</label>
-                            <a href="mailto:miltghsu@addu.edu.ph">miltghsu@addu.edu.ph</a>
-                            <a> | </a>
-                            <a href="mailto:milaanahsu@gmail.com">milaanahsu@gmail.com</a>
+                <!-- Contact Section -->
+                <div class="about-contact">
+                    <div class="contact-card" id="contact-section">
+                        <h3>Let's Connect!</h3>
+                        <p>I'd love to hear from you and discuss new opportunities. Feel free to reach out through any of these channels.</p>
+
+                        <div class="contact-icons">
+                            <a href="https://www.instagram.com/mila.teris" class="contact-icon" title="Instagram" target="_blank">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://www.facebook.com/mmila.ana" class="contact-icon" title="Facebook" target="_blank">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/in/milaana-hsu/" class="contact-icon" title="LinkedIn" target="_blank">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
                         </div>
-                        <div class="contact-item">
-                            <label>📱 Phone</label>
-                            <p>+63 917 158 7596</p>
+
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <label>📧 Email</label>
+                                <a href="mailto:miltghsu@addu.edu.ph">miltghsu@addu.edu.ph</a>
+                                <a> | </a>
+                                <a href="mailto:milaanahsu@gmail.com">milaanahsu@gmail.com</a>
+                            </div>
+                            <div class="contact-item">
+                                <label>📱 Phone</label>
+                                <a href="tel:+639171587596">
+                                    <i class="fas fa-phone"></i> +63 917 158 7596
+                                </a>    
+                            </div>
+                        </div>  
+                    </div>
+                </div>
+
+                <!-- Footer -->
+                <div class="footer">
+                    <div class="footer-content">
+                        <p class="footer-title">✨ Created with love & elegance ✨</p>
+                        <p class="footer-creator">Made by <strong>Mila</strong></p>
+                        <div class="footer-contact">
+                            <a href="mailto:milaanahsu@gmail.com">
+                                <i class="fas fa-envelope"></i> milaanahsu@gmail.com
+                            </a>
+                            <span class="footer-divider">•</span>
+                            <a href="tel:+639171587596">
+                                <i class="fas fa-phone"></i> +63 917 158 7596
+                            </a>
                         </div>
+                        <p class="footer-copyright">© 2026 All Rights Reserved</p>
                     </div>
                 </div>
             </div>
+        </main>
 
-            <!-- Footer -->
-            <div class="footer">
-                <div class="footer-content">
-                    <p class="footer-title">✨ Created with love & elegance ✨</p>
-                    <p class="footer-creator">Made by <strong>Mila</strong></p>
-                    <div class="footer-contact">
-                        <a href="mailto:youremail@example.com">
-                            <i class="fas fa-envelope"></i> youremail@example.com
-                        </a>
-                        <span class="footer-divider">•</span>
-                        <a href="tel:+63XXXXXXXXX">
-                            <i class="fas fa-phone"></i> +63 XXX XXX XXXX
-                        </a>
-                    </div>
-                    <p class="footer-copyright">© 2024 All Rights Reserved</p>
-                </div>
-            </div>
-        </div>
-    </main>
-
-    <script src="script.js"></script>
-</body>
-</html>
+        <script src="js/script.js"></script>
+    </body>
+    </html> 

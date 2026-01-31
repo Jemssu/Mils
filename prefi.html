@@ -3,33 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prefi - Coquette E-Portfolio</title>
+    <title>Work In Progress - Mila's Path of Glimmering Embers</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,700&family=Cormorant+Garamond:ital,wght@0,400;0,600&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .wip-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: calc(100vh - 200px);
+            text-align: center;
+            padding: 3rem 2rem;
+        }
+
+        .wip-container h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            color: var(--deep-rose);
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+
+        .wip-container p {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.8rem;
+            color: var(--rose-pink);
+            margin: 0;
+        }
+
+        .wip-container .emoji {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+    </style>
 </head>
 <body>
     <!-- NAVIGATION -->
     <nav>
-        <a href="index.html" class="nav-brand">HSU</a>
+        <a href="index.html" class="nav-brand">Mila's Path ✨</a>
         
         <div class="nav-divider"></div>
         
         <ul class="nav-menu">
             <li><a href="index.html">HOME</a></li>
-            <li><a href="index.html#about">ABOUT</a></li>
-            <li><a href="index.html#highlights">HIGHLIGHTS</a></li>
-            <li><a href="index.html#contact">CONTACT</a></li>
             <li class="nav-dropdown">
-                <a href="#" class="active">PAGES</a>
+                <a href="#">SEASONS <i class="fas fa-chevron-down"></i></a>
                 <ul class="dropdown-menu">
-                    <li><a href="prelim.html">Prelim</a></li>
-                    <li><a href="midterm.html">Midterm</a></li>
-                    <li><a href="prefi.html" class="active">Prefi</a></li>
+                    <li><a href="prelim.html">PRELIM</a></li>
+                    <li><a href="midterm.html">MIDTERM</a></li>
+                    <li><a href="prefi.html">PREFI</a></li>
                 </ul>
             </li>
+            <li><a href="faves.html">MY FAVES</a></li>
+            <li><a href="others.html">OTHERS</a></li>
+            <li><a href="#contact-section" class="nav-cta">CONTACT ME</a></li>
         </ul>
 
         <button class="hamburger" onclick="toggleMenu()">
@@ -42,156 +79,45 @@
     <!-- Mobile Menu -->
     <div class="mobile-menu" id="mobileMenu">
         <a href="index.html" onclick="closeMenu()">HOME</a>
-        <a href="index.html#about" onclick="closeMenu()">ABOUT</a>
-        <a href="index.html#highlights" onclick="closeMenu()">HIGHLIGHTS</a>
-        <a href="index.html#contact" onclick="closeMenu()">CONTACT</a>
-        <li class="nav-dropdown">
-                <a href="#" class="active">CHAPTERS</a>
-                <ul class="dropdown-menu">
-                    <li><a href="prelim.html">PRELIM</a></li>
-                    <li><a href="midterm.html">MIDTERM</a></li>
-                    <li><a href="prefi.html">PREFI</a></li>
-                </ul>
-            </li>
+        <a href="#highlights" onclick="closeMenu()">HIGHLIGHTS</a>
+        <a href="faves.html" onclick="closeMenu()">MY FAVES</a>
+        <a href="others.html" onclick="closeMenu()">OTHERS</a>
+        <a href="#contact-section" onclick="closeMenu()" class="mobile-cta">CONTACT ME</a>
+        <a href="#" onclick="toggleMoreMenu(event)">SEASONS</a>
+        <div class="mobile-dropdown" id="moreMenu">
+            <a href="prelim.html">PRELIM</a>
+            <a href="midterm.html">MIDTERM</a>
+            <a href="prefi.html">PREFI</a>
+        </div>
     </div>
 
     <main>
-        <!-- Header -->
-        <div class="header">
-            <h1>Pre-Finals Period</h1>
-            <div class="header-subtitle">Third Quarter Journey</div>
-        </div>
-
-        <!-- Dashboard -->
-        <div class="dashboard">
-            <!-- Section 1 -->
-            <section class="content-section">
-                <h2 class="section-title-main">Advanced Learning</h2>
-                
-                <!-- Collage Grid with 4 images -->
-                <div class="collage-grid grid-4">
-                    <div class="collage-item">
-                        <div class="collage-placeholder">
-                            <i class="fas fa-image"></i>
-                        </div>
-                    </div>
-                    <div class="collage-item">
-                        <div class="collage-placeholder">
-                            <i class="fas fa-image"></i>
-                        </div>
-                    </div>
-                    <div class="collage-item">
-                        <div class="collage-placeholder">
-                            <i class="fas fa-image"></i>
-                        </div>
-                    </div>
-                    <div class="collage-item">
-                        <div class="collage-placeholder">
-                            <i class="fas fa-image"></i>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Text Content -->
-                <div class="text-content">
-                    <h3>Deepening Knowledge</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
-                    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                </div>
-            </section>
-
-            <!-- Section 2 -->
-            <section class="content-section">
-                <!-- Collage Grid with 3 images -->
-                <div class="collage-grid grid-3">
-                    <div class="collage-item">
-                        <div class="collage-placeholder">
-                            <i class="fas fa-image"></i>
-                        </div>
-                    </div>
-                    <div class="collage-item">
-                        <div class="collage-placeholder">
-                            <i class="fas fa-image"></i>
-                        </div>
-                    </div>
-                    <div class="collage-item">
-                        <div class="collage-placeholder">
-                            <i class="fas fa-image"></i>
-                        </div>
-                    </div>
-                </div>
-
-                <h2 class="section-title-main">Mastery & Excellence</h2>
-
-                <!-- Text Content -->
-                <div class="text-content">
-                    <h3>Refining Skills</h3>
-                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-                    <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
-                </div>
-            </section>
-
-            <!-- Section 3 -->
-            <section class="content-section">
-                <h2 class="section-title-main">Final Preparations</h2>
-                
-                <!-- Collage Grid with 5 images -->
-                <div class="collage-grid grid-5">
-                    <div class="collage-item">
-                        <div class="collage-placeholder">
-                            <i class="fas fa-image"></i>
-                        </div>
-                    </div>
-                    <div class="collage-item">
-                        <div class="collage-placeholder">
-                            <i class="fas fa-image"></i>
-                        </div>
-                    </div>
-                    <div class="collage-item">
-                        <div class="collage-placeholder">
-                            <i class="fas fa-image"></i>
-                        </div>
-                    </div>
-                    <div class="collage-item">
-                        <div class="collage-placeholder">
-                            <i class="fas fa-image"></i>
-                        </div>
-                    </div>
-                    <div class="collage-item">
-                        <div class="collage-placeholder">
-                            <i class="fas fa-image"></i>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Text Content -->
-                <div class="text-content">
-                    <h3>Looking Forward</h3>
-                    <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.</p>
-                    <p>Similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio.</p>
-                </div>
-            </section>
-
-            <!-- Footer -->
-            <div class="footer">
-                <div class="footer-content">
-                    <p class="footer-title">✨ Created with love & elegance ✨</p>
-                    <p class="footer-creator">Made by <strong>Your Name</strong></p>
-                    <div class="footer-contact">
-                        <a href="mailto:youremail@example.com">
-                            <i class="fas fa-envelope"></i> youremail@example.com
-                        </a>
-                        <span class="footer-divider">•</span>
-                        <a href="tel:+63XXXXXXXXX">
-                            <i class="fas fa-phone"></i> +63 XXX XXX XXXX
-                        </a>
-                    </div>
-                    <p class="footer-copyright">© 2024 All Rights Reserved</p>
-                </div>
-            </div>
+        <!-- WIP Content -->
+        <div class="wip-container">
+            <div class="emoji">🌸</div>
+            <h1>Work In Progress</h1>
+            <p>Coming Soon...</p>
         </div>
     </main>
 
-    <script src="script.js"></script>
+    <!-- Footer -->
+    <div class="footer">
+        <div class="footer-content">
+            <p class="footer-title">✨ Created with love & elegance ✨</p>
+            <p class="footer-creator">Made by <strong>Mila</strong></p>
+            <div class="footer-contact">
+                <a href="mailto:milaanahsu@gmail.com">
+                    <i class="fas fa-envelope"></i> milaanahsu@gmail.com
+                </a>
+                <span class="footer-divider">•</span>
+                <a href="tel:+639171587596">
+                    <i class="fas fa-phone"></i> +63 917 158 7596
+                </a>
+            </div>
+            <p class="footer-copyright">© 2026 All Rights Reserved</p>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
 </body>
 </html>
