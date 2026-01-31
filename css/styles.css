@@ -394,35 +394,32 @@ main {
 
 .hero-container {
     position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    min-height: 250px;
     border-radius: 25px;
     overflow: hidden;
     box-shadow: 0 15px 40px rgba(244, 166, 193, 0.25);
-    background: linear-gradient(135deg, var(--rose-pink), var(--blush));
-    display: flex;
-    align-items: center;
-    justify-content: center;
     margin-bottom: 2rem;
-    aspect-ratio: 16 / 9;
-    min-height: 250px;
 }
 
 .hero-placeholder {
+    position: absolute;
     width: 100%;
     height: 100%;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    font-size: 5rem;
-    color: rgba(255, 255, 255, 0.3);
-    position: relative;
-    z-index: 1;
-    overflow: hidden;
+    text-align: center;
+    padding: 2rem;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .hero-placeholder img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    display: none;
 }
 
 .hero-placeholder::before {
@@ -450,8 +447,6 @@ main {
     padding: 2rem;
     color: #fff;
     z-index: 2;
-    max-width: 100%;
-    overflow: hidden;
 }
 
 .hero-text h2 {
