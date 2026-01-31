@@ -413,7 +413,7 @@ main {
     justify-content: center;
     text-align: center;
     padding: 2rem;
-    background-size: cover;
+    background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
 }
