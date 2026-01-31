@@ -11,8 +11,11 @@ function initializeSlider(sliderId) {
 
 function showSlide(sliderId, index) {
     const slider = document.getElementById(sliderId);
+    if (!slider) return;
+    
     const slides = slider.querySelectorAll('.slide');
-    const dots = document.querySelectorAll(`#${sliderId.replace('slider', '')} .slider-dots .dot`);
+    const dotsContainer = slider.closest('.slider-wrapper') ? slider.closest('.slider-wrapper').nextElementSibling : null;
+    const dots = dotsContainer ? dotsContainer.querySelectorAll('.dot') : [];
     
     if (index >= slides.length) {
         sliders[sliderId].current = 0;
@@ -34,29 +37,34 @@ function showSlide(sliderId, index) {
 }
 
 function nextSlide(sliderId) {
+    if (!sliders[sliderId]) initializeSlider(sliderId);
     sliders[sliderId].current++;
     showSlide(sliderId, sliders[sliderId].current);
     resetSliderTimer(sliderId);
 }
 
 function prevSlide(sliderId) {
+    if (!sliders[sliderId]) initializeSlider(sliderId);
     sliders[sliderId].current--;
     showSlide(sliderId, sliders[sliderId].current);
     resetSliderTimer(sliderId);
 }
 
 function goToSlide(sliderId, index) {
+    if (!sliders[sliderId]) initializeSlider(sliderId);
     showSlide(sliderId, index);
     resetSliderTimer(sliderId);
 }
 
 function startSliderTimer(sliderId) {
+    if (!sliders[sliderId]) return;
     sliders[sliderId].interval = setInterval(() => {
         nextSlide(sliderId);
     }, 7000);
 }
 
 function resetSliderTimer(sliderId) {
+    if (!sliders[sliderId]) return;
     clearInterval(sliders[sliderId].interval);
     startSliderTimer(sliderId);
 }
@@ -64,7 +72,7 @@ function resetSliderTimer(sliderId) {
 // Initialize all sliders on page load
 document.addEventListener('DOMContentLoaded', function() {
     const sliderElements = document.querySelectorAll('.image-slider');
-    sliderElements.forEach((slider, index) => {
+    sliderElements.forEach((slider) => {
         const sliderId = slider.id;
         if (sliderId) {
             initializeSlider(sliderId);
