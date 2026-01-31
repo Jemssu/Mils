@@ -18,32 +18,60 @@ function closeMenu() {
 function toggleMoreMenu(event) {
     event.preventDefault();
     const moreMenu = document.getElementById('moreMenu');
-    moreMenu.style.display = moreMenu.style.display === 'flex' ? 'none' : 'flex';
+    moreMenu.classList.toggle('active');  // ✅ Fixed: Use classList.toggle instead of inline styles
 }
 
 // ==================== CREATIVE SLIDER FUNCTIONALITY ====================
 let currentCreativeSlide = 0;
+let totalCreativeSlides = 0;
+
+function initializeCreativeSlider() {
+    const slides = document.querySelectorAll('.creative-slide');
+    totalCreativeSlides = slides.length;
+    
+    // Auto-generate dots based on actual number of slides
+    const dotsContainer = document.getElementById('creativeDots');
+    if (dotsContainer) {
+        dotsContainer.innerHTML = '';
+        
+        for (let i = 0; i < totalCreativeSlides; i++) {
+            const dot = document.createElement('span');
+            dot.className = i === 0 ? 'dot active' : 'dot';
+            dot.onclick = () => goToCreativeSlide(i);
+            dotsContainer.appendChild(dot);
+        }
+    }
+    
+    showCreativeSlide(0);
+}
 
 function showCreativeSlide(n) {
     const slides = document.querySelectorAll('.creative-slide');
     const dots = document.querySelectorAll('.dot');
     
-    if (n >= slides.length) {
+    if (n >= totalCreativeSlides) {
         currentCreativeSlide = 0;
-    }
-    if (n < 0) {
-        currentCreativeSlide = slides.length - 1;
+    } else if (n < 0) {
+        currentCreativeSlide = totalCreativeSlides - 1;
+    } else {
+        currentCreativeSlide = n;
     }
     
+    // Hide all slides
     slides.forEach(slide => slide.classList.remove('active'));
-    dots.forEach(dot => dot.classList.remove('active'));
     
+    // Show current slide
     if (slides[currentCreativeSlide]) {
         slides[currentCreativeSlide].classList.add('active');
     }
-    if (dots[currentCreativeSlide]) {
-        dots[currentCreativeSlide].classList.add('active');
-    }
+    
+    // Update dots
+    dots.forEach((dot, index) => {
+        dot.classList.remove('active');
+        if (index === currentCreativeSlide) {
+            dot.classList.add('active');
+        }
+    });
 }
 
 function nextCreativeSlide() {
@@ -75,9 +103,9 @@ function resetSliderTimer() {
     startSliderTimer();
 }
 
-// Initialize slider on page load
+// Initialize on page load
 document.addEventListener('DOMContentLoaded', function() {
-    showCreativeSlide(currentCreativeSlide);
+    initializeCreativeSlider();  // ✅ Initialize slider with auto-generated dots
     startSliderTimer();
 });
 
@@ -101,23 +129,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         }
     });
 });
-
-// ==================== FORM SUBMISSION ====================
-const contactForm = document.querySelector('.contact-form');
-if (contactForm) {
-    contactForm.addEventListener('submit', function(e) {
-        // The form action should point to a form service like Formspree
-        // This is just for basic validation
-        const name = document.getElementById('name').value.trim();
-        const email = document.getElementById('email').value.trim();
-        const message = document.getElementById('message').value.trim();
-        
-        if (!name || !email || !message) {
-            e.preventDefault();
-            alert('Please fill in all fields');
-        }
-    });
-}
 
 // ==================== NAVBAR ACTIVE STATE ====================
 function setActiveNavLink() {
@@ -152,7 +163,7 @@ const observer = new IntersectionObserver((entries) => {
 }, observerOptions);
 
 document.addEventListener('DOMContentLoaded', () => {
-    const elements = document.querySelectorAll('.project-card, .season-nav-card, .contact-card-item');
+    const elements = document.querySelectorAll('.project-card, .contact-card');
     elements.forEach(el => {
         el.style.opacity = '0';
         el.style.transform = 'translateY(20px)';

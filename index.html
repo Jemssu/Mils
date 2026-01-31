@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mila's Path of Glimmering Embers - E-Portfolio</title>
+    <title>Home - E-Portfolio</title>
+    <!-- Sparkle Emoji Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='75' font-size='75'>✨</text></svg>" type="image/svg+xml">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,700&family=Cormorant+Garamond:ital,wght@0,400;0,600&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
@@ -65,10 +67,12 @@
             <!-- Hero Section -->
             <section class="hero-section">
                 <div class="hero-container">
-                    <div class="hero-placeholder">✨</div>
+                    <div class="hero-placeholder">
+                        <img src="assets/hero.jpg" alt="hero image">
+                    </div>
                     <div class="hero-text">
-                        <h2>Welcome to My World</h2>
-                        <p>A refined collection of my creative works and passions</p>
+                        <h2></h2>
+                        <p></p>
                         <div class="hero-buttons">
                             <button class="hero-btn hero-btn-primary" onclick="document.getElementById('contact-section').scrollIntoView({behavior: 'smooth'})">Contact Me</button>
                             <button class="hero-btn hero-btn-secondary" onclick="document.getElementById('highlights').scrollIntoView({behavior: 'smooth'})">View My Work</button>
@@ -80,40 +84,25 @@
             <!-- Get to Know Me Section -->
             <section class="creative-section" id="highlights">
                 <div class="section-header">
-                    <h2 class="section-title">Get to Know Me! Or, Who am I?</h2>
+                    <h2 class="section-title">Who's That Sunny Girlie?</h2>
                     <div class="section-divider"></div>
                 </div>
                 <div class="creative-slider">
-                    <div class="creative-slide active">
-                        <div class="creative-slide-icon">💡</div>
-                        <div class="creative-slide-title">Ideation</div>
-                        <div class="creative-slide-desc">Brainstorming and conceptualizing innovative ideas that resonate with audiences</div>
+                    <div class="creative-slide active" style="background-image: url('assets/home1.jpg');">
+                        <div class="creative-slide-title">A Peek at Mila</div>
+                        <div class="creative-slide-desc">Here are some sparkly tidbits about me—juicy peeks into my peony-pink world, ready for you to dive right in!</div>
                     </div>
-                    <div class="creative-slide">
-                        <div class="creative-slide-icon">🎨</div>
-                        <div class="creative-slide-title">Design</div>
-                        <div class="creative-slide-desc">Crafting visually stunning designs that bring concepts to life</div>
-                    </div>
-                    <div class="creative-slide">
-                        <div class="creative-slide-icon">📊</div>
-                        <div class="creative-slide-title">Strategy</div>
-                        <div class="creative-slide-desc">Building data-driven strategies to maximize impact and engagement</div>
-                    </div>
-                    <div class="creative-slide">
-                        <div class="creative-slide-icon">🚀</div>
-                        <div class="creative-slide-title">Execution</div>
-                        <div class="creative-slide-desc">Bringing everything together for seamless campaign implementation</div>
+                    <div class="creative-slide" style="background-image: url('assets/home2.jpg');">
+                        <div class="creative-slide-title">Mila's Treasures</div>
+                        <div class="creative-slide-desc">How could you truly know me without peeking at my heart's treasures? Here's a glimpse of what I cherish most!</div>
                     </div>
                 </div>
                 <div class="creative-controls">
                     <button class="slider-btn" onclick="prevCreativeSlide()">❮</button>
                     <button class="slider-btn" onclick="nextCreativeSlide()">❯</button>
                 </div>
-                <div class="creative-dots">
-                    <span class="dot active" onclick="goToCreativeSlide(0)"></span>
-                    <span class="dot" onclick="goToCreativeSlide(1)"></span>
-                    <span class="dot" onclick="goToCreativeSlide(2)"></span>
-                    <span class="dot" onclick="goToCreativeSlide(3)"></span>
+                <div class="creative-dots" id="creativeDots">
+                    <!-- Dots generated automatically by JavaScript -->
                 </div>
             </section>
 
@@ -125,24 +114,30 @@
                 </div>
                 <div class="projects-grid">
                     <div class="project-card">
-                        <div class="project-image">📚</div>
+                        <div class="project-image">
+                            <img src="assets/nstp.jpg" alt="NSTP Project">
+                        </div>
                         <div class="project-content">
                             <h3>NSTP</h3>
-                            <p>A refined exploration of community service and social responsibility through thoughtful engagement and civic commitment.</p>
+                            <p>Diving into Ateneo sparked my love for community service; heartfelt projects and civic adventures that let me give back with a bubbly sense of purpose!</p>
                         </div>
                     </div>
                     <div class="project-card">
-                        <div class="project-image">💬</div>
+                        <div class="project-image">
+                            <img src="assets/slp.jpg" alt="SLP Project">
+                        </div>
                         <div class="project-content">
                             <h3>SLP</h3>
-                            <p>Demonstrating sophisticated communication principles and a deep commitment to language development and professional excellence.</p>
+                            <p>Throughout my Ateneo adventure, I bloomed through 3 SLPs, connecting petal to petal with diverse local communities. So blessed to sparkle in these projects with Ateneo!</p>
                         </div>
                     </div>
                     <div class="project-card">
-                        <div class="project-image">💼</div>
+                        <div class="project-image">
+                            <img src="assets/sip.jpg" alt="SIP Project">
+                        </div>
                         <div class="project-content">
                             <h3>SIP</h3>
-                            <p>An elegant showcase of internship journey and professional development, bringing vision to life with passion and dedication.</p>
+                            <p>As my Ateneo story gently folds like a lotus cradling its lesson-filled seeds, I cherish dreams of more heart-ties and help for communities in need. Eager to watch this rosy chapter blossom to its sweet close!</p>
                         </div>
                     </div>
                 </div>
@@ -205,4 +200,4 @@
 
     <script src="js/script.js"></script>
 </body>
-</html> 
+</html>
