@@ -3,49 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Work In Progress - Mila's Path of Glimmering Embers</title>
+    <title>Others - Random Fun Stuff | Mila's Path</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,700&family=Cormorant+Garamond:ital,wght@0,400;0,600&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/styles.css">
-    <style>
-        .wip-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: calc(100vh - 200px);
-            text-align: center;
-            padding: 3rem 2rem;
-        }
-
-        .wip-container h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 3.5rem;
-            color: var(--deep-rose);
-            margin-bottom: 1rem;
-            font-style: italic;
-        }
-
-        .wip-container p {
-            font-family: 'Dancing Script', cursive;
-            font-size: 1.8rem;
-            color: var(--rose-pink);
-            margin: 0;
-        }
-
-        .wip-container .emoji {
-            font-size: 4rem;
-            margin-bottom: 1.5rem;
-            animation: float 3s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-        }
-    </style>
+    <link rel="stylesheet" href="css/others.css">
 </head>
 <body>
     <!-- NAVIGATION -->
@@ -57,15 +21,15 @@
         <ul class="nav-menu">
             <li><a href="index.html">HOME</a></li>
             <li class="nav-dropdown">
-                <a href="#">SEASONS <i class="fas fa-chevron-down"></i></a>
+                <a href="#">VOLUMES <i class="fas fa-chevron-down"></i></a>
                 <ul class="dropdown-menu">
-                    <li><a href="prelim.html">PRELIM</a></li>
-                    <li><a href="midterm.html">MIDTERM</a></li>
-                    <li><a href="prefi.html">PREFI</a></li>
+                    <li><a href="prelim.html">PRELIMS</a></li>
+                    <li><a href="midterm.html">MIDTERMS</a></li>
+                    <li><a href="prefi.html">PREFINALS</a></li>
                 </ul>
             </li>
             <li><a href="faves.html">MY FAVES</a></li>
-            <li><a href="others.html">OTHERS</a></li>
+            <li><a href="others.html" class="active">OTHERS</a></li>
             <li><a href="#contact-section" class="nav-cta">CONTACT ME</a></li>
         </ul>
 
@@ -79,44 +43,243 @@
     <!-- Mobile Menu -->
     <div class="mobile-menu" id="mobileMenu">
         <a href="index.html" onclick="closeMenu()">HOME</a>
-        <a href="#highlights" onclick="closeMenu()">HIGHLIGHTS</a>
-        <a href="faves.html" onclick="closeMenu()">MY FAVES</a>
-        <a href="others.html" onclick="closeMenu()">OTHERS</a>
-        <a href="#contact-section" onclick="closeMenu()" class="mobile-cta">CONTACT ME</a>
-        <a href="#" onclick="toggleMoreMenu(event)">SEASONS</a>
+        <a href="#" onclick="toggleMoreMenu(event)">VOLUMES <i class="fas fa-chevron-down"></i></a>
         <div class="mobile-dropdown" id="moreMenu">
-            <a href="prelim.html">PRELIM</a>
-            <a href="midterm.html">MIDTERM</a>
-            <a href="prefi.html">PREFI</a>
+            <a href="prelim.html">PRELIMS</a>
+            <a href="midterm.html">MIDTERMS</a>
+            <a href="prefi.html">PREFINALS</a>
         </div>
+        <a href="faves.html" onclick="closeMenu()">MY FAVES</a>
+        <a href="others.html" onclick="closeMenu()" class="active">OTHERS</a>
+        <a href="#contact-section" onclick="closeMenu()" class="mobile-cta">CONTACT ME</a>
     </div>
 
     <main>
-        <!-- WIP Content -->
-        <div class="wip-container">
-            <div class="emoji">🌸</div>
-            <h1>Work In Progress</h1>
-            <p>Coming Soon...</p>
+        <!-- Header -->
+        <div class="header" id="home">
+            <h1>Random Fun Stuff</h1>
+            <div class="header-subtitle">A Collection of Random BS & Good Vibes ✨</div>
+        </div>
+
+        <!-- Dashboard -->
+        <div class="dashboard">
+            <!-- Intro Section -->
+            <section class="intro-section">
+                <p class="intro-text">
+                    Welcome to my chaotic corner of the internet! This is where I dump all the random stuff that doesn't quite fit anywhere else but still deserves a spot. Think of it as my digital scrapbook of memories, moments, and whatever catches my fancy. Enjoy the mess! 💕
+                </p>
+            </section>
+
+            <!-- Timeline Section -->
+            <section class="timeline-section">
+                <div class="section-header">
+                    <h2 class="section-title">Memory Lane</h2>
+                    <div class="section-divider"></div>
+                </div>
+
+                <div class="timeline">
+                    <!-- Timeline Item 1 -->
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-date">
+                                <i class="fas fa-calendar-alt"></i> January 2026
+                            </div>
+                            <div class="media-placeholder">
+                                <i class="fas fa-image"></i>
+                                <span>Image Placeholder</span>
+                            </div>
+                            <h3 class="timeline-title">Random Adventure #1</h3>
+                            <p class="timeline-description">
+                                That one time when something random and fun happened. You know, the usual shenanigans that make life interesting!
+                            </p>
+                            <div class="timeline-tags">
+                                <span class="tag">fun</span>
+                                <span class="tag">memories</span>
+                                <span class="tag">adventure</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Timeline Item 2 -->
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-date">
+                                <i class="fas fa-calendar-alt"></i> December 2025
+                            </div>
+                            <div class="media-placeholder video-placeholder">
+                                <i class="fas fa-video"></i>
+                                <span>Video Placeholder</span>
+                            </div>
+                            <h3 class="timeline-title">Throwback Vibes</h3>
+                            <p class="timeline-description">
+                                A collection of moments that make me smile. Because why not document the good times?
+                            </p>
+                            <div class="timeline-tags">
+                                <span class="tag">throwback</span>
+                                <span class="tag">vibes</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Timeline Item 3 -->
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-date">
+                                <i class="fas fa-calendar-alt"></i> November 2025
+                            </div>
+                            <div class="media-placeholder">
+                                <i class="fas fa-image"></i>
+                                <span>Image Placeholder</span>
+                            </div>
+                            <h3 class="timeline-title">Late Night Thoughts</h3>
+                            <p class="timeline-description">
+                                Those 3AM ideas that seemed brilliant at the time. Some actually were, others... well, let's not talk about those.
+                            </p>
+                            <div class="timeline-tags">
+                                <span class="tag">random</span>
+                                <span class="tag">thoughts</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Timeline Item 4 -->
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-date">
+                                <i class="fas fa-calendar-alt"></i> October 2025
+                            </div>
+                            <div class="media-placeholder video-placeholder">
+                                <i class="fas fa-video"></i>
+                                <span>Video Placeholder</span>
+                            </div>
+                            <h3 class="timeline-title">Good Times Roll</h3>
+                            <p class="timeline-description">
+                                Just living life and making memories. Sometimes the best moments are the unplanned ones!
+                            </p>
+                            <div class="timeline-tags">
+                                <span class="tag">life</span>
+                                <span class="tag">good vibes</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Timeline Item 5 -->
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-date">
+                                <i class="fas fa-calendar-alt"></i> September 2025
+                            </div>
+                            <div class="media-placeholder">
+                                <i class="fas fa-image"></i>
+                                <span>Image Placeholder</span>
+                            </div>
+                            <h3 class="timeline-title">Aesthetic Moments</h3>
+                            <p class="timeline-description">
+                                Because everything looks better with the right filter and angle. Photography is an art, right?
+                            </p>
+                            <div class="timeline-tags">
+                                <span class="tag">aesthetic</span>
+                                <span class="tag">photography</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Timeline Item 6 -->
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-date">
+                                <i class="fas fa-calendar-alt"></i> August 2025
+                            </div>
+                            <div class="media-placeholder video-placeholder">
+                                <i class="fas fa-video"></i>
+                                <span>Video Placeholder</span>
+                            </div>
+                            <h3 class="timeline-title">Random BS Chronicles</h3>
+                            <p class="timeline-description">
+                                The title says it all. Pure, unfiltered randomness that somehow makes sense in my head.
+                            </p>
+                            <div class="timeline-tags">
+                                <span class="tag">random</span>
+                                <span class="tag">chaos</span>
+                                <span class="tag">fun</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Gallery Grid Section -->
+            <section class="gallery-section">
+                <div class="section-header">
+                    <h2 class="section-title">Quick Moments</h2>
+                    <div class="section-divider"></div>
+                </div>
+
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <div class="gallery-placeholder">
+                            <i class="fas fa-camera"></i>
+                        </div>
+                        <div class="gallery-label">Mood</div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="gallery-placeholder video-placeholder">
+                            <i class="fas fa-play-circle"></i>
+                        </div>
+                        <div class="gallery-label">Vibes</div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="gallery-placeholder">
+                            <i class="fas fa-camera"></i>
+                        </div>
+                        <div class="gallery-label">Energy</div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="gallery-placeholder">
+                            <i class="fas fa-camera"></i>
+                        </div>
+                        <div class="gallery-label">Aesthetic</div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="gallery-placeholder video-placeholder">
+                            <i class="fas fa-play-circle"></i>
+                        </div>
+                        <div class="gallery-label">Chaos</div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="gallery-placeholder">
+                            <i class="fas fa-camera"></i>
+                        </div>
+                        <div class="gallery-label">Love</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <div class="footer">
+                <div class="footer-content">
+                    <p class="footer-title">✨ Created with love & elegance ✨</p>
+                    <p class="footer-creator">Made by <strong>Mila</strong></p>
+                    <div class="footer-contact">
+                        <a href="mailto:milaanahsu@gmail.com">
+                            <i class="fas fa-envelope"></i> milaanahsu@gmail.com
+                        </a>
+                        <span class="footer-divider">•</span>
+                        <a href="tel:+639171587596">
+                            <i class="fas fa-phone"></i> +63 917 158 7596
+                        </a>
+                    </div>
+                    <p class="footer-copyright">© 2026 All Rights Reserved</p>
+                </div>
+            </div>
         </div>
     </main>
-
-    <!-- Footer -->
-    <div class="footer">
-        <div class="footer-content">
-            <p class="footer-title">✨ Created with love & elegance ✨</p>
-            <p class="footer-creator">Made by <strong>Mila</strong></p>
-            <div class="footer-contact">
-                <a href="mailto:milaanahsu@gmail.com">
-                    <i class="fas fa-envelope"></i> milaanahsu@gmail.com
-                </a>
-                <span class="footer-divider">•</span>
-                <a href="tel:+639171587596">
-                    <i class="fas fa-phone"></i> +63 917 158 7596
-                </a>
-            </div>
-            <p class="footer-copyright">© 2026 All Rights Reserved</p>
-        </div>
-    </div>
 
     <script src="js/script.js"></script>
 </body>
