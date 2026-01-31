@@ -67,21 +67,25 @@
             <section class="content-section">
                 <div class="content-row">
                     <div class="content-col-left">
-                        <div class="image-slider" id="slider1">
-                            <div class="slide active">
-                                <div class="slide-placeholder">📸</div>
+                        <div class="slider-wrapper">
+                            <div class="image-slider" id="slider1">
+                                <div class="slide active">
+                                    <div class="slide-placeholder">📸</div>
+                                </div>
+                                <div class="slide">
+                                    <div class="slide-placeholder">📸</div>
+                                </div>
+                                <div class="slide">
+                                    <div class="slide-placeholder">📸</div>
+                                </div>
                             </div>
-                            <div class="slide">
-                                <div class="slide-placeholder">📸</div>
-                            </div>
-                            <div class="slide">
-                                <div class="slide-placeholder">📸</div>
-                            </div>
+                            <button class="slider-nav-btn slider-nav-prev" onclick="prevSlide('slider1')">❮</button>
+                            <button class="slider-nav-btn slider-nav-next" onclick="nextSlide('slider1')">❯</button>
                         </div>
                         <div class="slider-dots">
-                            <span class="dot active" onclick="goToSlide(1, 0)"></span>
-                            <span class="dot" onclick="goToSlide(1, 1)"></span>
-                            <span class="dot" onclick="goToSlide(1, 2)"></span>
+                            <span class="dot active" onclick="goToSlide('slider1', 0)"></span>
+                            <span class="dot" onclick="goToSlide('slider1', 1)"></span>
+                            <span class="dot" onclick="goToSlide('slider1', 2)"></span>
                         </div>
                     </div>
                     <div class="content-col-right">
@@ -101,21 +105,25 @@
                         <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                     </div>
                     <div class="content-col-right">
-                        <div class="image-slider" id="slider2">
-                            <div class="slide active">
-                                <div class="slide-placeholder">📸</div>
+                        <div class="slider-wrapper">
+                            <div class="image-slider" id="slider2">
+                                <div class="slide active">
+                                    <div class="slide-placeholder">📸</div>
+                                </div>
+                                <div class="slide">
+                                    <div class="slide-placeholder">📸</div>
+                                </div>
+                                <div class="slide">
+                                    <div class="slide-placeholder">📸</div>
+                                </div>
                             </div>
-                            <div class="slide">
-                                <div class="slide-placeholder">📸</div>
-                            </div>
-                            <div class="slide">
-                                <div class="slide-placeholder">📸</div>
-                            </div>
+                            <button class="slider-nav-btn slider-nav-prev" onclick="prevSlide('slider2')">❮</button>
+                            <button class="slider-nav-btn slider-nav-next" onclick="nextSlide('slider2')">❯</button>
                         </div>
                         <div class="slider-dots">
-                            <span class="dot active" onclick="goToSlide(2, 0)"></span>
-                            <span class="dot" onclick="goToSlide(2, 1)"></span>
-                            <span class="dot" onclick="goToSlide(2, 2)"></span>
+                            <span class="dot active" onclick="goToSlide('slider2', 0)"></span>
+                            <span class="dot" onclick="goToSlide('slider2', 1)"></span>
+                            <span class="dot" onclick="goToSlide('slider2', 2)"></span>
                         </div>
                     </div>
                 </div>
