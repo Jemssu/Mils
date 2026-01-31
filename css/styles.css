@@ -538,6 +538,7 @@ main {
     border-radius: 25px;
     padding: 2rem;
     border: 2px solid var(--blush);
+    scroll-margin-top: 90px;
 }
 
 .creative-slider {
@@ -1044,7 +1045,8 @@ main {
     }
 
     .hero-container {
-        height: 250px;
+        min-height: 220px;
+        /* aspect-ratio still applies */
     }
 
     .hero-text {
