@@ -266,8 +266,8 @@
 }
 
 /* Text Content */
-.content-col-left h2,
-.content-col-right h2 {
+.content-col-left h3,
+.content-col-right h3 {
     font-family: 'Playfair Display', serif;
     font-size: 1.8rem;
     color: var(--deep-rose);
@@ -362,8 +362,8 @@
         right: 0.5rem;
     }
 
-    .content-col-left h2,
-    .content-col-right h2 {
+    .content-col-left h3,
+    .content-col-right h3 {
         font-size: 1.4rem;
     }
 
@@ -421,8 +421,8 @@
         right: 0.25rem;
     }
 
-    .content-col-left h2,
-    .content-col-right h2 {
+    .content-col-left h3,
+    .content-col-right h3 {
         font-size: 1.2rem;
     }
 
