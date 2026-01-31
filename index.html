@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coquette E-Portfolio</title>
+    <title>Mila's Path of Glimmering Embers - E-Portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,700&family=Cormorant+Garamond:ital,wght@0,400;0,600&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
@@ -13,23 +13,23 @@
 <body>
     <!-- NAVIGATION -->
     <nav>
-        <a href="#home" class="nav-brand">HSU</a>
+        <a href="index.html" class="nav-brand">Mila's Path ✨</a>
         
         <div class="nav-divider"></div>
         
         <ul class="nav-menu">
-            <li><a href="#home">HOME</a></li>
-            <li><a href="#about">ABOUT</a></li>
-            <li><a href="#highlights">HIGHLIGHTS</a></li>
-            <li><a href="#contact">CONTACT</a></li>
+            <li><a href="index.html">HOME</a></li>
             <li class="nav-dropdown">
-                <a href="#">CHAPTERS</a>
+                <a href="#">SEASONS <i class="fas fa-chevron-down"></i></a>
                 <ul class="dropdown-menu">
                     <li><a href="prelim.html">PRELIM</a></li>
                     <li><a href="midterm.html">MIDTERM</a></li>
                     <li><a href="prefi.html">PREFI</a></li>
                 </ul>
             </li>
+            <li><a href="faves.html">MY FAVES</a></li>
+            <li><a href="others.html">OTHERS</a></li>
+            <li><a href="#contact-section" class="nav-cta">CONTACT ME</a></li>
         </ul>
 
         <button class="hamburger" onclick="toggleMenu()">
@@ -41,23 +41,24 @@
 
     <!-- Mobile Menu -->
     <div class="mobile-menu" id="mobileMenu">
-        <a href="#home" onclick="closeMenu()">HOME</a>
-        <a href="#about" onclick="closeMenu()">ABOUT</a>
+        <a href="index.html" onclick="closeMenu()">HOME</a>
         <a href="#highlights" onclick="closeMenu()">HIGHLIGHTS</a>
-        <a href="#contact" onclick="closeMenu()">CONTACT</a>
-        <a href="#" onclick="toggleMoreMenu(event)">PAGES</a>
+        <a href="faves.html" onclick="closeMenu()">MY FAVES</a>
+        <a href="others.html" onclick="closeMenu()">OTHERS</a>
+        <a href="#contact-section" onclick="closeMenu()" class="mobile-cta">CONTACT ME</a>
+        <a href="#" onclick="toggleMoreMenu(event)">SEASONS</a>
         <div class="mobile-dropdown" id="moreMenu">
-            <a href="prelim.html">Prelim</a>
-            <a href="midterm.html">Midterm</a>
-            <a href="prefi.html">Prefi</a>
+            <a href="prelim.html">PRELIM</a>
+            <a href="midterm.html">MIDTERM</a>
+            <a href="prefi.html">PREFI</a>
         </div>
     </div>
 
     <main>
         <!-- Header -->
         <div class="header" id="home">
-            <h1>Your Portfolio</h1>
-            <div class="header-subtitle">A Coquette Creation</div>
+            <h1>Mila's Path of Glimmering Embers</h1>
+            <div class="header-subtitle">A Digital Portfolio of My SIP Journey? Putangina to kainis mamatai nako &lt;3</div>
         </div>
 
         <!-- Dashboard -->
@@ -65,56 +66,44 @@
             <!-- Hero Section -->
             <section class="hero-section">
                 <div class="hero-container">
-                    <img 
-                      src="https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=800&auto=format&fit=crop"
-                      alt="Editorial portrait"
-                      style="width:100%; height:100%; object-fit:cover;"
-                    >
+                    <div class="hero-placeholder">✨</div>
                     <div class="hero-text">
                         <h2>Welcome to My World</h2>
                         <p>A refined collection of my creative works and passions</p>
                         <div class="hero-buttons">
-                            <button class="hero-btn hero-btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">Contact Me</button>
+                            <button class="hero-btn hero-btn-primary" onclick="document.getElementById('contact-section').scrollIntoView({behavior: 'smooth'})">Contact Me</button>
                             <button class="hero-btn hero-btn-secondary" onclick="document.getElementById('highlights').scrollIntoView({behavior: 'smooth'})">View My Work</button>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- Creative Process Slider -->
+            <!-- Get to Know Me Section -->
             <section class="creative-section" id="highlights">
                 <div class="section-header">
-                    <h2 class="section-title">My Creative Process</h2>
+                    <h2 class="section-title">Get to Know Me! Or, Who am I?</h2>
                     <div class="section-divider"></div>
                 </div>
                 <div class="creative-slider">
-                    <div class="creative-slide active" style="background: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url('https://images.unsplash.com/photo-1506784983877-45594efa4cbe?q=80&w=1600&auto=format&fit=crop') center/cover;">
-                        <div class="creative-slide-content">
-                            <div class="creative-slide-icon">💡</div>
-                            <div class="creative-slide-title">Ideation</div>
-                            <div class="creative-slide-desc">Brainstorming and conceptualizing innovative ideas that resonate with audiences</div>
-                        </div>
+                    <div class="creative-slide active">
+                        <div class="creative-slide-icon">💡</div>
+                        <div class="creative-slide-title">Ideation</div>
+                        <div class="creative-slide-desc">Brainstorming and conceptualizing innovative ideas that resonate with audiences</div>
                     </div>
-                    <div class="creative-slide" style="background: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url('https://images.unsplash.com/photo-1492724441997-5dc865305da7?q=80&w=1600&auto=format&fit=crop') center/cover;">
-                        <div class="creative-slide-content">
-                            <div class="creative-slide-icon">🎨</div>
-                            <div class="creative-slide-title">Design</div>
-                            <div class="creative-slide-desc">Crafting visually stunning designs that bring concepts to life</div>
-                        </div>
+                    <div class="creative-slide">
+                        <div class="creative-slide-icon">🎨</div>
+                        <div class="creative-slide-title">Design</div>
+                        <div class="creative-slide-desc">Crafting visually stunning designs that bring concepts to life</div>
                     </div>
-                    <div class="creative-slide" style="background: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url('https://images.unsplash.com/photo-1556761175-4b46a572b786?q=80&w=1600&auto=format&fit=crop') center/cover;">
-                        <div class="creative-slide-content">
-                            <div class="creative-slide-icon">📊</div>
-                            <div class="creative-slide-title">Strategy</div>
-                            <div class="creative-slide-desc">Building data-driven strategies to maximize impact and engagement</div>
-                        </div>
+                    <div class="creative-slide">
+                        <div class="creative-slide-icon">📊</div>
+                        <div class="creative-slide-title">Strategy</div>
+                        <div class="creative-slide-desc">Building data-driven strategies to maximize impact and engagement</div>
                     </div>
-                    <div class="creative-slide" style="background: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url('https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?q=80&w=1600&auto=format&fit=crop') center/cover;">
-                        <div class="creative-slide-content">
-                            <div class="creative-slide-icon">🚀</div>
-                            <div class="creative-slide-title">Execution</div>
-                            <div class="creative-slide-desc">Bringing everything together for seamless campaign implementation</div>
-                        </div>
+                    <div class="creative-slide">
+                        <div class="creative-slide-icon">🚀</div>
+                        <div class="creative-slide-title">Execution</div>
+                        <div class="creative-slide-desc">Bringing everything together for seamless campaign implementation</div>
                     </div>
                 </div>
                 <div class="creative-controls">
@@ -129,63 +118,41 @@
                 </div>
             </section>
 
-            <!-- Projects Section -->
+            <!-- Magis Highlights Section -->
             <section id="projects">
                 <div class="section-header">
-                    <h2 class="section-title">Projects</h2>
+                    <h2 class="section-title">Magis Highlights</h2>
                     <div class="section-divider"></div>
                 </div>
                 <div class="projects-grid">
                     <div class="project-card">
-                        <div class="project-image" style="background: url('https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?q=80&w=1200&auto=format&fit=crop') center/cover;">
-                        </div>
+                        <div class="project-image">📚</div>
                         <div class="project-content">
-                            <h3>Project One</h3>
-                            <p>A refined exploration of creativity and artistic expression through thoughtful design and elegant execution.</p>
+                            <h3>NSTP</h3>
+                            <p>A refined exploration of community service and social responsibility through thoughtful engagement and civic commitment.</p>
                         </div>
                     </div>
                     <div class="project-card">
-                        <div class="project-image" style="background: url('https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?q=80&w=1200&auto=format&fit=crop') center/cover;">
-                        </div>
+                        <div class="project-image">💬</div>
                         <div class="project-content">
-                            <h3>Project Two</h3>
-                            <p>Demonstrating sophisticated design principles and a deep commitment to visual storytelling and aesthetic excellence.</p>
+                            <h3>SLP</h3>
+                            <p>Demonstrating sophisticated communication principles and a deep commitment to language development and professional excellence.</p>
                         </div>
                     </div>
                     <div class="project-card">
-                        <div class="project-image" style="background: url('https://images.unsplash.com/photo-1490474418585-ba9bad8fd0ea?q=80&w=1200&auto=format&fit=crop') center/cover;">
-                        </div>
+                        <div class="project-image">💼</div>
                         <div class="project-content">
-                            <h3>Project Three</h3>
-                            <p>An elegant showcase of innovative ideas and refined craftsmanship, bringing vision to life with passion and dedication.</p>
+                            <h3>SIP</h3>
+                            <p>An elegant showcase of internship journey and professional development, bringing vision to life with passion and dedication.</p>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- About & Contact -->
+            <!-- Contact Section -->
             <div class="about-contact">
-                <!-- About -->
-                <div class="about-card" id="about">
-                    <img 
-                      src="https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=800&auto=format&fit=crop"
-                      style="width:100%; border-radius:18px; margin-bottom:1.2rem;"
-                      alt="About me"
-                    >
-                    <h3>About Me</h3>
-                    <p>I am a passionate creator dedicated to bringing elegance and sophistication to every project. With an eye for detail and a heart for artistic expression, I believe in the power of thoughtful design.</p>
-                    <ul class="skills-list">
-                        <li>Creative Design & Art</li>
-                        <li>Visual Storytelling</li>
-                        <li>Aesthetic Curation</li>
-                        <li>Refined Craftsmanship</li>
-                        <li>Artistic Direction</li>
-                    </ul>
-                </div>
-
-                <!-- Contact -->
-                <div class="contact-card" id="contact">
-                    <h3>Let's Connect</h3>
+                <div class="contact-card" id="contact-section">
+                    <h3>Let's Connect!</h3>
                     <p>I'd love to hear from you and discuss new opportunities. Feel free to reach out through any of these channels.</p>
                     
                     <div class="contact-icons">
@@ -220,7 +187,7 @@
             <div class="footer">
                 <div class="footer-content">
                     <p class="footer-title">✨ Created with love & elegance ✨</p>
-                    <p class="footer-creator">Made by <strong>Your Name</strong></p>
+                    <p class="footer-creator">Made by <strong>Mila</strong></p>
                     <div class="footer-contact">
                         <a href="mailto:youremail@example.com">
                             <i class="fas fa-envelope"></i> youremail@example.com
