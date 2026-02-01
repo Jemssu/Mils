@@ -107,6 +107,7 @@ function resetSliderTimer() {
 document.addEventListener('DOMContentLoaded', function() {
     initializeCreativeSlider();  // ✅ Initialize slider with auto-generated dots
     startSliderTimer();
+    initializeImageModal(); // ✅ Initialize image modal
 });
 
 // Reset timer when user manually navigates
@@ -173,6 +174,57 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // ==================== UTILITY FUNCTIONS ====================
+// Image Modal/Lightbox Functionality
+function initializeImageModal() {
+    // Create modal element if it doesn't exist
+    if (!document.getElementById('imageModal')) {
+        const modal = document.createElement('div');
+        modal.id = 'imageModal';
+        modal.className = 'image-modal';
+        modal.innerHTML = `
+            <span class="image-modal-close">&times;</span>
+            <img class="image-modal-content" id="modalImage">
+        `;
+        document.body.appendChild(modal);
+    }
+
+    const modal = document.getElementById('imageModal');
+    const modalImg = document.getElementById('modalImage');
+    const closeBtn = document.querySelector('.image-modal-close');
+
+    // Add click event to all project images
+    document.querySelectorAll('.project-image img').forEach(img => {
+        img.addEventListener('click', function() {
+            modal.classList.add('active');
+            modalImg.src = this.src;
+            document.body.style.overflow = 'hidden'; // Prevent scrolling
+        });
+    });
+
+    // Close modal when clicking close button
+    closeBtn.addEventListener('click', closeImageModal);
+
+    // Close modal when clicking outside the image
+    modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+            closeImageModal();
+        }
+    });
+
+    // Close modal with Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modal.classList.contains('active')) {
+            closeImageModal();
+        }
+    });
+}
+
+function closeImageModal() {
+    const modal = document.getElementById('imageModal');
+    modal.classList.remove('active');
+    document.body.style.overflow = ''; // Restore scrolling
+}
+
 // Close mobile menu when clicking outside
 document.addEventListener('click', (e) => {
     const nav = document.querySelector('nav');

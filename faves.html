@@ -3,13 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Faves - Highlights | Mila's Path</title>
+    <title>Work In Progress - Mila's Path of Glimmering Embers</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,700&family=Cormorant+Garamond:ital,wght@0,400;0,600&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/faves.css">
+    <style>
+        .wip-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: calc(100vh - 200px);
+            text-align: center;
+            padding: 3rem 2rem;
+        }
+
+        .wip-container h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            color: var(--deep-rose);
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+
+        .wip-container p {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.8rem;
+            color: var(--rose-pink);
+            margin: 0;
+        }
+
+        .wip-container .emoji {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+    </style>
 </head>
 <body>
     <!-- NAVIGATION -->
@@ -21,16 +57,16 @@
         <ul class="nav-menu">
             <li><a href="index.html">HOME</a></li>
             <li class="nav-dropdown">
-                <a href="#">VOLUMES <i class="fas fa-chevron-down"></i></a>
+                <a href="#">SEASONS <i class="fas fa-chevron-down"></i></a>
                 <ul class="dropdown-menu">
-                    <li><a href="prelim.html">PRELIMS</a></li>
-                    <li><a href="midterm.html">MIDTERMS</a></li>
-                    <li><a href="prefi.html">PREFINALS</a></li>
+                    <li><a href="prelim.html">PRELIM</a></li>
+                    <li><a href="midterm.html">MIDTERM</a></li>
+                    <li><a href="prefi.html">PREFI</a></li>
                 </ul>
             </li>
-            <li><a href="faves.html" class="active">MY FAVES</a></li>
+            <li><a href="faves.html">MY FAVES</a></li>
             <li><a href="others.html">OTHERS</a></li>
-            <li><a href="index.html#contact-section" class="nav-cta">CONTACT ME</a></li>
+            <li><a href="#contact-section" class="nav-cta">CONTACT ME</a></li>
         </ul>
 
         <button class="hamburger" onclick="toggleMenu()">
@@ -43,308 +79,45 @@
     <!-- Mobile Menu -->
     <div class="mobile-menu" id="mobileMenu">
         <a href="index.html" onclick="closeMenu()">HOME</a>
-        <a href="#" onclick="toggleMoreMenu(event)">VOLUMES <i class="fas fa-chevron-down"></i></a>
-        <div class="mobile-dropdown" id="moreMenu">
-            <a href="prelim.html">PRELIMS</a>
-            <a href="midterm.html">MIDTERMS</a>
-            <a href="prefi.html">PREFINALS</a>
-        </div>
-        <a href="faves.html" onclick="closeMenu()" class="active">MY FAVES</a>
+        <a href="#highlights" onclick="closeMenu()">HIGHLIGHTS</a>
+        <a href="faves.html" onclick="closeMenu()">MY FAVES</a>
         <a href="others.html" onclick="closeMenu()">OTHERS</a>
-        <a href="index.html#contact-section" onclick="closeMenu()" class="mobile-cta">CONTACT ME</a>
+        <a href="#contact-section" onclick="closeMenu()" class="mobile-cta">CONTACT ME</a>
+        <a href="#" onclick="toggleMoreMenu(event)">SEASONS</a>
+        <div class="mobile-dropdown" id="moreMenu">
+            <a href="prelim.html">PRELIM</a>
+            <a href="midterm.html">MIDTERM</a>
+            <a href="prefi.html">PREFI</a>
+        </div>
     </div>
 
     <main>
-        <!-- Header -->
-        <div class="header" id="home">
-            <h1>My Favorite Moments</h1>
-            <div class="header-subtitle">A curated collection of my most cherished highlights ✨</div>
-        </div>
-
-        <!-- Dashboard -->
-        <div class="dashboard">
-            <!-- Intro Section -->
-            <section class="intro-section">
-                <p class="intro-text">
-                    Welcome to my personal gallery of favorites! These are the moments, memories, and experiences that hold a special place in my heart. Each collection tells a story worth remembering. 💕
-                </p>
-            </section>
-
-            <!-- Highlight Collection 1 -->
-            <section class="highlight-section">
-                <div class="section-header">
-                    <h2 class="section-title">Adventures & Travels</h2>
-                    <div class="section-divider"></div>
-                </div>
-                <div class="highlight-card">
-                    <div class="slider-container">
-                        <div class="image-slider" data-slider="1">
-                            <div class="slider-track">
-                                <div class="slide active">
-                                    <div class="slide-placeholder">
-                                        <i class="fas fa-mountain"></i>
-                                        <span>Adventure 1</span>
-                                    </div>
-                                </div>
-                                <div class="slide">
-                                    <div class="slide-placeholder">
-                                        <i class="fas fa-map-marked-alt"></i>
-                                        <span>Adventure 2</span>
-                                    </div>
-                                </div>
-                                <div class="slide">
-                                    <div class="slide-placeholder">
-                                        <i class="fas fa-compass"></i>
-                                        <span>Adventure 3</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <button class="slider-prev" onclick="navigateSlider(1, -1)">
-                                <i class="fas fa-chevron-left"></i>
-                            </button>
-                            <button class="slider-next" onclick="navigateSlider(1, 1)">
-                                <i class="fas fa-chevron-right"></i>
-                            </button>
-                            <div class="slider-indicators">
-                                <span class="indicator active" onclick="goToSlide(1, 0)"></span>
-                                <span class="indicator" onclick="goToSlide(1, 1)"></span>
-                                <span class="indicator" onclick="goToSlide(1, 2)"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="highlight-description">
-                        <p>Exploring new places, creating unforgettable memories, and discovering the beauty of the world one adventure at a time.</p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Highlight Collection 2 -->
-            <section class="highlight-section">
-                <div class="section-header">
-                    <h2 class="section-title">Special Celebrations</h2>
-                    <div class="section-divider"></div>
-                </div>
-                <div class="highlight-card">
-                    <div class="slider-container">
-                        <div class="image-slider" data-slider="2">
-                            <div class="slider-track">
-                                <div class="slide active">
-                                    <div class="slide-placeholder">
-                                        <i class="fas fa-birthday-cake"></i>
-                                        <span>Celebration 1</span>
-                                    </div>
-                                </div>
-                                <div class="slide">
-                                    <div class="slide-placeholder">
-                                        <i class="fas fa-gift"></i>
-                                        <span>Celebration 2</span>
-                                    </div>
-                                </div>
-                                <div class="slide">
-                                    <div class="slide-placeholder">
-                                        <i class="fas fa-star"></i>
-                                        <span>Celebration 3</span>
-                                    </div>
-                                </div>
-                                <div class="slide">
-                                    <div class="slide-placeholder">
-                                        <i class="fas fa-champagne-glasses"></i>
-                                        <span>Celebration 4</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <button class="slider-prev" onclick="navigateSlider(2, -1)">
-                                <i class="fas fa-chevron-left"></i>
-                            </button>
-                            <button class="slider-next" onclick="navigateSlider(2, 1)">
-                                <i class="fas fa-chevron-right"></i>
-                            </button>
-                            <div class="slider-indicators">
-                                <span class="indicator active" onclick="goToSlide(2, 0)"></span>
-                                <span class="indicator" onclick="goToSlide(2, 1)"></span>
-                                <span class="indicator" onclick="goToSlide(2, 2)"></span>
-                                <span class="indicator" onclick="goToSlide(2, 3)"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="highlight-description">
-                        <p>Milestones, birthdays, and special moments celebrated with the people who matter most. These memories are pure joy!</p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Highlight Collection 3 -->
-            <section class="highlight-section">
-                <div class="section-header">
-                    <h2 class="section-title">Friends & Good Times</h2>
-                    <div class="section-divider"></div>
-                </div>
-                <div class="highlight-card">
-                    <div class="slider-container">
-                        <div class="image-slider" data-slider="3">
-                            <div class="slider-track">
-                                <div class="slide active">
-                                    <div class="slide-placeholder">
-                                        <i class="fas fa-user-friends"></i>
-                                        <span>Friends 1</span>
-                                    </div>
-                                </div>
-                                <div class="slide">
-                                    <div class="slide-placeholder">
-                                        <i class="fas fa-heart"></i>
-                                        <span>Friends 2</span>
-                                    </div>
-                                </div>
-                                <div class="slide">
-                                    <div class="slide-placeholder">
-                                        <i class="fas fa-laugh-beam"></i>
-                                        <span>Friends 3</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <button class="slider-prev" onclick="navigateSlider(3, -1)">
-                                <i class="fas fa-chevron-left"></i>
-                            </button>
-                            <button class="slider-next" onclick="navigateSlider(3, 1)">
-                                <i class="fas fa-chevron-right"></i>
-                            </button>
-                            <div class="slider-indicators">
-                                <span class="indicator active" onclick="goToSlide(3, 0)"></span>
-                                <span class="indicator" onclick="goToSlide(3, 1)"></span>
-                                <span class="indicator" onclick="goToSlide(3, 2)"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="highlight-description">
-                        <p>The best times are always with the best people. Laughter, inside jokes, and bonds that last forever.</p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Highlight Collection 4 -->
-            <section class="highlight-section">
-                <div class="section-header">
-                    <h2 class="section-title">Creative Projects</h2>
-                    <div class="section-divider"></div>
-                </div>
-                <div class="highlight-card">
-                    <div class="slider-container">
-                        <div class="image-slider" data-slider="4">
-                            <div class="slider-track">
-                                <div class="slide active">
-                                    <div class="slide-placeholder">
-                                        <i class="fas fa-palette"></i>
-                                        <span>Project 1</span>
-                                    </div>
-                                </div>
-                                <div class="slide">
-                                    <div class="slide-placeholder">
-                                        <i class="fas fa-lightbulb"></i>
-                                        <span>Project 2</span>
-                                    </div>
-                                </div>
-                                <div class="slide">
-                                    <div class="slide-placeholder">
-                                        <i class="fas fa-pen-fancy"></i>
-                                        <span>Project 3</span>
-                                    </div>
-                                </div>
-                                <div class="slide">
-                                    <div class="slide-placeholder">
-                                        <i class="fas fa-magic"></i>
-                                        <span>Project 4</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <button class="slider-prev" onclick="navigateSlider(4, -1)">
-                                <i class="fas fa-chevron-left"></i>
-                            </button>
-                            <button class="slider-next" onclick="navigateSlider(4, 1)">
-                                <i class="fas fa-chevron-right"></i>
-                            </button>
-                            <div class="slider-indicators">
-                                <span class="indicator active" onclick="goToSlide(4, 0)"></span>
-                                <span class="indicator" onclick="goToSlide(4, 1)"></span>
-                                <span class="indicator" onclick="goToSlide(4, 2)"></span>
-                                <span class="indicator" onclick="goToSlide(4, 3)"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="highlight-description">
-                        <p>From design work to personal passion projects, these are the creative endeavors that showcase my artistic journey.</p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Highlight Collection 5 -->
-            <section class="highlight-section">
-                <div class="section-header">
-                    <h2 class="section-title">Aesthetic Captures</h2>
-                    <div class="section-divider"></div>
-                </div>
-                <div class="highlight-card">
-                    <div class="slider-container">
-                        <div class="image-slider" data-slider="5">
-                            <div class="slider-track">
-                                <div class="slide active">
-                                    <div class="slide-placeholder">
-                                        <i class="fas fa-camera-retro"></i>
-                                        <span>Capture 1</span>
-                                    </div>
-                                </div>
-                                <div class="slide">
-                                    <div class="slide-placeholder">
-                                        <i class="fas fa-cloud-sun"></i>
-                                        <span>Capture 2</span>
-                                    </div>
-                                </div>
-                                <div class="slide">
-                                    <div class="slide-placeholder">
-                                        <i class="fas fa-leaf"></i>
-                                        <span>Capture 3</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <button class="slider-prev" onclick="navigateSlider(5, -1)">
-                                <i class="fas fa-chevron-left"></i>
-                            </button>
-                            <button class="slider-next" onclick="navigateSlider(5, 1)">
-                                <i class="fas fa-chevron-right"></i>
-                            </button>
-                            <div class="slider-indicators">
-                                <span class="indicator active" onclick="goToSlide(5, 0)"></span>
-                                <span class="indicator" onclick="goToSlide(5, 1)"></span>
-                                <span class="indicator" onclick="goToSlide(5, 2)"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="highlight-description">
-                        <p>Beautiful moments frozen in time. Sometimes it's the little things that create the most aesthetic scenes.</p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Footer -->
-            <div class="footer">
-                <div class="footer-content">
-                    <p class="footer-title">✨ Created with love & elegance ✨</p>
-                    <p class="footer-creator">Made by <strong>Mila</strong></p>
-                    <div class="footer-contact">
-                        <a href="mailto:milaanahsu@gmail.com">
-                            <i class="fas fa-envelope"></i> milaanahsu@gmail.com
-                        </a>
-                        <span class="footer-divider">•</span>
-                        <a href="tel:+639171587596">
-                            <i class="fas fa-phone"></i> +63 917 158 7596
-                        </a>
-                    </div>
-                    <p class="footer-copyright">© 2026 All Rights Reserved</p>
-                </div>
-            </div>
+        <!-- WIP Content -->
+        <div class="wip-container">
+            <div class="emoji">🌸</div>
+            <h1>Work In Progress</h1>
+            <p>Coming Soon...</p>
         </div>
     </main>
 
+    <!-- Footer -->
+    <div class="footer">
+        <div class="footer-content">
+            <p class="footer-title">✨ Created with love & elegance ✨</p>
+            <p class="footer-creator">Made by <strong>Mila</strong></p>
+            <div class="footer-contact">
+                <a href="mailto:milaanahsu@gmail.com">
+                    <i class="fas fa-envelope"></i> milaanahsu@gmail.com
+                </a>
+                <span class="footer-divider">•</span>
+                <a href="tel:+639171587596">
+                    <i class="fas fa-phone"></i> +63 917 158 7596
+                </a>
+            </div>
+            <p class="footer-copyright">© 2026 All Rights Reserved</p>
+        </div>
+    </div>
+
     <script src="js/script.js"></script>
-    <script src="js/faves.js"></script>
 </body>
 </html>

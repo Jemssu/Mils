@@ -51,6 +51,24 @@ function initializeSlider(sliderId) {
         slideCount: slides.length
     };
     
+    // Hide navigation controls if only one slide
+    if (slides.length === 1) {
+        console.log(`   📍 Single image slider - hiding nav buttons and dots`);
+        
+        // Hide nav buttons
+        const prevBtn = slidesWrapper.querySelector('.slider-nav-prev');
+        const nextBtn = slidesWrapper.querySelector('.slider-nav-next');
+        if (prevBtn) prevBtn.style.display = 'none';
+        if (nextBtn) nextBtn.style.display = 'none';
+        
+        // Hide dots container
+        if (dotsContainer) dotsContainer.style.display = 'none';
+        
+        // Don't start auto-play for single image
+        showSlide(sliderId, 0);
+        return;
+    }
+    
     // Show first slide as active
     showSlide(sliderId, 0);
     startSliderTimer(sliderId);
@@ -73,14 +91,24 @@ function showSlide(sliderId, index) {
     // Wrap index using modulo operator for cleaner code
     sliderData.current = ((index % slideCount) + slideCount) % slideCount;
     
-    // Remove active class from all slides and dots
+    // Remove active class from all slides
     sliderData.slides.forEach(slide => slide.classList.remove('active'));
-    sliderData.dots.forEach(dot => dot.classList.remove('active'));
     
-    // Add active class to current slide and dot
-    sliderData.slides[sliderData.current].classList.add('active');
-    if (sliderData.dots[sliderData.current]) {
-        sliderData.dots[sliderData.current].classList.add('active');
+    // Only update dots if there are multiple slides
+    if (slideCount > 1) {
+        // Remove active class from all dots
+        sliderData.dots.forEach(dot => dot.classList.remove('active'));
+        
+        // Add active class to current slide
+        sliderData.slides[sliderData.current].classList.add('active');
+        
+        // Add active class to current dot (if it exists)
+        if (sliderData.dots[sliderData.current]) {
+            sliderData.dots[sliderData.current].classList.add('active');
+        }
+    } else {
+        // Single slide - just make it active
+        sliderData.slides[sliderData.current].classList.add('active');
     }
     
     console.log(`   📍 Showing slide ${sliderData.current + 1} of ${slideCount} in "${sliderId}"`);

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prelims - E-Portfolio</title>
+    <title>PRELIMS - Mila's Path of Glimmering Embers</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='75' font-size='75'>✨</text></svg>" type="image/svg+xml">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,12 +13,9 @@
     <link rel="stylesheet" href="css/season-pages.css">
 </head>
 <body>
-    <!-- NAVIGATION -->
     <nav>
         <a href="index.html" class="nav-brand">Mila's Path ✨</a>
-        
         <div class="nav-divider"></div>
-        
         <ul class="nav-menu">
             <li><a href="index.html">HOME</a></li>
             <li class="nav-dropdown">
@@ -33,7 +30,6 @@
             <li><a href="others.html">OTHERS</a></li>
             <li><a href="index.html#contact-section" class="nav-cta">CONTACT ME</a></li>
         </ul>
-
         <button class="hamburger" onclick="toggleMenu()">
             <span></span>
             <span></span>
@@ -41,7 +37,6 @@
         </button>
     </nav>
 
-    <!-- Mobile Menu -->
     <div class="mobile-menu" id="mobileMenu">
         <a href="index.html" onclick="closeMenu()">HOME</a>
         <a href="#" onclick="toggleMoreMenu(event)">VOLUMES <i class="fas fa-chevron-down"></i></a>
@@ -56,15 +51,12 @@
     </div>
 
     <main>
-        <!-- Header -->
         <div class="header season-header" id="home">
             <h1>PRELIMS</h1>
             <div class="header-subtitle">Four Chapters of Blooming 🌸</div>
         </div>
 
-        <!-- Dashboard -->
         <div class="dashboard">
-            <!-- TABLE OF CONTENTS -->
             <section class="toc-section">
                 <h2 class="toc-title">Table of Contents</h2>
                 <div class="toc-container">
@@ -81,7 +73,6 @@
                             <li><a href="#scene-1-5">Friendships</a></li>
                         </ul>
                     </div>
-
                     <div class="toc-chapter">
                         <h3 class="toc-chapter-title">
                             <i class="fas fa-bookmark"></i> CHAPTER 2: ROSEBUD
@@ -93,21 +84,30 @@
                             <li><a href="#scene-2-3">MK2A Diaries</a></li>
                         </ul>
                     </div>
-
                     <div class="toc-chapter">
                         <h3 class="toc-chapter-title">
                             <i class="fas fa-bookmark"></i> CHAPTER 3: BLUSH
                         </h3>
                         <p class="toc-chapter-subtitle">(Junior) - Warm, rosy glow emerging.</p>
-                        <p class="toc-coming-soon">Coming Soon...</p>
+                        <ul class="toc-scenes">
+                            <li><a href="#scene-3-1">Embassy's Beginnings</a></li>
+                            <li><a href="#scene-3-2">Major in Marketing, Minor in Orgs</a></li>
+                            <li><a href="#scene-3-3">Global Country Notebook</a></li>
+                            <li><a href="#scene-3-4">SBG 25th Anniversary</a></li>
+                            <li><a href="#scene-3-5">MK3A Reveries</a></li>
+                        </ul>
                     </div>
-
                     <div class="toc-chapter">
                         <h3 class="toc-chapter-title">
                             <i class="fas fa-bookmark"></i> CHAPTER 4: MAGENTA
                         </h3>
                         <p class="toc-chapter-subtitle">(Senior) - Deep pink poise and petal grace.</p>
-                        <p class="toc-coming-soon">Coming Soon...</p>
+                        <ul class="toc-scenes">
+                            <li><a href="#scene-4-1">Deadline Demons: Thesis Edition</a></li>
+                            <li><a href="#scene-4-2">Internship's Gentle Veil</a></li>
+                            <li><a href="#scene-4-3">Embassy Shenanigans</a></li>
+                            <li><a href="#scene-4-4">Farewell Tales of MK4A</a></li>
+                        </ul>
                     </div>
                 </div>
             </section>
@@ -120,21 +120,15 @@
                 </div>
                 <p class="chapter-intro">Like a peony—a shy bud in pale pink promise—Mila unfurls her first delicate steps into the university chapter.</p>
 
-                <!-- Scene 1 -->
+                <!-- Scene 1: 3 images -->
                 <div class="content-section" id="scene-1-1">
                     <div class="content-row">
                         <div class="content-col-left">
                             <div class="slider-wrapper">
                                 <div class="image-slider" id="slider1">
-                                    <div class="slide active">
-                                        <div class="slide-placeholder">📸</div>
-                                    </div>
-                                    <div class="slide">
-                                        <div class="slide-placeholder">📸</div>
-                                    </div>
-                                    <div class="slide">
-                                        <div class="slide-placeholder">📸</div>
-                                    </div>
+                                    <div class="slide active" style="background-image: url('assets/Prelims/Freshman/PATHFIT1/PATHFIT11.png');"></div>
+                                    <div class="slide" style="background-image: url('assets/Prelims/Freshman/PATHFIT1/PATHFIT12.png');"></div>
+                                    <div class="slide" style="background-image: url('assets/Prelims/Freshman/PATHFIT1/PATHFIT13.png');"></div>
                                 </div>
                                 <button class="slider-nav-btn slider-nav-prev" onclick="prevSlide('slider1')">❮</button>
                                 <button class="slider-nav-btn slider-nav-next" onclick="nextSlide('slider1')">❯</button>
@@ -152,7 +146,7 @@
                     </div>
                 </div>
 
-                <!-- Scene 2 -->
+                <!-- Scene 2: 1 image only - no nav buttons, no dots -->
                 <div class="content-section" id="scene-1-2">
                     <div class="content-row">
                         <div class="content-col-left">
@@ -162,43 +156,21 @@
                         <div class="content-col-right">
                             <div class="slider-wrapper">
                                 <div class="image-slider" id="slider2">
-                                    <div class="slide active">
-                                        <div class="slide-placeholder">📸</div>
-                                    </div>
-                                    <div class="slide">
-                                        <div class="slide-placeholder">📸</div>
-                                    </div>
-                                    <div class="slide">
-                                        <div class="slide-placeholder">📸</div>
-                                    </div>
+                                    <div class="slide active" style="background-image: url('assets/Prelims/Freshman/NSTPTreePlanting/NSTPPlanting.JPG');"></div>
                                 </div>
-                                <button class="slider-nav-btn slider-nav-prev" onclick="prevSlide('slider2')">❮</button>
-                                <button class="slider-nav-btn slider-nav-next" onclick="nextSlide('slider2')">❯</button>
-                            </div>
-                            <div class="slider-dots">
-                                <span class="dot active" onclick="goToSlide('slider2', 0)"></span>
-                                <span class="dot" onclick="goToSlide('slider2', 1)"></span>
-                                <span class="dot" onclick="goToSlide('slider2', 2)"></span>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Scene 3 -->
+                <!-- Scene 3: 2 images -->
                 <div class="content-section" id="scene-1-3">
                     <div class="content-row">
                         <div class="content-col-left">
                             <div class="slider-wrapper">
                                 <div class="image-slider" id="slider3">
-                                    <div class="slide active">
-                                        <div class="slide-placeholder">📸</div>
-                                    </div>
-                                    <div class="slide">
-                                        <div class="slide-placeholder">📸</div>
-                                    </div>
-                                    <div class="slide">
-                                        <div class="slide-placeholder">📸</div>
-                                    </div>
+                                    <div class="slide active" style="background-image: url('assets/Prelims/Freshman/Clubsies_/Clubsies1.jpg');"></div>
+                                    <div class="slide" style="background-image: url('assets/Prelims/Freshman/Clubsies_/Clubsies2.JPG');"></div>
                                 </div>
                                 <button class="slider-nav-btn slider-nav-prev" onclick="prevSlide('slider3')">❮</button>
                                 <button class="slider-nav-btn slider-nav-next" onclick="nextSlide('slider3')">❯</button>
@@ -206,7 +178,6 @@
                             <div class="slider-dots">
                                 <span class="dot active" onclick="goToSlide('slider3', 0)"></span>
                                 <span class="dot" onclick="goToSlide('slider3', 1)"></span>
-                                <span class="dot" onclick="goToSlide('slider3', 2)"></span>
                             </div>
                         </div>
                         <div class="content-col-right">
@@ -216,7 +187,7 @@
                     </div>
                 </div>
 
-                <!-- Scene 4 -->
+                <!-- Scene 4: 3 images -->
                 <div class="content-section" id="scene-1-4">
                     <div class="content-row">
                         <div class="content-col-left">
@@ -226,15 +197,9 @@
                         <div class="content-col-right">
                             <div class="slider-wrapper">
                                 <div class="image-slider" id="slider4">
-                                    <div class="slide active">
-                                        <div class="slide-placeholder">📸</div>
-                                    </div>
-                                    <div class="slide">
-                                        <div class="slide-placeholder">📸</div>
-                                    </div>
-                                    <div class="slide">
-                                        <div class="slide-placeholder">📸</div>
-                                    </div>
+                                    <div class="slide active" style="background-image: url('assets/Prelims/Freshman/Kwismas/Kwismas1.jpg');"></div>
+                                    <div class="slide" style="background-image: url('assets/Prelims/Freshman/Kwismas/Kwismas2.JPG');"></div>
+                                    <div class="slide" style="background-image: url('assets/Prelims/Freshman/Kwismas/Kwismas3.jpg');"></div>
                                 </div>
                                 <button class="slider-nav-btn slider-nav-prev" onclick="prevSlide('slider4')">❮</button>
                                 <button class="slider-nav-btn slider-nav-next" onclick="nextSlide('slider4')">❯</button>
@@ -248,21 +213,16 @@
                     </div>
                 </div>
 
-                <!-- Scene 5 -->
+                <!-- Scene 5: 4 images -->
                 <div class="content-section" id="scene-1-5">
                     <div class="content-row">
                         <div class="content-col-left">
                             <div class="slider-wrapper">
                                 <div class="image-slider" id="slider5">
-                                    <div class="slide active">
-                                        <div class="slide-placeholder">📸</div>
-                                    </div>
-                                    <div class="slide">
-                                        <div class="slide-placeholder">📸</div>
-                                    </div>
-                                    <div class="slide">
-                                        <div class="slide-placeholder">📸</div>
-                                    </div>
+                                    <div class="slide active" style="background-image: url('assets/Prelims/Freshman/Friendships/Friendships1.JPG');"></div>
+                                    <div class="slide" style="background-image: url('assets/Prelims/Freshman/Friendships/Friendships2.jpg');"></div>
+                                    <div class="slide" style="background-image: url('assets/Prelims/Freshman/Friendships/Friendships3.JPG');"></div>
+                                    <div class="slide" style="background-image: url('assets/Prelims/Freshman/Friendships/Friendships4.JPG');"></div>
                                 </div>
                                 <button class="slider-nav-btn slider-nav-prev" onclick="prevSlide('slider5')">❮</button>
                                 <button class="slider-nav-btn slider-nav-next" onclick="nextSlide('slider5')">❯</button>
@@ -271,6 +231,7 @@
                                 <span class="dot active" onclick="goToSlide('slider5', 0)"></span>
                                 <span class="dot" onclick="goToSlide('slider5', 1)"></span>
                                 <span class="dot" onclick="goToSlide('slider5', 2)"></span>
+                                <span class="dot" onclick="goToSlide('slider5', 3)"></span>
                             </div>
                         </div>
                         <div class="content-col-right">
@@ -293,21 +254,25 @@
                 </div>
                 <p class="chapter-intro">Like a dainty rosebud steadily blooming its blush, Mila steps gracefully into her second year at Ateneo.</p>
 
-                <!-- Scene 1 -->
+                <!-- Scene 1: 13 images -->
                 <div class="content-section" id="scene-2-1">
                     <div class="content-row">
                         <div class="content-col-left">
                             <div class="slider-wrapper">
                                 <div class="image-slider" id="slider6">
-                                    <div class="slide active">
-                                        <div class="slide-placeholder">📸</div>
-                                    </div>
-                                    <div class="slide">
-                                        <div class="slide-placeholder">📸</div>
-                                    </div>
-                                    <div class="slide">
-                                        <div class="slide-placeholder">📸</div>
-                                    </div>
+                                    <div class="slide active" style="background-image: url('assets/Prelims/Sophomore/AcadsWhimsies/Acads_1.jpg');"></div>
+                                    <div class="slide" style="background-image: url('assets/Prelims/Sophomore/AcadsWhimsies/Acads_2.jpg');"></div>
+                                    <div class="slide" style="background-image: url('assets/Prelims/Sophomore/AcadsWhimsies/Acads_3.jpg');"></div>
+                                    <div class="slide" style="background-image: url('assets/Prelims/Sophomore/AcadsWhimsies/Acads_4.jpg');"></div>
+                                    <div class="slide" style="background-image: url('assets/Prelims/Sophomore/AcadsWhimsies/Acads_6.jpg');"></div>
+                                    <div class="slide" style="background-image: url('assets/Prelims/Sophomore/AcadsWhimsies/Acads_8.jpg');"></div>
+                                    <div class="slide" style="background-image: url('assets/Prelims/Sophomore/AcadsWhimsies/Acads_9.jpg');"></div>
+                                    <div class="slide" style="background-image: url('assets/Prelims/Sophomore/AcadsWhimsies/Acads_10.jpg');"></div>
+                                    <div class="slide" style="background-image: url('assets/Prelims/Sophomore/AcadsWhimsies/Acads_11.jpg');"></div>
+                                    <div class="slide" style="background-image: url('assets/Prelims/Sophomore/AcadsWhimsies/Acads_12.JPEG');"></div>
+                                    <div class="slide" style="background-image: url('assets/Prelims/Sophomore/AcadsWhimsies/Acads_13');"></div>
+                                    <div class="slide" style="background-image: url('assets/Prelims/Sophomore/AcadsWhimsies/Acads_14.jpg');"></div>
+                                    <div class="slide" style="background-image: url('assets/Prelims/Sophomore/AcadsWhimsies/Acads_15.jpg');"></div>
                                 </div>
                                 <button class="slider-nav-btn slider-nav-prev" onclick="prevSlide('slider6')">❮</button>
                                 <button class="slider-nav-btn slider-nav-next" onclick="nextSlide('slider6')">❯</button>
@@ -316,6 +281,16 @@
                                 <span class="dot active" onclick="goToSlide('slider6', 0)"></span>
                                 <span class="dot" onclick="goToSlide('slider6', 1)"></span>
                                 <span class="dot" onclick="goToSlide('slider6', 2)"></span>
+                                <span class="dot" onclick="goToSlide('slider6', 3)"></span>
+                                <span class="dot" onclick="goToSlide('slider6', 4)"></span>
+                                <span class="dot" onclick="goToSlide('slider6', 5)"></span>
+                                <span class="dot" onclick="goToSlide('slider6', 6)"></span>
+                                <span class="dot" onclick="goToSlide('slider6', 7)"></span>
+                                <span class="dot" onclick="goToSlide('slider6', 8)"></span>
+                                <span class="dot" onclick="goToSlide('slider6', 9)"></span>
+                                <span class="dot" onclick="goToSlide('slider6', 10)"></span>
+                                <span class="dot" onclick="goToSlide('slider6', 11)"></span>
+                                <span class="dot" onclick="goToSlide('slider6', 12)"></span>
                             </div>
                         </div>
                         <div class="content-col-right">
@@ -325,7 +300,7 @@
                     </div>
                 </div>
 
-                <!-- Scene 2 -->
+                <!-- Scene 2: 4 images -->
                 <div class="content-section" id="scene-2-2">
                     <div class="content-row">
                         <div class="content-col-left">
@@ -335,15 +310,10 @@
                         <div class="content-col-right">
                             <div class="slider-wrapper">
                                 <div class="image-slider" id="slider7">
-                                    <div class="slide active">
-                                        <div class="slide-placeholder">📸</div>
-                                    </div>
-                                    <div class="slide">
-                                        <div class="slide-placeholder">📸</div>
-                                    </div>
-                                    <div class="slide">
-                                        <div class="slide-placeholder">📸</div>
-                                    </div>
+                                    <div class="slide active" style="background-image: url('assets/Prelims/Sophomore/Agui-PoAdventures/Agui-Po_1.jpg');"></div>
+                                    <div class="slide" style="background-image: url('assets/Prelims/Sophomore/Agui-PoAdventures/Agui-Po_2.jpg');"></div>
+                                    <div class="slide" style="background-image: url('assets/Prelims/Sophomore/Agui-PoAdventures/Agui-Po_3.jpg');"></div>
+                                    <div class="slide" style="background-image: url('assets/Prelims/Sophomore/Agui-PoAdventures/Agui-Po_4.jpg');"></div>
                                 </div>
                                 <button class="slider-nav-btn slider-nav-prev" onclick="prevSlide('slider7')">❮</button>
                                 <button class="slider-nav-btn slider-nav-next" onclick="nextSlide('slider7')">❯</button>
@@ -352,26 +322,30 @@
                                 <span class="dot active" onclick="goToSlide('slider7', 0)"></span>
                                 <span class="dot" onclick="goToSlide('slider7', 1)"></span>
                                 <span class="dot" onclick="goToSlide('slider7', 2)"></span>
+                                <span class="dot" onclick="goToSlide('slider7', 3)"></span>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Scene 3 -->
+                <!-- Scene 3: 12 images -->
                 <div class="content-section" id="scene-2-3">
                     <div class="content-row">
                         <div class="content-col-left">
                             <div class="slider-wrapper">
                                 <div class="image-slider" id="slider8">
-                                    <div class="slide active">
-                                        <div class="slide-placeholder">📸</div>
-                                    </div>
-                                    <div class="slide">
-                                        <div class="slide-placeholder">📸</div>
-                                    </div>
-                                    <div class="slide">
-                                        <div class="slide-placeholder">📸</div>
-                                    </div>
+                                    <div class="slide active" style="background-image: url('assets/Prelims/Sophomore/MK2ADiaries/MK2A_Diaries_1.jpg');"></div>
+                                    <div class="slide" style="background-image: url('assets/Prelims/Sophomore/MK2ADiaries/MK2A_Diaries_2.jpg');"></div>
+                                    <div class="slide" style="background-image: url('assets/Prelims/Sophomore/MK2ADiaries/MK2A_Diaries_3.jpg');"></div>
+                                    <div class="slide" style="background-image: url('assets/Prelims/Sophomore/MK2ADiaries/MK2A_Diaries_4.jpg');"></div>
+                                    <div class="slide" style="background-image: url('assets/Prelims/Sophomore/MK2ADiaries/MK2A_Diaries_5.jpg');"></div>
+                                    <div class="slide" style="background-image: url('assets/Prelims/Sophomore/MK2ADiaries/MK2A_Diaries_6.jpg');"></div>
+                                    <div class="slide" style="background-image: url('assets/Prelims/Sophomore/MK2ADiaries/MK2A_Diaries_7.jpg');"></div>
+                                    <div class="slide" style="background-image: url('assets/Prelims/Sophomore/MK2ADiaries/MK2A_Diaries_8.jpg');"></div>
+                                    <div class="slide" style="background-image: url('assets/Prelims/Sophomore/MK2ADiaries/MK2A_Diaries_9.jpg');"></div>
+                                    <div class="slide" style="background-image: url('assets/Prelims/Sophomore/MK2ADiaries/MK2A_Diaries_10.jpg');"></div>
+                                    <div class="slide" style="background-image: url('assets/Prelims/Sophomore/MK2ADiaries/MK2A_Diaries_11.jpg');"></div>
+                                    <div class="slide" style="background-image: url('assets/Prelims/Sophomore/MK2ADiaries/MK2A_Diaries_12.jpg');"></div>
                                 </div>
                                 <button class="slider-nav-btn slider-nav-prev" onclick="prevSlide('slider8')">❮</button>
                                 <button class="slider-nav-btn slider-nav-next" onclick="nextSlide('slider8')">❯</button>
@@ -380,17 +354,26 @@
                                 <span class="dot active" onclick="goToSlide('slider8', 0)"></span>
                                 <span class="dot" onclick="goToSlide('slider8', 1)"></span>
                                 <span class="dot" onclick="goToSlide('slider8', 2)"></span>
+                                <span class="dot" onclick="goToSlide('slider8', 3)"></span>
+                                <span class="dot" onclick="goToSlide('slider8', 4)"></span>
+                                <span class="dot" onclick="goToSlide('slider8', 5)"></span>
+                                <span class="dot" onclick="goToSlide('slider8', 6)"></span>
+                                <span class="dot" onclick="goToSlide('slider8', 7)"></span>
+                                <span class="dot" onclick="goToSlide('slider8', 8)"></span>
+                                <span class="dot" onclick="goToSlide('slider8', 9)"></span>
+                                <span class="dot" onclick="goToSlide('slider8', 10)"></span>
+                                <span class="dot" onclick="goToSlide('slider8', 11)"></span>
                             </div>
                         </div>
                         <div class="content-col-right">
                             <h3>MK2A Diaries</h3>
-                            <p>Cherished moments with my marketing family, creating memories that bloom with every laugh and late-night study session together. 💕</p>
+                            <p>A tender glimpse into my quiet marketing path with MK2A, holding close both the cherished highlights and the soft, everyday whispers of our second-year moments. 💌</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="chapter-closing">
-                    <p>Thank you for reading Chapter 2, can't wait for you to read Chapter 3 with me💕</p>
+                    <p>Thank you for joining me through Chapter 2—I'm quietly thrilled for you to walk with me into Chapter 3.</p>
                 </div>
             </section>
 
@@ -400,14 +383,225 @@
                     <h2>CHAPTER 3: BLUSH</h2>
                     <p class="chapter-subtitle">(Junior) - Warm, rosy glow emerging.</p>
                 </div>
-                <p class="chapter-intro">Warm and glowing like a blush, Mila continues her journey with renewed confidence and vibrant energy.</p>
+                <p class="chapter-intro">As I humbly step into my third year at Ateneo, my path begins to shimmer with a gentle, rosy warmth, like a quiet dawn promising deeper discoveries ahead.</p>
 
-                <div class="content-section">
+                <!-- Scene 1: 12 images -->
+                <div class="content-section" id="scene-3-1">
                     <div class="content-row">
                         <div class="content-col-left">
-                            <p style="text-align: center; font-style: italic; color: var(--rose-pink); padding: 2rem;">Coming Soon...</p>
+                            <div class="slider-wrapper">
+                                <div class="image-slider" id="slider9">
+                                    <div class="slide active" style="background-image: url('assets/Prelims/Junior/EmbassyBeginnings/Embassys_Beginnings_1.jpg');"></div>
+                                    <div class="slide" style="background-image: url('assets/Prelims/Junior/EmbassyBeginnings/Embassys_Beginnings_2.jpg');"></div>
+                                    <div class="slide" style="background-image: url('assets/Prelims/Junior/EmbassyBeginnings/Embassys_Beginnings_3.jpg');"></div>
+                                    <div class="slide" style="background-image: url('assets/Prelims/Junior/EmbassyBeginnings/Embassys_Beginnings_4.jpg');"></div>
+                                    <div class="slide" style="background-image: url('assets/Prelims/Junior/EmbassyBeginnings/Embassys_Beginnings_5.jpg');"></div>
+                                    <div class="slide" style="background-image: url('assets/Prelims/Junior/EmbassyBeginnings/Embassys_Beginnings_6.jpg');"></div>
+                                    <div class="slide" style="background-image: url('assets/Prelims/Junior/EmbassyBeginnings/Embassys_Beginnings_7.jpg');"></div>
+                                    <div class="slide" style="background-image: url('assets/Prelims/Junior/EmbassyBeginnings/Embassys_Beginnings_8.jpg');"></div>
+                                    <div class="slide" style="background-image: url('assets/Prelims/Junior/EmbassyBeginnings/Embassys_Beginnings_9.jpg');"></div>
+                                    <div class="slide" style="background-image: url('assets/Prelims/Junior/EmbassyBeginnings/Embassys_Beginnings_10.jpg');"></div>
+                                    <div class="slide" style="background-image: url('assets/Prelims/Junior/EmbassyBeginnings/Embassys_Beginnings_11.jpg');"></div>
+                                    <div class="slide" style="background-image: url('assets/Prelims/Junior/EmbassyBeginnings/Embassys_Beginnings_12.jpg');"></div>
+                                    <div class="slide" style="background-image: url('assets/Prelims/Junior/EmbassyBeginnings/Embassy_Beginnings_13.GIF');"></div>
+                                </div>
+                                <button class="slider-nav-btn slider-nav-prev" onclick="prevSlide('slider9')">❮</button>
+                                <button class="slider-nav-btn slider-nav-next" onclick="nextSlide('slider9')">❯</button>
+                            </div>
+                            <div class="slider-dots">
+                                <span class="dot active" onclick="goToSlide('slider9', 0)"></span>
+                                <span class="dot" onclick="goToSlide('slider9', 1)"></span>
+                                <span class="dot" onclick="goToSlide('slider9', 2)"></span>
+                                <span class="dot" onclick="goToSlide('slider9', 3)"></span>
+                                <span class="dot" onclick="goToSlide('slider9', 4)"></span>
+                                <span class="dot" onclick="goToSlide('slider9', 5)"></span>
+                                <span class="dot" onclick="goToSlide('slider9', 6)"></span>
+                                <span class="dot" onclick="goToSlide('slider9', 7)"></span>
+                                <span class="dot" onclick="goToSlide('slider9', 8)"></span>
+                                <span class="dot" onclick="goToSlide('slider9', 9)"></span>
+                                <span class="dot" onclick="goToSlide('slider9', 10)"></span>
+                                <span class="dot" onclick="goToSlide('slider9', 11)"></span>
+                            </div>
+                        </div>
+                        <div class="content-col-right">
+                            <h3>Embassy's Beginnings</h3>
+                            <p>Entering my third year, I finally blossomed into my own circle of cherished friends! Allow me to introduce, with quiet delight, the FilChi Embassy! Here are a few of my most treasured moments with them. 🌸</p>
                         </div>
                     </div>
+                </div>
+
+                <!-- Scene 2: 10 images -->
+                <div class="content-section" id="scene-3-2">
+                    <div class="content-row">
+                        <div class="content-col-left">
+                            <h3>Major in Marketing, Minor in Orgs</h3>
+                            <p>Now an official "org girlie," I gracefully balanced four organizations, each with core roles, amid my most demanding academic year. Was I a touch mad to take it on? Perhaps. Yet, did I rise to the occasion with poise? Indeed, I did. 💖</p>
+                        </div>
+                        <div class="content-col-right">
+                            <div class="slider-wrapper">
+                                <div class="image-slider" id="slider10">
+                                    <div class="slide active" style="background-image: url('assets/Prelims/Junior/MajorinMarketing/Major_1.jpg');"></div>
+                                    <div class="slide" style="background-image: url('assets/Prelims/Junior/MajorinMarketing/Major_2.jpg');"></div>
+                                    <div class="slide" style="background-image: url('assets/Prelims/Junior/MajorinMarketing/Major_3.jpg');"></div>
+                                    <div class="slide" style="background-image: url('assets/Prelims/Junior/MajorinMarketing/Major_4.JPG');"></div>
+                                    <div class="slide" style="background-image: url('assets/Prelims/Junior/MajorinMarketing/Major_5.jpg');"></div>
+                                    <div class="slide" style="background-image: url('assets/Prelims/Junior/MajorinMarketing/Major_6.jpg');"></div>
+                                    <div class="slide" style="background-image: url('assets/Prelims/Junior/MajorinMarketing/Major_7.JPG');"></div>
+                                    <div class="slide" style="background-image: url('assets/Prelims/Junior/MajorinMarketing/Major_8.jpg');"></div>
+                                    <div class="slide" style="background-image: url('assets/Prelims/Junior/MajorinMarketing/Major_9.jpg');"></div>
+                                    <div class="slide" style="background-image: url('assets/Prelims/Junior/MajorinMarketing/Major_10.jpg');"></div>
+                                </div>
+                                <button class="slider-nav-btn slider-nav-prev" onclick="prevSlide('slider10')">❮</button>
+                                <button class="slider-nav-btn slider-nav-next" onclick="nextSlide('slider10')">❯</button>
+                            </div>
+                            <div class="slider-dots">
+                                <span class="dot active" onclick="goToSlide('slider10', 0)"></span>
+                                <span class="dot" onclick="goToSlide('slider10', 1)"></span>
+                                <span class="dot" onclick="goToSlide('slider10', 2)"></span>
+                                <span class="dot" onclick="goToSlide('slider10', 3)"></span>
+                                <span class="dot" onclick="goToSlide('slider10', 4)"></span>
+                                <span class="dot" onclick="goToSlide('slider10', 5)"></span>
+                                <span class="dot" onclick="goToSlide('slider10', 6)"></span>
+                                <span class="dot" onclick="goToSlide('slider10', 7)"></span>
+                                <span class="dot" onclick="goToSlide('slider10', 8)"></span>
+                                <span class="dot" onclick="goToSlide('slider10', 9)"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Scene 3: 12 images -->
+                <div class="content-section" id="scene-3-3">
+                    <div class="content-row">
+                        <div class="content-col-left">
+                            <div class="slider-wrapper">
+                                <div class="image-slider" id="slider11">
+                                    <div class="slide active" style="background-image: url('assets/Prelims/Junior/GlobalCountryNotebook/GCN_1.JPG');"></div>
+                                    <div class="slide" style="background-image: url('assets/Prelims/Junior/GlobalCountryNotebook/GCN_2.jpg');"></div>
+                                    <div class="slide" style="background-image: url('assets/Prelims/Junior/GlobalCountryNotebook/GCN_3.PNG');"></div>
+                                    <div class="slide" style="background-image: url('assets/Prelims/Junior/GlobalCountryNotebook/GCN_4.jpg');"></div>
+                                    <div class="slide" style="background-image: url('assets/Prelims/Junior/GlobalCountryNotebook/GCN_5.jpg');"></div>
+                                    <div class="slide" style="background-image: url('assets/Prelims/Junior/GlobalCountryNotebook/GCN_6.PNG');"></div>
+                                    <div class="slide" style="background-image: url('assets/Prelims/Junior/GlobalCountryNotebook/GCN_7.jpg');"></div>
+                                    <div class="slide" style="background-image: url('assets/Prelims/Junior/GlobalCountryNotebook/GCN_8.jpg');"></div>
+                                    <div class="slide" style="background-image: url('assets/Prelims/Junior/GlobalCountryNotebook/GCN_9.jpg');"></div>
+                                    <div class="slide" style="background-image: url('assets/Prelims/Junior/GlobalCountryNotebook/GCN_10.jpg');"></div>
+                                    <div class="slide" style="background-image: url('assets/Prelims/Junior/GlobalCountryNotebook/GCN_11.jpg');"></div>
+                                    <div class="slide" style="background-image: url('assets/Prelims/Junior/GlobalCountryNotebook/GCN_12.jpg');"></div>
+                                </div>
+                                <button class="slider-nav-btn slider-nav-prev" onclick="prevSlide('slider11')">❮</button>
+                                <button class="slider-nav-btn slider-nav-next" onclick="nextSlide('slider11')">❯</button>
+                            </div>
+                            <div class="slider-dots">
+                                <span class="dot active" onclick="goToSlide('slider11', 0)"></span>
+                                <span class="dot" onclick="goToSlide('slider11', 1)"></span>
+                                <span class="dot" onclick="goToSlide('slider11', 2)"></span>
+                                <span class="dot" onclick="goToSlide('slider11', 3)"></span>
+                                <span class="dot" onclick="goToSlide('slider11', 4)"></span>
+                                <span class="dot" onclick="goToSlide('slider11', 5)"></span>
+                                <span class="dot" onclick="goToSlide('slider11', 6)"></span>
+                                <span class="dot" onclick="goToSlide('slider11', 7)"></span>
+                                <span class="dot" onclick="goToSlide('slider11', 8)"></span>
+                                <span class="dot" onclick="goToSlide('slider11', 9)"></span>
+                                <span class="dot" onclick="goToSlide('slider11', 10)"></span>
+                                <span class="dot" onclick="goToSlide('slider11', 11)"></span>
+                            </div>
+                        </div>
+                        <div class="content-col-right">
+                            <h3>Global Country Notebook</h3>
+                            <p>This was the root of my busiest academic season—the countless nights without sleep, quiet moments of overwhelm, and indulgent comforts like binge eating. I even set a personal milestone, enduring 36 hours without sleep in gentle perseverance! 🌙</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Scene 4: 10 images -->
+                <div class="content-section" id="scene-3-4">
+                    <div class="content-row">
+                        <div class="content-col-left">
+                            <h3>SBG 25th Anniversary</h3>
+                            <p>Dundundundun... Yet another twist in my most trying year. I was humbly appointed event head for SBG's 25th Anniversary celebration—a true turning point! Amid the trials, my heart swells with sincere gratitude and pride for us in MK3A; we brought it all to fruition together. I truly couldn't have done it without their steadfast support. 🏆</p>
+                        </div>
+                        <div class="content-col-right">
+                            <div class="slider-wrapper">
+                                <div class="image-slider" id="slider12">
+                                    <div class="slide active" style="background-image: url('assets/Prelims/Junior/SBG25thAnniversary/SBG_1.jpg');"></div>
+                                    <div class="slide" style="background-image: url('assets/Prelims/Junior/SBG25thAnniversary/SBG_2.PNG');"></div>
+                                    <div class="slide" style="background-image: url('assets/Prelims/Junior/SBG25thAnniversary/SBG_3.jpg');"></div>
+                                    <div class="slide" style="background-image: url('assets/Prelims/Junior/SBG25thAnniversary/SBG_4.jpg');"></div>
+                                    <div class="slide" style="background-image: url('assets/Prelims/Junior/SBG25thAnniversary/SBG_5.jpg');"></div>
+                                    <div class="slide" style="background-image: url('assets/Prelims/Junior/SBG25thAnniversary/SBG_6.jpg');"></div>
+                                    <div class="slide" style="background-image: url('assets/Prelims/Junior/SBG25thAnniversary/SBG_7.jpg');"></div>
+                                    <div class="slide" style="background-image: url('assets/Prelims/Junior/SBG25thAnniversary/SBG_8.jpg');"></div>
+                                    <div class="slide" style="background-image: url('assets/Prelims/Junior/SBG25thAnniversary/SBG_9.PNG');"></div>
+                                    <div class="slide" style="background-image: url('assets/Prelims/Junior/SBG25thAnniversary/SBG_10.jpg');"></div>
+                                </div>
+                                <button class="slider-nav-btn slider-nav-prev" onclick="prevSlide('slider12')">❮</button>
+                                <button class="slider-nav-btn slider-nav-next" onclick="nextSlide('slider12')">❯</button>
+                            </div>
+                            <div class="slider-dots">
+                                <span class="dot active" onclick="goToSlide('slider12', 0)"></span>
+                                <span class="dot" onclick="goToSlide('slider12', 1)"></span>
+                                <span class="dot" onclick="goToSlide('slider12', 2)"></span>
+                                <span class="dot" onclick="goToSlide('slider12', 3)"></span>
+                                <span class="dot" onclick="goToSlide('slider12', 4)"></span>
+                                <span class="dot" onclick="goToSlide('slider12', 5)"></span>
+                                <span class="dot" onclick="goToSlide('slider12', 6)"></span>
+                                <span class="dot" onclick="goToSlide('slider12', 7)"></span>
+                                <span class="dot" onclick="goToSlide('slider12', 8)"></span>
+                                <span class="dot" onclick="goToSlide('slider12', 9)"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Scene 5: 13 images -->
+                <div class="content-section" id="scene-3-5">
+                    <div class="content-row">
+                        <div class="content-col-left">
+                            <div class="slider-wrapper">
+                                <div class="image-slider" id="slider13">
+                                    <div class="slide active" style="background-image: url('assets/Prelims/Junior/MK3AReveries/MK3A_1.jpg');"></div>
+                                    <div class="slide" style="background-image: url('assets/Prelims/Junior/MK3AReveries/MK3A_2.jpg');"></div>
+                                    <div class="slide" style="background-image: url('assets/Prelims/Junior/MK3AReveries/MK3A_3.jpg');"></div>
+                                    <div class="slide" style="background-image: url('assets/Prelims/Junior/MK3AReveries/MK3A_4.jpg');"></div>
+                                    <div class="slide" style="background-image: url('assets/Prelims/Junior/MK3AReveries/MK3A_5.jpg');"></div>
+                                    <div class="slide" style="background-image: url('assets/Prelims/Junior/MK3AReveries/MK3A_6.jpg');"></div>
+                                    <div class="slide" style="background-image: url('assets/Prelims/Junior/MK3AReveries/MK3A_6_1.jpg');"></div>
+                                    <div class="slide" style="background-image: url('assets/Prelims/Junior/MK3AReveries/MK3A_7.jpg');"></div>
+                                    <div class="slide" style="background-image: url('assets/Prelims/Junior/MK3AReveries/MK3A_8.jpg');"></div>
+                                    <div class="slide" style="background-image: url('assets/Prelims/Junior/MK3AReveries/MK3A_9.jpg');"></div>
+                                    <div class="slide" style="background-image: url('assets/Prelims/Junior/MK3AReveries/MK3A_10.JPG');"></div>
+                                    <div class="slide" style="background-image: url('assets/Prelims/Junior/MK3AReveries/MK3A_11.jpg');"></div>
+                                    <div class="slide" style="background-image: url('assets/Prelims/Junior/MK3AReveries/MK3A_12.jpg');"></div>
+                                </div>
+                                <button class="slider-nav-btn slider-nav-prev" onclick="prevSlide('slider13')">❮</button>
+                                <button class="slider-nav-btn slider-nav-next" onclick="nextSlide('slider13')">❯</button>
+                            </div>
+                            <div class="slider-dots">
+                                <span class="dot active" onclick="goToSlide('slider13', 0)"></span>
+                                <span class="dot" onclick="goToSlide('slider13', 1)"></span>
+                                <span class="dot" onclick="goToSlide('slider13', 2)"></span>
+                                <span class="dot" onclick="goToSlide('slider13', 3)"></span>
+                                <span class="dot" onclick="goToSlide('slider13', 4)"></span>
+                                <span class="dot" onclick="goToSlide('slider13', 5)"></span>
+                                <span class="dot" onclick="goToSlide('slider13', 6)"></span>
+                                <span class="dot" onclick="goToSlide('slider13', 7)"></span>
+                                <span class="dot" onclick="goToSlide('slider13', 8)"></span>
+                                <span class="dot" onclick="goToSlide('slider13', 9)"></span>
+                                <span class="dot" onclick="goToSlide('slider13', 10)"></span>
+                                <span class="dot" onclick="goToSlide('slider13', 11)"></span>
+                                <span class="dot" onclick="goToSlide('slider13', 12)"></span>
+                            </div>
+                        </div>
+                        <div class="content-col-right">
+                            <h3>MK3A Reveries</h3>
+                            <p>A delightful bonus chapter alongside my ever-devoted, nurturing, and gracious MK3A family—truly, how could my year feel whole without their gentle presence by my side! 🩷 (Tutor shenanigans and brain-bending breakthroughs in between! 🎉)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chapter-closing">
+                    <p>As my third chapter draws to a gentle close, I invite you to walk alongside me with quiet anticipation into the pages of our final one ahead.</p>
                 </div>
             </section>
 
@@ -417,30 +611,157 @@
                     <h2>CHAPTER 4: MAGENTA</h2>
                     <p class="chapter-subtitle">(Senior) - Deep pink poise and petal grace.</p>
                 </div>
-                <p class="chapter-intro">With the grace of a magenta bloom, Mila stands poised and confident in her final chapter of undergraduate life.</p>
+                <p class="chapter-intro">As I enter my senior year, I embody deep pink poise and petal grace, standing tall yet softly unfurling amid final challenges, blending quiet confidence with delicate growth.</p>
 
-                <div class="content-section">
+                <!-- Scene 1: 5 images -->
+                <div class="content-section" id="scene-4-1">
                     <div class="content-row">
                         <div class="content-col-left">
-                            <p style="text-align: center; font-style: italic; color: var(--rose-pink); padding: 2rem;">Coming Soon...</p>
+                            <div class="slider-wrapper">
+                                <div class="image-slider" id="slider14">
+                                    <div class="slide active" style="background-image: url('assets/Prelims/Senior/DeadlineDemons/Thesis_1.jpg');"></div>
+                                    <div class="slide" style="background-image: url('assets/Prelims/Senior/DeadlineDemons/Thesis_2.jpg');"></div>
+                                    <div class="slide" style="background-image: url('assets/Prelims/Senior/DeadlineDemons/Thesis_3.jpg');"></div>
+                                    <div class="slide" style="background-image: url('assets/Prelims/Senior/DeadlineDemons/Thesis_4.PNG');"></div>
+                                    <div class="slide" style="background-image: url('assets/Prelims/Senior/DeadlineDemons/Thesis_5.jpg');"></div>
+                                </div>
+                                <button class="slider-nav-btn slider-nav-prev" onclick="prevSlide('slider14')">❮</button>
+                                <button class="slider-nav-btn slider-nav-next" onclick="nextSlide('slider14')">❯</button>
+                            </div>
+                            <div class="slider-dots">
+                                <span class="dot active" onclick="goToSlide('slider14', 0)"></span>
+                                <span class="dot" onclick="goToSlide('slider14', 1)"></span>
+                                <span class="dot" onclick="goToSlide('slider14', 2)"></span>
+                                <span class="dot" onclick="goToSlide('slider14', 3)"></span>
+                                <span class="dot" onclick="goToSlide('slider14', 4)"></span>
+                            </div>
+                        </div>
+                        <div class="content-col-right">
+                            <h3>Deadline Demons: Thesis Edition</h3>
+                            <p>As my fourth year unfolded with its soft inevitability, there arrived the tender trial of the thesis. Amid the endless nights of whispered doubts and tangled thoughts, we tiptoed through, barely blooming past the thorns, yet ever grateful for the grace that carried us. ✨</p>
                         </div>
                     </div>
                 </div>
+
+                <!-- Scene 2: 10 images -->
+                <div class="content-section" id="scene-4-2">
+                    <div class="content-row">
+                        <div class="content-col-left">
+                            <h3>Internship's Gentle Veil</h3>
+                            <p>With the shy bloom of thesis done comes internship—a gentle glimpse at adulting, with 6 AM alarm whispers, quick toast bites, and quiet office flutters. 🦋</p>
+                        </div>
+                        <div class="content-col-right">
+                            <div class="slider-wrapper">
+                                <div class="image-slider" id="slider15">
+                                    <div class="slide active" style="background-image: url('assets/Prelims/Senior/GentleVeil/Internship_1.JPG');"></div>
+                                    <div class="slide" style="background-image: url('assets/Prelims/Senior/GentleVeil/Internship_2.JPG');"></div>
+                                    <div class="slide" style="background-image: url('assets/Prelims/Senior/GentleVeil/Internship_3.jpg');"></div>
+                                    <div class="slide" style="background-image: url('assets/Prelims/Senior/GentleVeil/Internship_4.PNG');"></div>
+                                    <div class="slide" style="background-image: url('assets/Prelims/Senior/GentleVeil/Internship_5.jpg');"></div>
+                                    <div class="slide" style="background-image: url('assets/Prelims/Senior/GentleVeil/Internship_6.jpg');"></div>
+                                    <div class="slide" style="background-image: url('assets/Prelims/Senior/GentleVeil/Internship_7.PNG');"></div>
+                                    <div class="slide" style="background-image: url('assets/Prelims/Senior/GentleVeil/Internship_8.PNG');"></div>
+                                    <div class="slide" style="background-image: url('assets/Prelims/Senior/GentleVeil/Internship_9.jpg');"></div>
+                                    <div class="slide" style="background-image: url('assets/Prelims/Senior/GentleVeil/Intership_10.jpg');"></div>
+                                </div>
+                                <button class="slider-nav-btn slider-nav-prev" onclick="prevSlide('slider15')">❮</button>
+                                <button class="slider-nav-btn slider-nav-next" onclick="nextSlide('slider15')">❯</button>
+                            </div>
+                            <div class="slider-dots">
+                                <span class="dot active" onclick="goToSlide('slider15', 0)"></span>
+                                <span class="dot" onclick="goToSlide('slider15', 1)"></span>
+                                <span class="dot" onclick="goToSlide('slider15', 2)"></span>
+                                <span class="dot" onclick="goToSlide('slider15', 3)"></span>
+                                <span class="dot" onclick="goToSlide('slider15', 4)"></span>
+                                <span class="dot" onclick="goToSlide('slider15', 5)"></span>
+                                <span class="dot" onclick="goToSlide('slider15', 6)"></span>
+                                <span class="dot" onclick="goToSlide('slider15', 7)"></span>
+                                <span class="dot" onclick="goToSlide('slider15', 8)"></span>
+                                <span class="dot" onclick="goToSlide('slider15', 9)"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Scene 3: 6 images -->
+                <div class="content-section" id="scene-4-3">
+                    <div class="content-row">
+                        <div class="content-col-left">
+                            <div class="slider-wrapper">
+                                <div class="image-slider" id="slider16">
+                                    <div class="slide active" style="background-image: url('assets/Prelims/Senior/EmbassyShenanigans/Embassy_Shenanigans_1.JPEG');"></div>
+                                    <div class="slide" style="background-image: url('assets/Prelims/Senior/EmbassyShenanigans/Embassy_Shenanigans_2.jpg');"></div>
+                                    <div class="slide" style="background-image: url('assets/Prelims/Senior/EmbassyShenanigans/Embassy_Shenanigans_3.JPG');"></div>
+                                    <div class="slide" style="background-image: url('assets/Prelims/Senior/EmbassyShenanigans/Embassy_Shenanigans_4.JPG');"></div>
+                                    <div class="slide" style="background-image: url('assets/Prelims/Senior/EmbassyShenanigans/Embassy_Shenanigans_5.jpg');"></div>
+                                    <div class="slide" style="background-image: url('assets/Prelims/Senior/EmbassyShenanigans/Embassy_Shenanigans_6.JPEG');"></div>
+                                </div>
+                                <button class="slider-nav-btn slider-nav-prev" onclick="prevSlide('slider16')">❮</button>
+                                <button class="slider-nav-btn slider-nav-next" onclick="nextSlide('slider16')">❯</button>
+                            </div>
+                            <div class="slider-dots">
+                                <span class="dot active" onclick="goToSlide('slider16', 0)"></span>
+                                <span class="dot" onclick="goToSlide('slider16', 1)"></span>
+                                <span class="dot" onclick="goToSlide('slider16', 2)"></span>
+                                <span class="dot" onclick="goToSlide('slider16', 3)"></span>
+                                <span class="dot" onclick="goToSlide('slider16', 4)"></span>
+                                <span class="dot" onclick="goToSlide('slider16', 5)"></span>
+                            </div>
+                        </div>
+                        <div class="content-col-right">
+                            <h3>Embassy Shenanigans</h3>
+                            <p>As I near the end of my Ateneo story, closing this cherished chapter with my FilChi Embassy friends, I reflect on how we blossomed together. With bittersweet grace, I humbly share my most heartfelt moments with my favorites. 💝</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Scene 4: 5 images -->
+                <div class="content-section" id="scene-4-4">
+                    <div class="content-row">
+                        <div class="content-col-left">
+                            <h3>Farewell Tales of MK4A</h3>
+                            <p>In this cherished senior year leading to graduation, a heartfelt bonus unfolds with my steadfast MK4A companions, their unwavering warmth and quiet strength made every step toward the cap-and-gown finale feel truly whole. 🥂</p>
+                        </div>
+                        <div class="content-col-right">
+                            <div class="slider-wrapper">
+                                <div class="image-slider" id="slider17">
+                                    <div class="slide active" style="background-image: url('assets/Prelims/Senior/MK4A/MK4A_1.jpg');"></div>
+                                    <div class="slide" style="background-image: url('assets/Prelims/Senior/MK4A/MK4A_2.JPG');"></div>
+                                    <div class="slide" style="background-image: url('assets/Prelims/Senior/MK4A/MK4A_3.jpg');"></div>
+                                    <div class="slide" style="background-image: url('assets/Prelims/Senior/MK4A/MK4A_4.jpg');"></div>
+                                    <div class="slide" style="background-image: url('assets/Prelims/Senior/MK4A/MK4A_5.jpg');"></div>
+                                </div>
+                                <button class="slider-nav-btn slider-nav-prev" onclick="prevSlide('slider17')">❮</button>
+                                <button class="slider-nav-btn slider-nav-next" onclick="nextSlide('slider17')">❯</button>
+                            </div>
+                            <div class="slider-dots">
+                                <span class="dot active" onclick="goToSlide('slider17', 0)"></span>
+                                <span class="dot" onclick="goToSlide('slider17', 1)"></span>
+                                <span class="dot" onclick="goToSlide('slider17', 2)"></span>
+                                <span class="dot" onclick="goToSlide('slider17', 3)"></span>
+                                <span class="dot" onclick="goToSlide('slider17', 4)"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chapter-closing">
+                    <p>In this final chapter, if it be so, I quietly await the unfolding of my story—the joys, trials, and all that lies between.</p>
+                </div>
             </section>
 
-            <!-- Footer -->
+            <div class="chapter-nav">
+                <a href="midterm.html" class="nav-chapter-btn">MIDTERMS →</a>
+            </div>
+
             <div class="footer">
                 <div class="footer-content">
                     <p class="footer-title">✨ Created with love & elegance ✨</p>
                     <p class="footer-creator">Made by <strong>Mila</strong></p>
                     <div class="footer-contact">
-                        <a href="mailto:milaanahsu@gmail.com">
-                            <i class="fas fa-envelope"></i> milaanahsu@gmail.com
-                        </a>
+                        <a href="/cdn-cgi/l/email-protection#84e9ede8e5e5eae5ecf7f1c4e3e9e5ede8aae7ebe9"><i class="fas fa-envelope"></i> <span class="__cf_email__" data-cfemail="aac7c3c6cbcbc4cbc2d9dfeacdc7cbc3c684c9c5c7">[email&#160;protected]</span></a>
                         <span class="footer-divider">•</span>
-                        <a href="tel:+639171587596">
-                            <i class="fas fa-phone"></i> +63 917 158 7596
-                        </a>
+                        <a href="tel:+639171587596"><i class="fas fa-phone"></i> +63 917 158 7596</a>
                     </div>
                     <p class="footer-copyright">© 2026 All Rights Reserved</p>
                 </div>
@@ -448,7 +769,27 @@
         </div>
     </main>
 
+    <!-- Back to TOC Button -->
+    <button class="back-to-toc" title="Back to Table of Contents">↑</button>
+
     <script src="js/script.js"></script>
     <script src="js/season-sliders.js"></script>
+    <script>
+        // Back to TOC button functionality
+        const backToTocBtn = document.querySelector('.back-to-toc');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTocBtn.classList.add('show');
+            } else {
+                backToTocBtn.classList.remove('show');
+            }
+        });
+        
+        backToTocBtn.addEventListener('click', () => {
+            const tocSection = document.querySelector('.toc-section');
+            tocSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+    </script>
 </body>
 </html>

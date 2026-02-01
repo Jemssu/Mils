@@ -156,6 +156,7 @@
     border-radius: 20px;
     padding: 3rem;
     border: 2px solid var(--blush);
+    scroll-margin-top: 150px;
 }
 
 .content-row {
@@ -192,20 +193,16 @@
     position: absolute;
     width: 100%;
     height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     opacity: 0;
     transition: opacity 0.6s ease-in-out;
+    cursor: pointer;
 }
 
 .slide.active {
     opacity: 1;
-}
-
-.slide-placeholder {
-    font-size: 5rem;
-    color: rgba(255, 255, 255, 0.3);
 }
 
 /* Slider Navigation Buttons */
@@ -226,12 +223,18 @@
     align-items: center;
     justify-content: center;
     z-index: 10;
+    opacity: 0.3;
+}
+
+.slider-nav-btn.slider-nav-next {
+    opacity: 0.45;
 }
 
 .slider-nav-btn:hover {
     background: linear-gradient(135deg, var(--rose-pink), var(--deep-rose));
     color: #fff;
     transform: translateY(-50%) scale(1.1);
+    opacity: 1;
 }
 
 .slider-nav-prev {
@@ -305,6 +308,178 @@
     line-height: 1.8;
 }
 
+/* Chapter Navigation Button */
+.chapter-nav {
+    text-align: center;
+    margin: 4rem 0 2rem 0;
+    padding: 2rem 0;
+}
+
+.nav-chapter-btn {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    background: transparent;
+    color: var(--rose-pink);
+    text-decoration: none;
+    border: 2px solid var(--rose-pink);
+    border-radius: 50px;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-style: italic;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.nav-chapter-btn:hover {
+    color: white;
+    background: var(--rose-pink);
+    box-shadow: 0 6px 20px rgba(244, 166, 193, 0.3);
+}
+
+.nav-chapter-btn:active {
+    transform: scale(0.98);
+}
+
+/* Back to TOC Button */
+.back-to-toc {
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--rose-pink), var(--deep-rose));
+    color: white;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    box-shadow: 0 6px 20px rgba(244, 166, 193, 0.3);
+    transition: all 0.3s ease;
+    z-index: 100;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.back-to-toc.show {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.back-to-toc:hover {
+    transform: scale(1.1);
+    box-shadow: 0 10px 30px rgba(244, 166, 193, 0.5);
+}
+
+.back-to-toc:active {
+    transform: scale(0.95);
+}
+
+/* Lightbox Modal */
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    animation: fadeIn 0.3s ease;
+    padding: 20px;
+    overflow: auto;
+}
+
+.lightbox.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lightbox-content {
+    position: relative;
+    max-width: 800px;
+    max-height: 600px;
+}
+
+.lightbox-image {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 1001;
+    background: rgba(0, 0, 0, 0.5);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lightbox-close:hover {
+    background: rgba(0, 0, 0, 0.8);
+    transform: scale(1.1);
+}
+
+.lightbox-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 15px 20px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 5px;
+    z-index: 1001;
+}
+
+.lightbox-nav:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.lightbox-prev {
+    left: 20px;
+}
+
+.lightbox-next {
+    right: 20px;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes zoomIn {
+    from {
+        transform: scale(0.9);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .toc-section {
@@ -344,10 +519,6 @@
         height: 300px;
     }
 
-    .slide-placeholder {
-        font-size: 3rem;
-    }
-
     .slider-nav-btn {
         width: 45px;
         height: 45px;
@@ -370,6 +541,40 @@
     .content-col-left p,
     .content-col-right p {
         font-size: 0.95rem;
+    }
+
+    .back-to-toc {
+        right: 20px;
+        bottom: 20px;
+        width: 45px;
+        height: 45px;
+        font-size: 1.2rem;
+    }
+
+    .lightbox-nav {
+        padding: 10px 15px;
+        font-size: 1.2rem;
+    }
+
+    .lightbox-prev {
+        left: 10px;
+    }
+
+    .lightbox-next {
+        right: 10px;
+    }
+
+    .lightbox-close {
+        top: 15px;
+        right: 15px;
+        width: 45px;
+        height: 45px;
+        font-size: 2rem;
+    }
+
+    .lightbox-content {
+        max-width: 500px;
+        max-height: 400px;
     }
 }
 
@@ -403,10 +608,6 @@
         height: 250px;
     }
 
-    .slide-placeholder {
-        font-size: 2.5rem;
-    }
-
     .slider-nav-btn {
         width: 40px;
         height: 40px;
@@ -429,5 +630,23 @@
     .content-col-left p,
     .content-col-right p {
         font-size: 0.9rem;
+    }
+
+    .chapter-nav {
+        margin: 3rem 0 2rem 0;
+        padding: 1.5rem 0;
+    }
+
+    .nav-chapter-btn {
+        padding: 0.7rem 1.5rem;
+        font-size: 1rem;
+    }
+
+    .back-to-toc {
+        right: 15px;
+        bottom: 15px;
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
     }
 }
