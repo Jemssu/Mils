@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home - E-Portfolio</title>
+    <title>OOPS! - E-Portfolio</title>
     <!-- Sparkle Emoji Favicon -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='75' font-size='75'>✨</text></svg>" type="image/svg+xml">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,189 +11,396 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,700&family=Cormorant+Garamond:ital,wght@0,400;0,600&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/styles.css">
+    <style>
+        /* === OOPS PAGE SPECIFIC STYLES === */
+        :root {
+            --hijack-pink: #e91e8c;
+            --hijack-rose: #ff6eb4;
+            --hijack-dark: #1a0010;
+            --hijack-gold: #f5c842;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--hijack-dark);
+            font-family: 'Cormorant Garamond', serif;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        /* Sparkle rain background */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background:
+                radial-gradient(ellipse at 20% 50%, rgba(233,30,140,0.15) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 20%, rgba(255,110,180,0.10) 0%, transparent 50%),
+                radial-gradient(ellipse at 60% 80%, rgba(245,200,66,0.08) 0%, transparent 40%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* === HEADER BANNER === */
+        .oops-header {
+            position: relative;
+            z-index: 1;
+            background: linear-gradient(135deg, #2a0020 0%, #1a0010 50%, #200018 100%);
+            border-bottom: 2px solid var(--hijack-pink);
+            padding: 1.2rem 2rem;
+            text-align: center;
+        }
+
+        .oops-header-brand {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.6rem;
+            color: var(--hijack-rose);
+            letter-spacing: 0.04em;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        /* === MAIN CONTAINER === */
+        .oops-main {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: calc(100vh - 80px);
+            padding: 3rem 1.5rem;
+        }
+
+        /* === OOPS CARD === */
+        .oops-card {
+            background: linear-gradient(160deg, rgba(42,0,32,0.95) 0%, rgba(26,0,16,0.98) 100%);
+            border: 1px solid rgba(233,30,140,0.35);
+            border-radius: 2px;
+            max-width: 680px;
+            width: 100%;
+            overflow: hidden;
+            box-shadow:
+                0 0 60px rgba(233,30,140,0.2),
+                0 0 120px rgba(233,30,140,0.08),
+                0 30px 80px rgba(0,0,0,0.7);
+            animation: cardEntrance 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+        }
+
+        @keyframes cardEntrance {
+            from {
+                opacity: 0;
+                transform: translateY(40px) scale(0.96);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        /* === PHOTO SECTION === */
+        .oops-photo-wrap {
+            position: relative;
+            width: 100%;
+            height: 380px;
+            overflow: hidden;
+        }
+
+        .oops-photo-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            display: block;
+            filter: saturate(1.1) contrast(1.05);
+        }
+
+        /* Gradient overlay over photo */
+        .oops-photo-wrap::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 55%;
+            background: linear-gradient(to top, rgba(26,0,16,1) 0%, rgba(26,0,16,0.5) 60%, transparent 100%);
+        }
+
+        /* Takeover badge on photo */
+        .takeover-badge {
+            position: absolute;
+            top: 1.2rem;
+            right: 1.2rem;
+            background: var(--hijack-pink);
+            color: #fff;
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.05rem;
+            font-weight: 700;
+            padding: 0.4rem 0.9rem;
+            border-radius: 1px;
+            z-index: 2;
+            box-shadow: 0 4px 20px rgba(233,30,140,0.5);
+            animation: badgePulse 2s ease-in-out infinite;
+            letter-spacing: 0.03em;
+        }
+
+        @keyframes badgePulse {
+            0%, 100% { box-shadow: 0 4px 20px rgba(233,30,140,0.5); }
+            50% { box-shadow: 0 4px 40px rgba(233,30,140,0.9), 0 0 60px rgba(233,30,140,0.3); }
+        }
+
+        /* === TEXT CONTENT === */
+        .oops-content {
+            padding: 2.2rem 2.5rem 2.8rem;
+            text-align: center;
+            position: relative;
+        }
+
+        /* Decorative divider line */
+        .oops-content::before {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--hijack-pink), transparent);
+            margin: 0 auto 1.8rem;
+        }
+
+        .oops-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.8rem, 8vw, 4.2rem);
+            font-weight: 800;
+            color: #fff;
+            line-height: 1.05;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.4rem;
+            animation: titleShake 0.6s cubic-bezier(0.36,0.07,0.19,0.97) 0.9s both;
+        }
+
+        @keyframes titleShake {
+            0%, 100% { transform: translateX(0); }
+            10%, 30%, 50%, 70%, 90% { transform: translateX(-6px) rotate(-0.5deg); }
+            20%, 40%, 60%, 80% { transform: translateX(6px) rotate(0.5deg); }
+        }
+
+        .oops-title span {
+            color: var(--hijack-pink);
+            font-style: italic;
+        }
+
+        .oops-subtitle {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.35rem;
+            color: var(--hijack-rose);
+            margin-bottom: 1.6rem;
+            letter-spacing: 0.04em;
+            opacity: 0;
+            animation: fadeUp 0.7s ease 1.2s both;
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(12px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .oops-divider {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin: 0 auto 1.6rem;
+            width: fit-content;
+            opacity: 0;
+            animation: fadeUp 0.7s ease 1.4s both;
+        }
+
+        .oops-divider span {
+            color: var(--hijack-gold);
+            font-size: 0.85rem;
+            letter-spacing: 0.15em;
+        }
+
+        .oops-divider::before,
+        .oops-divider::after {
+            content: '';
+            width: 50px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--hijack-pink));
+        }
+
+        .oops-divider::after {
+            background: linear-gradient(90deg, var(--hijack-pink), transparent);
+        }
+
+        .oops-message {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.18rem;
+            color: rgba(255,255,255,0.75);
+            line-height: 1.75;
+            max-width: 480px;
+            margin: 0 auto 2.2rem;
+            opacity: 0;
+            animation: fadeUp 0.7s ease 1.6s both;
+        }
+
+        .oops-message strong {
+            color: var(--hijack-rose);
+            font-weight: 600;
+        }
+
+        /* === BACK BUTTON === */
+        .oops-back-btn {
+            display: inline-block;
+            background: transparent;
+            border: 1.5px solid var(--hijack-pink);
+            color: var(--hijack-pink);
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            padding: 0.75rem 2rem;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            opacity: 0;
+            animation: fadeUp 0.7s ease 1.8s both;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .oops-back-btn::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: var(--hijack-pink);
+            transform: translateX(-101%);
+            transition: transform 0.3s ease;
+            z-index: -1;
+        }
+
+        .oops-back-btn:hover {
+            color: #fff;
+        }
+
+        .oops-back-btn:hover::before {
+            transform: translateX(0);
+        }
+
+        /* === FLOATING SPARKLES === */
+        .sparkles {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .sparkle {
+            position: absolute;
+            font-size: 1rem;
+            animation: floatSparkle linear infinite;
+            opacity: 0;
+        }
+
+        @keyframes floatSparkle {
+            0% { opacity: 0; transform: translateY(100vh) rotate(0deg); }
+            10% { opacity: 0.7; }
+            90% { opacity: 0.5; }
+            100% { opacity: 0; transform: translateY(-20px) rotate(360deg); }
+        }
+
+        /* === FOOTER === */
+        .oops-footer {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            padding: 1.5rem;
+            border-top: 1px solid rgba(233,30,140,0.15);
+            background: rgba(26,0,16,0.8);
+        }
+
+        .oops-footer p {
+            font-family: 'Cormorant Garamond', serif;
+            color: rgba(255,255,255,0.3);
+            font-size: 0.85rem;
+            letter-spacing: 0.08em;
+        }
+
+        .oops-footer strong {
+            color: var(--hijack-rose);
+        }
+
+        @media (max-width: 600px) {
+            .oops-photo-wrap { height: 260px; }
+            .oops-content { padding: 1.8rem 1.5rem 2.2rem; }
+        }
+    </style>
 </head>
 <body>
-    <!-- NAVIGATION -->
-    <nav>
-        <a href="index.html" class="nav-brand">Mila's Path ✨</a>
-        
-        <div class="nav-divider"></div>
-        
-        <ul class="nav-menu">
-            <li><a href="index.html">HOME</a></li>
-            <li class="nav-dropdown">
-                <a href="#">VOLUMES <i class="fas fa-chevron-down"></i></a>
-                <ul class="dropdown-menu">
-                    <li><a href="prelim.html">PRELIMS</a></li>
-                    <li><a href="midterm.html">MIDTERMS</a></li>
-                    <li><a href="prefi.html">PREFINALS</a></li>
-                </ul>
-            </li>
-            <li><a href="faves.html">MY FAVES</a></li>
-            <li><a href="#contact-section" class="nav-cta">CONTACT ME</a></li>
-        </ul>
 
-        <button class="hamburger" onclick="toggleMenu()">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-    </nav>
+    <!-- Floating sparkles -->
+    <div class="sparkles" id="sparkles"></div>
 
-    <!-- Mobile Menu -->
-    <div class="mobile-menu" id="mobileMenu">
-        <a href="index.html" onclick="closeMenu()">HOME</a>
-        <a href="#" onclick="toggleMoreMenu(event)">VOLUMES <i class="fas fa-chevron-down"></i></a>
-        <div class="mobile-dropdown" id="moreMenu">
-            <a href="prelim.html">PRELIMS</a>
-            <a href="midterm.html">MIDTERMS</a>
-            <a href="prefi.html">PREFINALS</a>
-        </div>
-        <a href="faves.html" onclick="closeMenu()">MY FAVES</a>
-        <a href="#contact-section" onclick="closeMenu()" class="mobile-cta">CONTACT ME</a>
-    </div>
+    <!-- Header -->
+    <header class="oops-header">
+        <a href="index.html" class="oops-header-brand">Jose's Website Now ✨</a>
+    </header>
 
-    <main>
-        <!-- Header -->
-        <div class="header" id="home">
-            <h1>Mila's Path of Glimmering Embers</h1>
-            <div class="header-subtitle">A Digital Portfolio of My SIP Journey</div>
-        </div>
+    <!-- Main -->
+    <main class="oops-main">
+        <div class="oops-card">
 
-        <!-- Dashboard -->
-        <div class="dashboard">
-            <!-- Hero Section -->
-            <section class="hero-section">
-                <div class="hero-container">
-                    <div class="hero-placeholder" style="background-image: url('assets/hero.jpg');"></div>
-                    <div class="hero-text">
-                        <h2></h2>
-                        <p></p>
-                        <div class="hero-buttons">
-                            <button class="hero-btn hero-btn-primary" onclick="document.getElementById('contact-section').scrollIntoView({behavior: 'smooth'})">Contact Me</button>
-                            <button class="hero-btn hero-btn-secondary" onclick="document.getElementById('highlights').scrollIntoView({behavior: 'smooth', block: 'start'})">View My Work</button>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Get to Know Me Section -->
-            <section class="creative-section" id="highlights">
-                <div class="section-header">
-                    <h2 class="section-title">Who's That Sunny Girlie?</h2>
-                    <div class="section-divider"></div>
-                </div>
-                <div class="creative-slider">
-                    <div class="creative-slide active" style="background-image: url('assets/home1.jpg');">
-                        <div class="creative-slide-title">A Peek at Mila</div>
-                        <div class="creative-slide-desc">Here are some sparkly tidbits about me—juicy peeks into my peony-pink world, ready for you to dive right in!</div>
-                    </div>
-                    <div class="creative-slide" style="background-image: url('assets/home2.png');">
-                        <div class="creative-slide-title">Mila's Treasures</div>
-                        <div class="creative-slide-desc">How could you truly know me without peeking at my heart's treasures? Here's a glimpse of what I cherish most!</div>
-                    </div>
-                </div>
-                <div class="creative-controls">
-                    <button class="slider-btn" onclick="prevCreativeSlide()">❮</button>
-                    <button class="slider-btn" onclick="nextCreativeSlide()">❯</button>
-                </div>
-                <div class="creative-dots" id="creativeDots">
-                    <!-- Dots generated automatically by JavaScript -->
-                </div>
-            </section>
-
-            <!-- Magis Highlights Section -->
-            <section id="projects">
-                <div class="section-header">
-                    <h2 class="section-title">Magis Highlights</h2>
-                    <div class="section-divider"></div>
-                </div>
-                <div class="projects-grid">
-                    <div class="project-card">
-                        <div class="project-image">
-                            <img src="assets/nstp.jpg" alt="NSTP Project">
-                        </div>
-                        <div class="project-content">
-                            <h3>NSTP</h3>
-                            <p>Diving into Ateneo sparked my love for community service; heartfelt projects and civic adventures that let me give back with a bubbly sense of purpose!</p>
-                        </div>
-                    </div>
-                    <div class="project-card">
-                        <div class="project-image">
-                            <img src="assets/slp.jpg" alt="SLP Project">
-                        </div>
-                        <div class="project-content">
-                            <h3>SLP</h3>
-                            <p>Throughout my Ateneo adventure, I bloomed through 3 SLPs, connecting petal to petal with diverse local communities. So blessed to sparkle in these projects with Ateneo!</p>
-                        </div>
-                    </div>
-                    <div class="project-card">
-                        <div class="project-image">
-                            <img src="assets/placeholder/Placeholder_Rectangle.png" alt="SIP Project">
-                        </div>
-                        <div class="project-content">
-                            <h3>SIP</h3>
-                            <p>As my Ateneo story gently folds like a lotus cradling its lesson-filled seeds, I cherish dreams of more heart-ties and help for communities in need. Eager to watch this rosy chapter blossom to its sweet close!</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Contact Section -->
-            <div class="about-contact">
-                <div class="contact-card" id="contact-section">
-                    <h3>Let's Connect!</h3>
-                    <p>I'd love to hear from you and discuss new opportunities. Feel free to reach out through any of these channels.</p>
-
-                    <div class="contact-icons">
-                        <a href="https://www.instagram.com/mila.teris" class="contact-icon" title="Instagram" target="_blank">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="https://www.facebook.com/mmila.ana" class="contact-icon" title="Facebook" target="_blank">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="https://www.linkedin.com/in/milaana-hsu/" class="contact-icon" title="LinkedIn" target="_blank">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                    </div>
-
-                    <div class="contact-info">
-                        <div class="contact-item">
-                            <label>📧 Email</label>
-                            <a href="mailto:miltghsu@addu.edu.ph">miltghsu@addu.edu.ph</a>
-                            <a> | </a>
-                            <a href="mailto:milaanahsu@gmail.com">milaanahsu@gmail.com</a>
-                        </div>
-                        <div class="contact-item">
-                            <label>📱 Phone</label>
-                            <a href="tel:+639171587596">
-                                <i class="fas fa-phone"></i> +63 917 158 7596
-                            </a>
-                        </div>
-                    </div>
-                </div>
+            <!-- Photo -->
+            <div class="oops-photo-wrap">
+                <img src="assets/d.jpg" alt="Dayanghirang">
+                <div class="takeover-badge">⚠️ HIJACKED!</div>
             </div>
 
-            <!-- Footer -->
-            <div class="footer">
-                <div class="footer-content">
-                    <p class="footer-title">✨ Created with love & elegance ✨</p>
-                    <p class="footer-creator">Made by <strong>Mila</strong></p>
-                    <div class="footer-contact">
-                        <a href="mailto:milaanahsu@gmail.com">
-                            <i class="fas fa-envelope"></i> milaanahsu@gmail.com
-                        </a>
-                        <span class="footer-divider">•</span>
-                        <a href="tel:+639171587596">
-                            <i class="fas fa-phone"></i> +63 917 158 7596
-                        </a>
-                    </div>
-                    <p class="footer-copyright">© 2026 All Rights Reserved</p>
+            <!-- Content -->
+            <div class="oops-content">
+
+                <h1 class="oops-title">OOPS<span>!</span></h1>
+                <p class="oops-subtitle">This page has been hijacked by Dayanghirang ✨</p>
+
+                <div class="oops-divider">
+                    <span>❦ ❦ ❦</span>
                 </div>
+
+                <p class="oops-message">
+                    To get your website back please call 911.
+                </p>
+
+                <a href="index.html" class="oops-back-btn">← Take Me Back (Please?)</a>
+
             </div>
         </div>
     </main>
 
-    <script src="js/script.js"></script>
+    <!-- Footer -->
+    <footer class="oops-footer">
+        <p>© 2026 — Temporarily owned by <strong>Dayanghirang</strong> 🌸</p>
+    </footer>
+
+    <script>
+        // Generate floating sparkles
+        const emojis = ['✨', '🌸', '💗', '⭐', '🌷', '💫', '🌺', '🩷'];
+        const container = document.getElementById('sparkles');
+
+        for (let i = 0; i < 22; i++) {
+            const el = document.createElement('div');
+            el.className = 'sparkle';
+            el.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+            el.style.left = Math.random() * 100 + 'vw';
+            el.style.fontSize = (0.7 + Math.random() * 1.2) + 'rem';
+            el.style.animationDuration = (6 + Math.random() * 10) + 's';
+            el.style.animationDelay = (Math.random() * 8) + 's';
+            container.appendChild(el);
+        }
+    </script>
 </body>
 </html>

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - E-Portfolio</title>
+    <!-- Sparkle Emoji Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='75' font-size='75'>✨</text></svg>" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,700&family=Cormorant+Garamond:ital,wght@0,400;0,600&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- NAVIGATION -->
+    <nav>
+        <a href="index.html" class="nav-brand">Mila's Path ✨</a>
+        
+        <div class="nav-divider"></div>
+        
+        <ul class="nav-menu">
+            <li><a href="index.html">HOME</a></li>
+            <li class="nav-dropdown">
+                <a href="#">VOLUMES <i class="fas fa-chevron-down"></i></a>
+                <ul class="dropdown-menu">
+                    <li><a href="prelim.html">PRELIMS</a></li>
+                    <li><a href="midterm.html">MIDTERMS</a></li>
+                    <li><a href="prefi.html">PREFINALS</a></li>
+                </ul>
+            </li>
+            <li><a href="faves.html">MY FAVES</a></li>
+            <li><a href="#contact-section" class="nav-cta">CONTACT ME</a></li>
+        </ul>
+
+        <button class="hamburger" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html" onclick="closeMenu()">HOME</a>
+        <a href="#" onclick="toggleMoreMenu(event)">VOLUMES <i class="fas fa-chevron-down"></i></a>
+        <div class="mobile-dropdown" id="moreMenu">
+            <a href="prelim.html">PRELIMS</a>
+            <a href="midterm.html">MIDTERMS</a>
+            <a href="prefi.html">PREFINALS</a>
+        </div>
+        <a href="faves.html" onclick="closeMenu()">MY FAVES</a>
+        <a href="#contact-section" onclick="closeMenu()" class="mobile-cta">CONTACT ME</a>
+    </div>
+
+    <main>
+        <!-- Header -->
+        <div class="header" id="home">
+            <h1>Mila's Path of Glimmering Embers</h1>
+            <div class="header-subtitle">A Digital Portfolio of My SIP Journey</div>
+        </div>
+
+        <!-- Dashboard -->
+        <div class="dashboard">
+            <!-- Hero Section -->
+            <section class="hero-section">
+                <div class="hero-container">
+                    <div class="hero-placeholder" style="background-image: url('assets/hero.jpg');"></div>
+                    <div class="hero-text">
+                        <h2></h2>
+                        <p></p>
+                        <div class="hero-buttons">
+                            <button class="hero-btn hero-btn-primary" onclick="document.getElementById('contact-section').scrollIntoView({behavior: 'smooth'})">Contact Me</button>
+                            <button class="hero-btn hero-btn-secondary" onclick="document.getElementById('highlights').scrollIntoView({behavior: 'smooth', block: 'start'})">View My Work</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Get to Know Me Section -->
+            <section class="creative-section" id="highlights">
+                <div class="section-header">
+                    <h2 class="section-title">Who's That Sunny Girlie?</h2>
+                    <div class="section-divider"></div>
+                </div>
+                <div class="creative-slider">
+                    <div class="creative-slide active" style="background-image: url('assets/home1.jpg');">
+                        <div class="creative-slide-title">A Peek at Mila</div>
+                        <div class="creative-slide-desc">Here are some sparkly tidbits about me—juicy peeks into my peony-pink world, ready for you to dive right in!</div>
+                    </div>
+                    <div class="creative-slide" style="background-image: url('assets/home2.png');">
+                        <div class="creative-slide-title">Mila's Treasures</div>
+                        <div class="creative-slide-desc">How could you truly know me without peeking at my heart's treasures? Here's a glimpse of what I cherish most!</div>
+                    </div>
+                </div>
+                <div class="creative-controls">
+                    <button class="slider-btn" onclick="prevCreativeSlide()">❮</button>
+                    <button class="slider-btn" onclick="nextCreativeSlide()">❯</button>
+                </div>
+                <div class="creative-dots" id="creativeDots">
+                    <!-- Dots generated automatically by JavaScript -->
+                </div>
+            </section>
+
+            <!-- Magis Highlights Section -->
+            <section id="projects">
+                <div class="section-header">
+                    <h2 class="section-title">Magis Highlights</h2>
+                    <div class="section-divider"></div>
+                </div>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="assets/nstp.jpg" alt="NSTP Project">
+                        </div>
+                        <div class="project-content">
+                            <h3>NSTP</h3>
+                            <p>Diving into Ateneo sparked my love for community service; heartfelt projects and civic adventures that let me give back with a bubbly sense of purpose!</p>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="assets/slp.jpg" alt="SLP Project">
+                        </div>
+                        <div class="project-content">
+                            <h3>SLP</h3>
+                            <p>Throughout my Ateneo adventure, I bloomed through 3 SLPs, connecting petal to petal with diverse local communities. So blessed to sparkle in these projects with Ateneo!</p>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="assets/placeholder/Placeholder_Rectangle.png" alt="SIP Project">
+                        </div>
+                        <div class="project-content">
+                            <h3>SIP</h3>
+                            <p>As my Ateneo story gently folds like a lotus cradling its lesson-filled seeds, I cherish dreams of more heart-ties and help for communities in need. Eager to watch this rosy chapter blossom to its sweet close!</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact Section -->
+            <div class="about-contact">
+                <div class="contact-card" id="contact-section">
+                    <h3>Let's Connect!</h3>
+                    <p>I'd love to hear from you and discuss new opportunities. Feel free to reach out through any of these channels.</p>
+
+                    <div class="contact-icons">
+                        <a href="https://www.instagram.com/mila.teris" class="contact-icon" title="Instagram" target="_blank">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.facebook.com/mmila.ana" class="contact-icon" title="Facebook" target="_blank">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/milaana-hsu/" class="contact-icon" title="LinkedIn" target="_blank">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <label>📧 Email</label>
+                            <a href="mailto:miltghsu@addu.edu.ph">miltghsu@addu.edu.ph</a>
+                            <a> | </a>
+                            <a href="mailto:milaanahsu@gmail.com">milaanahsu@gmail.com</a>
+                        </div>
+                        <div class="contact-item">
+                            <label>📱 Phone</label>
+                            <a href="tel:+639171587596">
+                                <i class="fas fa-phone"></i> +63 917 158 7596
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <div class="footer">
+                <div class="footer-content">
+                    <p class="footer-title">✨ Created with love & elegance ✨</p>
+                    <p class="footer-creator">Made by <strong>Mila</strong></p>
+                    <div class="footer-contact">
+                        <a href="mailto:milaanahsu@gmail.com">
+                            <i class="fas fa-envelope"></i> milaanahsu@gmail.com
+                        </a>
+                        <span class="footer-divider">•</span>
+                        <a href="tel:+639171587596">
+                            <i class="fas fa-phone"></i> +63 917 158 7596
+                        </a>
+                    </div>
+                    <p class="footer-copyright">© 2026 All Rights Reserved</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
