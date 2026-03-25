@@ -45,29 +45,72 @@
             0%, 100% { transform: translateY(0px); }
             50% { transform: translateY(-20px); }
         }
+
+        /* ── Chapter Navigation ── */
+        .dashboard {
+            padding: 40px 20px;
+        }
+
+        .chapter-nav {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            padding: 40px;
+            max-width: 100%;
+        }
+
+        .nav-chapter-btn {
+            padding: 14px 32px;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--deep-rose, #b45064);
+            background: transparent;
+            border: 2px solid var(--deep-rose, #b45064);
+            border-radius: 50px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .nav-chapter-btn:hover {
+            color: var(--rose-pink, #d4677a);
+            border-color: var(--rose-pink, #d4677a);
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 600px) {
+            .chapter-nav {
+                flex-direction: column;
+                gap: 1rem;
+                padding: 20px;
+            }
+
+            .nav-chapter-btn {
+                padding: 12px 24px;
+                font-size: 1rem;
+            }
+        }
     </style>
 </head>
 <body>
     <!-- NAVIGATION -->
     <nav>
         <a href="index.html" class="nav-brand">Mila's Path ✨</a>
-        
         <div class="nav-divider"></div>
-        
         <ul class="nav-menu">
             <li><a href="index.html">HOME</a></li>
             <li class="nav-dropdown">
-                <a href="#">SEASONS <i class="fas fa-chevron-down"></i></a>
+                <a href="#" class="active">VOLUMES <i class="fas fa-chevron-down"></i></a>
                 <ul class="dropdown-menu">
-                    <li><a href="prelim.html">PRELIM</a></li>
-                    <li><a href="midterm.html">MIDTERM</a></li>
-                    <li><a href="prefi.html">PREFI</a></li>
+                    <li><a href="prelim.html">PRELIMS</a></li>
+                    <li><a href="midterm.html">MIDTERMS</a></li>
+                    <li><a href="prefi.html" class="active">PREFINALS</a></li>
                 </ul>
             </li>
             <li><a href="faves.html">MY FAVES</a></li>
-            <li><a href="#contact-section" class="nav-cta">CONTACT ME</a></li>
+            <li><a href="index.html#contact-section" class="nav-cta">CONTACT ME</a></li>
         </ul>
-
         <button class="hamburger" onclick="toggleMenu()">
             <span></span>
             <span></span>
@@ -78,15 +121,14 @@
     <!-- Mobile Menu -->
     <div class="mobile-menu" id="mobileMenu">
         <a href="index.html" onclick="closeMenu()">HOME</a>
-        <a href="#highlights" onclick="closeMenu()">HIGHLIGHTS</a>
-        <a href="faves.html" onclick="closeMenu()">MY FAVES</a>
-        <a href="#contact-section" onclick="closeMenu()" class="mobile-cta">CONTACT ME</a>
-        <a href="#" onclick="toggleMoreMenu(event)">SEASONS</a>
+        <a href="#" onclick="toggleMoreMenu(event)">VOLUMES <i class="fas fa-chevron-down"></i></a>
         <div class="mobile-dropdown" id="moreMenu">
-            <a href="prelim.html">PRELIM</a>
-            <a href="midterm.html">MIDTERM</a>
-            <a href="prefi.html">PREFI</a>
+            <a href="prelim.html" onclick="closeMenu()">PRELIMS</a>
+            <a href="midterm.html" onclick="closeMenu()">MIDTERMS</a>
+            <a href="prefi.html" onclick="closeMenu()" class="active">PREFINALS</a>
         </div>
+        <a href="faves.html" onclick="closeMenu()">MY FAVES</a>
+        <a href="index.html#contact-section" onclick="closeMenu()" class="mobile-cta">CONTACT ME</a>
     </div>
 
     <main>
@@ -96,25 +138,34 @@
             <h1>Work In Progress</h1>
             <p>Coming Soon...</p>
         </div>
+
+        <div class="dashboard">
+            <div class="chapter-nav">
+                <a href="midterm.html" class="nav-chapter-btn">← MIDTERMS</a>
+                <a href="faves.html" class="nav-chapter-btn">MY FAVES →</a>
+            </div>
+        </div>
     </main>
 
     <!-- Footer -->
-    <div class="footer">
-        <div class="footer-content">
-            <p class="footer-title">✨ Created with love & elegance ✨</p>
-            <p class="footer-creator">Made by <strong>Mila</strong></p>
-            <div class="footer-contact">
-                <a href="mailto:milaanahsu@gmail.com">
-                    <i class="fas fa-envelope"></i> milaanahsu@gmail.com
-                </a>
-                <span class="footer-divider">•</span>
-                <a href="tel:+639171587596">
-                    <i class="fas fa-phone"></i> +63 917 158 7596
-                </a>
+            <div class="footer">
+                <div class="footer-content">
+                    <p class="footer-title">✨ Created with love & elegance ✨</p>
+                    <p class="footer-creator">Made by <strong>Mila</strong></p>
+                    <div class="footer-contact">
+                        <a href="mailto:milaanahsu@gmail.com">
+                            <i class="fas fa-envelope"></i> milaanahsu@gmail.com
+                        </a>
+                        <span class="footer-divider">•</span>
+                        <a href="tel:+639171587596">
+                            <i class="fas fa-phone"></i> +63 917 158 7596
+                        </a>
+                    </div>
+                    <p class="footer-copyright">© 2026 All Rights Reserved</p>
+                </div>
             </div>
-            <p class="footer-copyright">© 2026 All Rights Reserved</p>
         </div>
-    </div>
+    </main>
 
     <script src="js/script.js"></script>
 </body>
