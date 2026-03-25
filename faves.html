@@ -45,6 +45,52 @@
             0%, 100% { transform: translateY(0px); }
             50% { transform: translateY(-20px); }
         }
+
+        /* ── Dashboard & Chapter Navigation ── */
+        .dashboard {
+            padding: 40px 20px;
+        }
+
+        .chapter-nav {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            padding: 40px;
+            max-width: 100%;
+        }
+
+        .nav-chapter-btn {
+            padding: 14px 32px;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--deep-rose, #b45064);
+            background: transparent;
+            border: 2px solid var(--deep-rose, #b45064);
+            border-radius: 50px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .nav-chapter-btn:hover {
+            color: var(--rose-pink, #d4677a);
+            border-color: var(--rose-pink, #d4677a);
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 600px) {
+            .chapter-nav {
+                flex-direction: column;
+                gap: 1rem;
+                padding: 20px;
+            }
+
+            .nav-chapter-btn {
+                padding: 12px 24px;
+                font-size: 1rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -96,6 +142,18 @@
             <h1>Work In Progress</h1>
             <p>Coming Soon...</p>
         </div>
+
+        <div class="dashboard">
+            <!-- Facebook Video Embed -->
+            <div style="display: flex; justify-content: center; padding: 40px 20px;">
+                <iframe src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1599291911396778%2F&show_text=false&width=267&t=0" width="267" height="476" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+            </div>
+
+            <!-- Navigation Buttons -->
+            <div class="chapter-nav">
+                <a href="prefi.html" class="nav-chapter-btn">← PREFINALS</a>
+            </div>
+        </div>
     </main>
 
     <!-- Footer -->
@@ -104,18 +162,12 @@
             <p class="footer-title">✨ Created with love & elegance ✨</p>
             <p class="footer-creator">Made by <strong>Mila</strong></p>
             <div class="footer-contact">
-                <a href="mailto:milaanahsu@gmail.com">
-                    <i class="fas fa-envelope"></i> milaanahsu@gmail.com
+                <a href="/cdn-cgi/l/email-protection#3e5357525f5f505f564d4b7e59535f5752105d5153">
+                    <i class="fas fa-envelope"></i> <span class="__cf_email__" data-cfemail="e885818489898689809b9da88f85898184c68b8785">[email&#160;protected]</span>
                 </a>
                 <span class="footer-divider">•</span>
                 <a href="tel:+639171587596">
                     <i class="fas fa-phone"></i> +63 917 158 7596
                 </a>
             </div>
-            <p class="footer-copyright">© 2026 All Rights Reserved</p>
-        </div>
-    </div>
-
-    <script src="js/script.js"></script>
-</body>
-</html>
+            <p class="fo
