@@ -3,117 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Work In Progress - Mila's Path of Glimmering Embers</title>
+    <title>My Faves - Mila's Path</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='75' font-size='75'%3E✨%3C/text%3E%3C/svg%3E" type="image/svg+xml">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,700&family=Cormorant+Garamond:ital,wght@0,400;0,600&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/styles.css">
-    <style>
-        .wip-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: calc(100vh - 200px);
-            text-align: center;
-            padding: 3rem 2rem;
-        }
-
-        .wip-container h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 3.5rem;
-            color: var(--deep-rose);
-            margin-bottom: 1rem;
-            font-style: italic;
-        }
-
-        .wip-container p {
-            font-family: 'Dancing Script', cursive;
-            font-size: 1.8rem;
-            color: var(--rose-pink);
-            margin: 0;
-        }
-
-        .wip-container .emoji {
-            font-size: 4rem;
-            margin-bottom: 1.5rem;
-            animation: float 3s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-        }
-
-        /* ── Dashboard & Chapter Navigation ── */
-        .dashboard {
-            padding: 40px 20px;
-        }
-
-        .chapter-nav {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            padding: 40px;
-            max-width: 100%;
-        }
-
-        .nav-chapter-btn {
-            padding: 14px 32px;
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: var(--deep-rose, #b45064);
-            background: transparent;
-            border: 2px solid var(--deep-rose, #b45064);
-            border-radius: 50px;
-            text-decoration: none;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .nav-chapter-btn:hover {
-            color: var(--rose-pink, #d4677a);
-            border-color: var(--rose-pink, #d4677a);
-            transform: translateY(-2px);
-        }
-
-        @media (max-width: 600px) {
-            .chapter-nav {
-                flex-direction: column;
-                gap: 1rem;
-                padding: 20px;
-            }
-
-            .nav-chapter-btn {
-                padding: 12px 24px;
-                font-size: 1rem;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="css/season-pages.css">
 </head>
 <body>
-    <!-- NAVIGATION -->
     <nav>
         <a href="index.html" class="nav-brand">Mila's Path ✨</a>
-        
         <div class="nav-divider"></div>
-        
         <ul class="nav-menu">
             <li><a href="index.html">HOME</a></li>
             <li class="nav-dropdown">
                 <a href="#">VOLUMES <i class="fas fa-chevron-down"></i></a>
                 <ul class="dropdown-menu">
-                    <li><a href="prelim.html">PRELIM</a></li>
-                    <li><a href="midterm.html">MIDTERM</a></li>
-                    <li><a href="prefi.html">PREFI</a></li>
+                    <li><a href="prelim.html">PRELIMS</a></li>
+                    <li><a href="midterm.html">MIDTERMS</a></li>
+                    <li><a href="prefi.html">PREFINALS</a></li>
                 </ul>
             </li>
-            <li><a href="faves.html">MY FAVES</a></li>
-            <li><a href="#contact-section" class="nav-cta">CONTACT ME</a></li>
+            <li><a href="faves.html" class="active">OTHER CHAPTERS</a></li>
+            <li><a href="index.html#contact-section" class="nav-cta">CONTACT ME</a></li>
         </ul>
-
         <button class="hamburger" onclick="toggleMenu()">
             <span></span>
             <span></span>
@@ -121,40 +36,235 @@
         </button>
     </nav>
 
-    <!-- Mobile Menu -->
     <div class="mobile-menu" id="mobileMenu">
         <a href="index.html" onclick="closeMenu()">HOME</a>
-        <a href="#highlights" onclick="closeMenu()">HIGHLIGHTS</a>
-        <a href="faves.html" onclick="closeMenu()">MY FAVES</a>
-        <a href="#contact-section" onclick="closeMenu()" class="mobile-cta">CONTACT ME</a>
-        <a href="#" onclick="toggleMoreMenu(event)">VOLUMES</a>
+        <a href="#" onclick="toggleMoreMenu(event)">VOLUMES <i class="fas fa-chevron-down"></i></a>
         <div class="mobile-dropdown" id="moreMenu">
-            <a href="prelim.html">PRELIM</a>
-            <a href="midterm.html">MIDTERM</a>
-            <a href="prefi.html">PREFI</a>
+            <a href="prelim.html" onclick="closeMenu()">PRELIMS</a>
+            <a href="midterm.html" onclick="closeMenu()">MIDTERMS</a>
+            <a href="prefi.html" onclick="closeMenu()">PREFINALS</a>
         </div>
+        <a href="faves.html" onclick="closeMenu()" class="active">OTHER CHAPTERS</a>
+        <a href="index.html#contact-section" onclick="closeMenu()" class="mobile-cta">CONTACT ME</a>
     </div>
 
     <main>
-        <!-- WIP Content -->
-        <div class="wip-container">
-            <div class="emoji">🌸</div>
-            <h1>Work In Progress</h1>
-            <p>Coming Soon...</p>
+        <div class="header season-header" id="home">
+            <h1>MY FAVES</h1>
+            <div class="header-subtitle">Hidden Petals of a Cherished Bouquet 🌸</div>
         </div>
 
         <div class="dashboard">
-            <!-- Facebook Video Embed -->
-            <div style="display: flex; justify-content: center; padding: 40px 20px;">
-                <iframe src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1599291911396778%2F&show_text=false&width=267&t=0" width="267" height="476" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
-            </div>
+            <section class="toc-section">
+                <h2 class="toc-title">Table of Contents</h2>
+                <div class="toc-container">
+                    <div class="toc-chapter">
+                        <h3 class="toc-chapter-title">
+                            <i class="fas fa-bookmark"></i> BONUS SCENES
+                        </h3>
+                        <p class="toc-chapter-subtitle">Dearest, most unexpected memories beyond the usual chapters.</p>
+                        <ul class="toc-scenes">
+                            <li><a href="#scene-b1">Scene 11.30.23</a></li>
+                            <li><a href="#scene-b2">Scene 02.24.24</a></li>
+                            <li><a href="#scene-b3">Scene 08.05.24</a></li>
+                            <li><a href="#scene-b4">Scene 08.25.24</a></li>
+                            <li><a href="#scene-b5">Scene 09.06.24</a></li>
+                            <li><a href="#scene-b6">Scene 09.27.24</a></li>
+                            <li><a href="#scene-b7">Scene 03.15.25</a></li>
+                            <li><a href="#scene-b8">Scene 05.29.25</a></li>
+                            <li><a href="#scene-b9">Scene 12.08.25</a></li>
+                            <li><a href="#scene-b10">Scene 03.28.25</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
 
-            <!-- Navigation Buttons -->
+            <!-- BONUS CHAPTER SECTION -->
+            <section class="chapter-section">
+                <div class="chapter-title">
+                    <h2>BONUS SCENES</h2>
+                    <p class="chapter-subtitle">Hidden Petals in a Cherished Bouquet</p>
+                </div>
+                <p class="chapter-intro">Like hidden petals in a cherished bouquet, these bonus chapters hold my dearest, most unexpected memories woven through university life in (and beyond) Ateneo.</p>
+
+                <!-- Scene 1 -->
+                <div class="content-section" id="scene-b1">
+                    <div class="content-row">
+                        <div class="content-col-left">
+                            <div class="slider-wrapper">
+                                <div class="image-slider" id="slider-b1">
+                                    <div class="slide active" style="background-image: url('assets/Others/Bonus-1.jpg');"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="content-col-right">
+                            <h3>Scene 11.30.23</h3>
+                            <p>My very first hospital stay in all my life—a gently humbling journey, both sobering and enlightening. Deeply grateful for the quiet wisdom it brought. 🌸🕊️</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Scene 2 -->
+                <div class="content-section" id="scene-b2">
+                    <div class="content-row">
+                        <div class="content-col-left">
+                            <h3>Scene 02.24.24</h3>
+                            <p>A rare and cherished family journey with my complete kin—such tender moments of togetherness. 👨‍👩‍👧‍👦💕</p>
+                        </div>
+                        <div class="content-col-right">
+                            <div class="slider-wrapper">
+                                <div class="image-slider" id="slider-b2">
+                                    <div class="slide active" style="background-image: url('assets/Others/Bonus-2.jpg');"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Scene 3 -->
+                <div class="content-section" id="scene-b3">
+                    <div class="content-row">
+                        <div class="content-col-left">
+                            <div class="slider-wrapper">
+                                <div class="image-slider" id="slider-b3">
+                                    <div class="slide active" style="background-image: url('assets/Others/Bonus-3.jpg');"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="content-col-right">
+                            <h3>Scene 08.05.24</h3>
+                            <p>A swift, heartfelt coffee gathering with my family driver's dearest folks—such a quiet delight in simple shared moments. 🌸☕</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Scene 4 -->
+                <div class="content-section" id="scene-b4">
+                    <div class="content-row">
+                        <div class="content-col-left">
+                            <h3>Scene 08.25.24</h3>
+                            <p>A sweet braid sesh with my orgmate! Who knew a chill hair moment could hit different? 💇‍♀️✨</p>
+                        </div>
+                        <div class="content-col-right">
+                            <div class="slider-wrapper">
+                                <div class="image-slider" id="slider-b4">
+                                    <div class="slide active" style="background-image: url('assets/Others/Bonus-4.jpg');"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Scene 5 -->
+                <div class="content-section" id="scene-b5">
+                    <div class="content-row">
+                        <div class="content-col-left">
+                            <div class="slider-wrapper">
+                                <div class="image-slider" id="slider-b5">
+                                    <div class="slide active" style="background-image: url('assets/Others/Bonus-5.jpg');"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="content-col-right">
+                            <h3>Scene 09.06.24</h3>
+                            <p>My first robot-animal ride, alongside cherished friends—a whimsical whisper of adventure that stirs the heart. So deeply thankful. ✨🐾</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Scene 6 -->
+                <div class="content-section" id="scene-b6">
+                    <div class="content-row">
+                        <div class="content-col-left">
+                            <h3>Scene 09.27.24</h3>
+                            <p>Kindly invited by my cousin for a sleepover to watch over my nephew, a tender moment with this precious little soul. So heartwarmingly sweet. 🌙👶</p>
+                        </div>
+                        <div class="content-col-right">
+                            <div class="slider-wrapper">
+                                <div class="image-slider" id="slider-b6">
+                                    <div class="slide active" style="background-image: url('assets/Others/Bonus-6.jpg');"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Scene 7 -->
+                <div class="content-section" id="scene-b7">
+                    <div class="content-row">
+                        <div class="content-col-left">
+                            <div class="slider-wrapper">
+                                <div class="image-slider" id="slider-b7">
+                                    <div class="slide active" style="background-image: url('assets/Others/Bonus-7.jpg');"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="content-col-right">
+                            <h3>Scene 03.15.25</h3>
+                            <p>FOE season magic! This adorable squad of strangers pulled me into their selfie—what a fun, feel-good surprise! 😊📸✨</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Scene 8 -->
+                <div class="content-section" id="scene-b8">
+                    <div class="content-row">
+                        <div class="content-col-left">
+                            <h3>Scene 05.29.25</h3>
+                            <p>A heartfelt wheelie amidst pouring rain and rugged paths, tenderly pushed and shielded by my two dearest 姐姐s. 🌧️💕</p>
+                        </div>
+                        <div class="content-col-right">
+                            <div class="slider-wrapper">
+                                <div class="image-slider" id="slider-b8">
+                                    <div class="slide active" style="background-image: url('assets/Others/Bonus-8.jpg');"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Scene 9 -->
+                <div class="content-section" id="scene-b9">
+                    <div class="content-row">
+                        <div class="content-col-left">
+                            <div class="slider-wrapper">
+                                <div class="image-slider" id="slider-b9">
+                                    <div class="slide active" style="background-image: url('assets/Others/Bonus-9.jpg');"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="content-col-right">
+                            <h3>Scene 12.08.25</h3>
+                            <p>A standout MK4A memory: three classmates came through to rescue my yearbook pictorial outfit. Felt truly cared for by the group that day. 📚👗</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Scene 10 -->
+                <div class="content-section" id="scene-b10">
+                    <div class="content-row">
+                        <div class="content-col-left">
+                            <h3>Scene 03.28.25</h3>
+                            <p>Saving the best for last: a silly snapshot capturing my life's grandest, most treasured plot twist. 💖📸</p>
+                        </div>
+                        <div class="content-col-right">
+                            <div class="slider-wrapper">
+                                <div class="image-slider" id="slider-b10">
+                                    <div class="slide active" style="background-image: url('assets/Others/Bonus-10.jpg');"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chapter-closing">
+                    <p>And so these hidden petals rest gently within my heart—quiet, treasured, and forever mine to keep. 🌸</p>
+                </div>
+            </section>
+
             <div class="chapter-nav">
                 <a href="prefi.html" class="nav-chapter-btn">← PREFINALS</a>
             </div>
-        </div>
-    </main>
 
             <!-- Footer -->
             <div class="footer">
@@ -176,6 +286,27 @@
         </div>
     </main>
 
+    <!-- Back to TOC Button -->
+    <button class="back-to-toc" title="Back to Table of Contents">↑</button>
+
     <script src="js/script.js"></script>
+    <script src="js/season-sliders.js"></script>
+    <script>
+        // Back to TOC button functionality
+        const backToTocBtn = document.querySelector('.back-to-toc');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTocBtn.classList.add('show');
+            } else {
+                backToTocBtn.classList.remove('show');
+            }
+        });
+        
+        backToTocBtn.addEventListener('click', () => {
+            const tocSection = document.querySelector('.toc-section');
+            tocSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+    </script>
 </body>
-</html>
+</html> 
