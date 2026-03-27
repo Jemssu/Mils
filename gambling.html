@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Plinko ✨</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='75' font-size='75'>✨</text></svg>" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,700&family=Cormorant+Garamond:ital,wght@0,400;0,600&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+<style>
+/* ── TOKENS (matching Mila's palette) ────────────────────────── */
+:root {
+  --rose-pink:  #f4a6c1;
+  --deep-rose:  #d4758a;
+  --blush:      #fdd7e4;
+  --light-pink: #fce4ec;
+  --cream:      #fffbf7;
+  --champagne:  #f5e6d3;
+  --mauve:      #d4a5b0;
+  --text-dark:  #6b3e47;
+  --text-light: #8b5563;
+  --gold:       #d4a574;
+}
+
+*,*::before,*::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Cormorant Garamond', serif;
+  background: linear-gradient(135deg, var(--rose-pink) 0%, #f0a8bf 100%);
+  background-attachment: fixed;
+  color: var(--text-dark);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 12px 40px;
+}
+
+body::before {
+  content: '';
+  position: fixed; top: 50%; right: 10%;
+  width: 300px; height: 300px;
+  background: radial-gradient(circle, rgba(255,255,255,0.12), transparent);
+  border-radius: 50%; pointer-events: none; z-index: 0;
+}
+body::after {
+  content: '';
+  position: fixed; bottom: 10%; left: 5%;
+  width: 250px; height: 250px;
+  background: radial-gradient(circle, rgba(255,255,255,0.08), transparent);
+  border-radius: 50%; pointer-events: none; z-index: 0;
+}
+
+/* ── LOGIN SCREEN ────────────────────────────────────────────── */
+#login-screen {
+  position: fixed; inset: 0; z-index: 100;
+  background: linear-gradient(135deg, var(--rose-pink) 0%, #f0a8bf 100%);
+  display: flex; align-items: center; justify-content: center;
+  transition: opacity 0.45s, visibility 0.45s;
+}
+#login-screen.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+
+.login-box {
+  background: var(--cream);
+  border-radius: 30px;
+  padding: 44px 40px;
+  width: min(400px, 92vw);
+  display: flex; flex-direction: column; gap: 20px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.12), 0 0 0 3px rgba(255,255,255,0.5);
+  border: 2px solid rgba(255,255,255,0.7);
+  animation: fadeInDown 0.7s ease-out;
+}
+
+@keyframes fadeInDown {
+  from { opacity:0; transform:translateY(-24px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+
+.login-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.6rem;
+  font-style: italic;
+  color: var(--deep-rose);
+  text-align: center;
+  line-height: 1;
+  letter-spacing: 1px;
+}
+.login-logo span {
+  font-family: 'Dancing Script', cursive;
+  font-size: 1rem;
+  display: block;
+  color: var(--text-light);
+  margin-top: 4px;
+  font-style: normal;
+  letter-spacing: 0;
+}
+
+.login-label {
+  font-family: 'Playfair Display', serif;
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--deep-rose);
+  margin-bottom: 6px;
+}
+
+.login-input {
+  width: 100%;
+  background: #fff;
+  border: 2px solid var(--blush);
+  border-radius: 25px;
+  color: var(--text-dark);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+  padding: 10px 18px;
+  outline: none;
+  transition: border-color 0.25s, box-shadow 0.25s;
+}
+.login-input:focus {
+  border-color: var(--rose-pink);
+  box-shadow: 0 0 0 3px rgba(244,166,193,0.18);
+}
+
+.login-status {
+  font-family: 'Dancing Script', cursive;
+  font-size: 1rem;
+  min-height: 20px;
+  text-align: center;
+  transition: color 0.3s;
+}
+.login-status.ok  { color: #7dbf8a; }
+.login-status.err { color: var(--deep-rose); }
+.login-status.new { color: var(--gold); }
+
+.btn-login {
+  background: linear-gradient(135deg, var(--rose-pink), var(--deep-rose));
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.05rem;
+  font-style: italic;
+  letter-spacing: 0.5px;
+  padding: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 6px 18px rgba(244,166,193,0.35);
+}
+.btn-login:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(244,166,193,0.45);
+}
+
+.users-list {
+  border-top: 1.5px solid var(--blush);
+  padding-top: 16px;
+}
+.users-list-title {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 0.85rem;
+  color: var(--text-light);
+  margin-bottom: 10px;
+  display: flex; align-items: center; gap: 6px;
+}
+.users-list-title::before { content: '✧'; color: var(--rose-pink); }
+.users-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.user-chip {
+  background: linear-gradient(135deg, var(--light-pink), var(--blush));
+  border: 1.5px solid var(--rose-pink);
+  border-radius: 20px;
+  padding: 5px 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.88rem;
+  color: var(--text-dark);
+}
+.user-chip:hover {
+  background: linear-gradient(135deg, var(--rose-pink), var(--deep-rose));
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+/* ── PAGE HEADER ─────────────────────────────────────────────── */
+.page-header {
+  text-align: center;
+  margin-bottom: 1.2rem;
+  position: relative; z-index: 1;
+  animation: fadeInDown 0.7s ease-out;
+}
+.page-header h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.2rem, 6vw, 3.4rem);
+  font-style: italic;
+  color: rgba(255,255,255,0.96);
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+  letter-spacing: 2px;
+  margin-bottom: 4px;
+}
+.page-header .sub {
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.2rem;
+  color: rgba(255,255,255,0.88);
+}
+.header-user-row {
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  margin-top: 8px;
+}
+.header-username {
+  font-family: 'Dancing Script', cursive;
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.85);
+}
+.header-username strong { color: #fff; }
+.btn-logout {
+  background: rgba(255,255,255,0.25);
+  border: 1.5px solid rgba(255,255,255,0.5);
+  border-radius: 20px;
+  color: rgba(255,255,255,0.9);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.75rem;
+  padding: 3px 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.btn-logout:hover { background: rgba(255,255,255,0.4); }
+
+/* ── DASHBOARD CARD ──────────────────────────────────────────── */
+.dashboard {
+  background: var(--cream);
+  border-radius: 30px;
+  padding: 2.5rem;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.13);
+  border: 3px solid rgba(255,255,255,0.65);
+  position: relative; z-index: 1;
+  width: 100%;
+  max-width: 960px;
+}
+
+/* ── LAYOUT ──────────────────────────────────────────────────── */
+.layout {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+/* ── SIDEBAR ─────────────────────────────────────────────────── */
+.sidebar {
+  display: flex; flex-direction: column; gap: 12px;
+  min-width: 165px;
+}
+
+.panel {
+  background: linear-gradient(135deg, rgba(244,166,193,0.09), rgba(253,215,228,0.09));
+  border: 2px solid var(--blush);
+  border-radius: 18px;
+  padding: 14px 16px;
+  box-shadow: 0 4px 14px rgba(244,166,193,0.1);
+}
+
+.panel-label {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 0.75rem;
+  color: var(--text-light);
+  margin-bottom: 4px;
+}
+
+.panel-value {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.7rem;
+  color: var(--deep-rose);
+  line-height: 1;
+  font-weight: 700;
+}
+.panel-value.win { color: #7dbf8a; }
+
+.btn-drop {
+  background: linear-gradient(135deg, var(--rose-pink), var(--deep-rose));
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 1.15rem;
+  letter-spacing: 0.5px;
+  padding: 12px 16px;
+  cursor: pointer;
+  transition: all 0.2s;
+  width: 100%;
+  box-shadow: 0 6px 18px rgba(244,166,193,0.3);
+}
+.btn-drop:hover { transform: translateY(-2px); box-shadow: 0 10px 26px rgba(244,166,193,0.4); }
+.btn-drop:active { transform: translateY(0); }
+.btn-drop:disabled { background: var(--blush); color: var(--mauve); cursor: not-allowed; transform: none; box-shadow: none; }
+
+.btn-ghost {
+  background: transparent;
+  color: var(--text-light);
+  border: 1.5px solid var(--blush);
+  border-radius: 25px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.85rem;
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+  width: 100%;
+}
+.btn-ghost:hover { border-color: var(--rose-pink); color: var(--deep-rose); background: rgba(244,166,193,0.06); }
+
+/* Bet controls */
+.bet-controls { display: flex; gap: 6px; margin-top: 8px; }
+.bet-btn {
+  flex: 1;
+  background: rgba(255,255,255,0.5);
+  border: 1.5px solid var(--blush);
+  border-radius: 14px;
+  color: var(--text-light);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.78rem;
+  padding: 4px 2px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.bet-btn:hover { border-color: var(--rose-pink); color: var(--deep-rose); }
+
+.bet-input {
+  width: 100%;
+  background: rgba(255,255,255,0.7);
+  border: 1.5px solid var(--blush);
+  border-radius: 14px;
+  color: var(--deep-rose);
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  padding: 6px 12px;
+  outline: none;
+  margin-top: 6px;
+  transition: border-color 0.2s;
+}
+.bet-input:focus { border-color: var(--rose-pink); }
+
+/* Rows control */
+.rows-control { display: flex; align-items: center; gap: 8px; margin-top: 6px; }
+.rows-btn {
+  width: 28px; height: 28px;
+  background: var(--blush);
+  border: 1.5px solid var(--rose-pink);
+  border-radius: 50%;
+  color: var(--deep-rose);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex; align-items: center; justify-content: center;
+}
+.rows-btn:hover { background: var(--rose-pink); color: #fff; }
+.rows-val {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.45rem;
+  color: var(--deep-rose);
+  min-width: 28px;
+  text-align: center;
+}
+
+/* History */
+.history-list {
+  display: flex; flex-direction: column; gap: 4px;
+  max-height: 140px; overflow-y: auto;
+}
+.history-item {
+  display: flex; justify-content: space-between;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.82rem;
+  padding: 3px 0;
+  border-bottom: 1px solid rgba(244,166,193,0.2);
+  animation: slideIn 0.25s ease-out;
+}
+@keyframes slideIn { from { opacity:0; transform:translateX(-5px); } to { opacity:1; transform:none; } }
+.history-item .mult { color: var(--text-light); }
+.history-item .profit.pos { color: #7dbf8a; }
+.history-item .profit.neg { color: var(--deep-rose); }
+
+/* ── EARN PANEL ──────────────────────────────────────────────── */
+.earn-panel { display: none; flex-direction: column; gap: 8px; }
+.earn-panel.visible { display: flex; }
+.earn-inner {
+  background: linear-gradient(135deg, rgba(125,191,138,0.1), rgba(244,166,193,0.08));
+  border: 1.5px solid rgba(125,191,138,0.35);
+  border-radius: 18px;
+  padding: 14px 16px;
+}
+.earn-label {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 0.8rem;
+  color: #5ba06a;
+  margin-bottom: 5px;
+}
+.earn-desc {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.78rem;
+  color: var(--text-light);
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+.btn-earn {
+  background: linear-gradient(135deg, #8fd49e, #5ba06a);
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 1rem;
+  padding: 9px 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+  width: 100%;
+  box-shadow: 0 4px 14px rgba(125,191,138,0.3);
+}
+.btn-earn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(125,191,138,0.4); }
+.btn-earn:disabled { background: var(--blush); color: var(--mauve); cursor: not-allowed; transform: none; box-shadow: none; }
+.earn-cooldown {
+  font-family: 'Dancing Script', cursive;
+  font-size: 0.82rem;
+  color: var(--text-light);
+  text-align: center;
+  margin-top: 4px;
+}
+
+/* ── CANVAS AREA ─────────────────────────────────────────────── */
+.canvas-wrap {
+  flex: 1; display: flex; flex-direction: column; align-items: center;
+}
+
+canvas {
+  display: block;
+  border-radius: 22px;
+  border: 2.5px solid var(--blush);
+  background: rgba(255,251,247,0.97);
+  box-shadow: 0 12px 36px rgba(244,166,193,0.2);
+  cursor: crosshair;
+}
+
+.drop-hint {
+  font-family: 'Dancing Script', cursive;
+  font-size: 0.92rem;
+  color: var(--text-light);
+  margin-top: 8px;
+  text-align: center;
+}
+
+/* ── MULT BAR ────────────────────────────────────────────────── */
+.mult-bar {
+  display: flex; width: 100%;
+  margin-top: 8px;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1.5px solid var(--blush);
+  box-shadow: 0 4px 12px rgba(244,166,193,0.12);
+}
+.mult-cell {
+  flex: 1; text-align: center; padding: 5px 1px;
+  font-family: 'Playfair Display', serif;
+  font-size: 0.78rem;
+  font-style: italic;
+}
+.mult-cell.flash {
+  animation: cellFlash 0.55s ease-out forwards;
+}
+@keyframes cellFlash {
+  0%  { filter:brightness(2.2); transform:scaleY(1.35); }
+  40% { filter:brightness(1.5); }
+  100%{ filter:brightness(1);   transform:scaleY(1); }
+}
+
+/* ── TOAST ───────────────────────────────────────────────────── */
+#win-toast {
+  position: fixed; bottom: 40px; left: 50%;
+  transform: translateX(-50%) translateY(18px);
+  background: var(--cream);
+  border: 2px solid var(--rose-pink);
+  border-radius: 25px;
+  padding: 10px 28px;
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.3rem;
+  color: var(--deep-rose);
+  box-shadow: 0 10px 30px rgba(244,166,193,0.3);
+  opacity: 0; pointer-events: none;
+  transition: all 0.3s;
+  z-index: 200;
+}
+#win-toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+/* ── SECTION DIVIDER ─────────────────────────────────────────── */
+.section-divider-line {
+  width: 100px; height: 2px;
+  background: linear-gradient(90deg, var(--rose-pink), transparent);
+  margin: 6px 0 0;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .dashboard { padding: 1.2rem; border-radius: 20px; }
+  .layout { flex-direction: column; align-items: center; }
+  .sidebar { width: 100%; flex-direction: row; flex-wrap: wrap; }
+  .sidebar > * { flex: 1 1 140px; }
+  .earn-panel { width: 100%; }
+}
+</style>
+</head>
+<body>
+
+<!-- ── LOGIN SCREEN ─────────────────────────────────────────────────── -->
+<div id="login-screen">
+  <div class="login-box">
+    <div class="login-logo">
+      Plinko ✨
+      <span>Drop · Bounce · Win · Sparkle</span>
+    </div>
+
+    <div>
+      <div class="login-label">Your Name, Lovely</div>
+      <input class="login-input" id="login-input" type="text"
+             placeholder="e.g. Mila, Anya, Rose…" autocomplete="off" maxlength="24">
+    </div>
+
+    <div class="login-status" id="login-status"></div>
+    <button class="btn-login" onclick="handleLogin()">Let's Play ✨</button>
+
+    <div class="users-list" id="users-section" style="display:none">
+      <div class="users-list-title">Returning Players</div>
+      <div class="users-chips" id="users-chips"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ── GAME ─────────────────────────────────────────────────────────── -->
+<div class="page-header">
+  <h1>✧ Plinko ✧</h1>
+  <div class="sub">Drop · Bounce · Win</div>
+  <div class="header-user-row">
+    <span class="header-username">Playing as <strong id="current-user">—</strong></span>
+    <button class="btn-logout" onclick="logout()">← logout</button>
+  </div>
+</div>
+
+<div class="dashboard">
+  <div class="layout">
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+
+      <div class="panel">
+        <div class="panel-label">✧ Balance</div>
+        <div class="panel-value" id="balance-display">$0</div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-label">✧ Bet Amount</div>
+        <input class="bet-input" type="number" id="bet-amount" value="10" min="1" step="1">
+        <div class="bet-controls">
+          <button class="bet-btn" onclick="scaleBet(0.5)">½</button>
+          <button class="bet-btn" onclick="scaleBet(2)">2×</button>
+          <button class="bet-btn" onclick="setBetMax()">Max</button>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-label">✧ Rows</div>
+        <div class="rows-control">
+          <button class="rows-btn" onclick="changeRows(-1)">−</button>
+          <span class="rows-val" id="rows-display">12</span>
+          <button class="rows-btn" onclick="changeRows(1)">+</button>
+        </div>
+      </div>
+
+      <button class="btn-drop" id="drop-btn" onclick="dropBall()">Drop ✨</button>
+      <button class="btn-ghost" onclick="autoRun()">Auto × 10</button>
+
+      <div class="panel">
+        <div class="panel-label">✧ Last Win</div>
+        <div class="panel-value win" id="last-win">—</div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-label">✧ History</div>
+        <div class="section-divider-line" style="margin-bottom:8px;"></div>
+        <div class="history-list" id="history-list"></div>
+      </div>
+
+      <!-- Earn panel (shown when broke) -->
+      <div class="earn-panel" id="earn-panel">
+        <div class="earn-inner">
+          <div class="earn-label">🌸 Need a little boost?</div>
+          <div class="earn-desc">You're all out! Claim a free bonus and keep the sparkle going!</div>
+          <button class="btn-earn" id="earn-btn" onclick="claimBonus()">Claim +500 ✨</button>
+          <div class="earn-cooldown" id="earn-cooldown"></div>
+        </div>
+      </div>
+
+    </div>
+    <!-- /SIDEBAR -->
+
+    <!-- CANVAS -->
+    <div class="canvas-wrap">
+      <canvas id="plinko" width="520" height="520"></canvas>
+      <div id="mult-bar" class="mult-bar"></div>
+      <p class="drop-hint">Click the board to aim your drop ✧</p>
+    </div>
+
+  </div>
+</div>
+
+<div id="win-toast"></div>
+
+<script>
+// ═══ USER STORE ══════════════════════════════════════════════════════
+const STORE_KEY = 'plinko_users_v1';
+function loadStore() { try { return JSON.parse(localStorage.getItem(STORE_KEY))||{}; } catch { return {}; } }
+function saveStore(s) { localStorage.setItem(STORE_KEY, JSON.stringify(s)); }
+function getUser(n)   { return loadStore()[n.toLowerCase()]||null; }
+function saveUser(n,d){ const s=loadStore(); s[n.toLowerCase()]={...d,username:n}; saveStore(s); }
+function allUsers()   { return Object.values(loadStore()); }
+
+// ═══ LOGIN ════════════════════════════════════════════════════════════
+let currentUsername = null;
+
+function renderSavedUsers() {
+  const users = allUsers();
+  const sec   = document.getElementById('users-section');
+  const chips = document.getElementById('users-chips');
+  if (!users.length) { sec.style.display='none'; return; }
+  sec.style.display='block';
+  chips.innerHTML = users.map(u =>
+    `<div class="user-chip" onclick="quickLogin('${u.username}')">${u.username}
+     <span style="font-size:0.72rem;opacity:0.7"> $${u.balance}</span></div>`
+  ).join('');
+}
+
+function quickLogin(name) {
+  document.getElementById('login-input').value = name;
+  handleLogin();
+}
+
+function handleLogin() {
+  const raw    = document.getElementById('login-input').value.trim();
+  const status = document.getElementById('login-status');
+  if (!raw)       { status.textContent='Please enter your name, lovely ✧'; status.className='login-status err'; return; }
+  if (raw.length<2){ status.textContent='At least 2 characters, please!';  status.className='login-status err'; return; }
+
+  const ex = getUser(raw);
+  if (ex) {
+    status.textContent = `Welcome back, ${ex.username}! 🌸 Balance: $${ex.balance}`;
+    status.className = 'login-status ok';
+    setTimeout(() => startSession(ex), 700);
+  } else {
+    const newUser = { username: raw, balance: 1000, lastBonus: 0 };
+    saveUser(raw, newUser);
+    status.textContent = `New account created! Starting with $1,000 ✨ Good luck!`;
+    status.className = 'login-status new';
+    setTimeout(() => startSession(newUser), 800);
+  }
+}
+
+function startSession(u) {
+  currentUsername = u.username;
+  balance         = u.balance;
+  lastBonusTime   = u.lastBonus || 0;
+  document.getElementById('current-user').textContent = currentUsername;
+  document.getElementById('login-screen').classList.add('hidden');
+  updateUI();
+  renderSavedUsers();
+}
+
+function logout() {
+  persistBalance();
+  currentUsername = null;
+  balls=[]; activeBalls=0; history=[];
+  document.getElementById('login-screen').classList.remove('hidden');
+  document.getElementById('login-input').value='';
+  document.getElementById('login-status').textContent='';
+  document.getElementById('history-list').innerHTML='';
+  document.getElementById('last-win').textContent='—';
+  renderSavedUsers();
+}
+
+function persistBalance() {
+  if (!currentUsername) return;
+  const ex = getUser(currentUsername)||{};
+  saveUser(currentUsername, {...ex, balance, lastBonus: lastBonusTime});
+}
+setInterval(persistBalance, 4500);
+
+document.getElementById('login-input').addEventListener('keydown', e => { if(e.key==='Enter') handleLogin(); });
+
+// ═══ EARN / BONUS ════════════════════════════════════════════════════
+const BONUS_AMOUNT = 500;
+const BONUS_CD_MS  = 10 * 60 * 1000;
+let lastBonusTime  = 0;
+
+function updateEarnPanel() {
+  const panel = document.getElementById('earn-panel');
+  const btn   = document.getElementById('earn-btn');
+  const cd    = document.getElementById('earn-cooldown');
+  if (balance < 10) {
+    panel.classList.add('visible');
+    const rem = BONUS_CD_MS - (Date.now() - lastBonusTime);
+    if (rem <= 0) {
+      btn.disabled=false; btn.textContent=`Claim +${BONUS_AMOUNT} ✨`; cd.textContent='';
+    } else {
+      btn.disabled=true;
+      const m=Math.floor(rem/60000), s=Math.ceil((rem%60000)/1000);
+      cd.textContent=`Next bonus in ${m}m ${s}s 🌸`;
+    }
+  } else { panel.classList.remove('visible'); }
+}
+
+function claimBonus() {
+  if (Date.now()-lastBonusTime < BONUS_CD_MS) return;
+  lastBonusTime = Date.now();
+  balance += BONUS_AMOUNT;
+  persistBalance(); updateUI();
+  showToast(`+${BONUS_AMOUNT} bonus claimed! 🌸`);
+}
+setInterval(() => { if (currentUsername) updateEarnPanel(); }, 1000);
+
+// ═══ GAME CONFIG ═════════════════════════════════════════════════════
+const canvas = document.getElementById('plinko');
+const ctx    = canvas.getContext('2d');
+let ROWS     = 12;
+const BALL_R  = 6.5;
+const PEG_R   = 4.2;
+const W       = canvas.width;
+const H       = canvas.height;
+const TOP_PAD = 42;
+const BOT_PAD = 52;
+const GRAVITY  = 0.28;
+const BOUNCE   = 0.44;
+const FRICTION = 0.988;
+const SUBSTEPS = 3;
+
+const MULT_SETS = {
+  8:  [5.6,2.1,1.1,1,0.5,1,1.1,2.1,5.6],
+  10: [8.9,3,1.4,1.1,1,0.5,1,1.1,1.4,3,8.9],
+  12: [10,3,1.6,1.4,1.1,1,0.5,1,1.1,1.4,1.6,3,10],
+  14: [15,4,2,1.5,1.2,1.1,0.5,0.3,0.5,1.1,1.2,1.5,2,4,15],
+  16: [20,6,3,1.8,1.4,1.1,1,0.5,0.3,0.5,1,1.1,1.4,1.8,3,6,20],
+};
+const VALID_ROWS = [8,10,12,14,16];
+
+let balance     = 1000;
+let balls       = [];
+let activeBalls = 0;
+let pegs        = [];
+let buckets     = [];
+let history     = [];
+let hoverX      = W/2;
+let mouseOnCanvas = false;
+
+// Soft palette for multiplier tiers
+function multColor(m) {
+  if (m >= 10) return { fill:'#d4a574', stroke:'#c4946a', text:'#7a5235' }; // gold
+  if (m >= 4)  return { fill:'#f4a6c1', stroke:'#d4758a', text:'#6b3e47' }; // rose
+  if (m >= 2)  return { fill:'#d4a5b0', stroke:'#b4859a', text:'#6b3e47' }; // mauve
+  if (m >= 1)  return { fill:'#c5d4e8', stroke:'#95aac8', text:'#3a4a6b' }; // blue-blush
+  return         { fill:'#e8d4e0', stroke:'#c8b4c8', text:'#7a5a7a' };      // muted
+}
+
+// ═══ BOARD ════════════════════════════════════════════════════════════
+function getMultipliers() { return MULT_SETS[ROWS]||MULT_SETS[12]; }
+function getCW()          { return (W-60)/(ROWS+1); }
+
+function buildBoard() {
+  pegs=[]; buckets=[];
+  const mults=getMultipliers(), cw=getCW();
+  const usableH=H-TOP_PAD-BOT_PAD, rowH=usableH/(ROWS+1);
+  for (let r=0;r<=ROWS;r++) {
+    const nP=r+2, rw=(nP-1)*cw, sx=(W-rw)/2, y=TOP_PAD+rowH+r*rowH;
+    for (let c=0;c<nP;c++) pegs.push({x:sx+c*cw,y,flash:0,flashMax:12});
+  }
+  const bRW=ROWS*cw, bx0=(W-bRW)/2, by=H-BOT_PAD+6;
+  for (let i=0;i<mults.length;i++)
+    buckets.push({x:bx0+i*cw-cw/2,y:by,w:cw,mult:mults[i],col:multColor(mults[i]),flash:0});
+  buildMultBar();
+}
+
+function buildMultBar() {
+  const bar=document.getElementById('mult-bar'); bar.innerHTML='';
+  getMultipliers().forEach((m,i)=>{
+    const c=multColor(m), el=document.createElement('div');
+    el.className='mult-cell'; el.id=`mc-${i}`; el.textContent=m+'×';
+    el.style.cssText=`background:${c.fill}33;color:${c.text};`
+      +(i<getMultipliers().length-1?`border-right:1px solid rgba(244,166,193,0.2)`:'');
+    bar.appendChild(el);
+  });
+}
+
+// ═══ PHYSICS ══════════════════════════════════════════════════════════
+function spawnBall(x) {
+  balls.push({ x:(x!=null?x:W/2)+(Math.random()-0.5)*3, y:TOP_PAD-4,
+    vx:(Math.random()-0.5)*1.2, vy:0.5, trail:[], settled:false,
+    hue: 330+Math.random()*60  // pinks/magentas hue range
+  });
+  activeBalls++;
+}
+
+function stepBall(b,dt) {
+  if (b.settled) return;
+  b.trail.push({x:b.x,y:b.y});
+  if (b.trail.length>14) b.trail.shift();
+  b.vy+=GRAVITY*dt; b.vx*=Math.pow(FRICTION,dt);
+  b.x+=b.vx*dt; b.y+=b.vy*dt;
+  if(b.x<BALL_R){b.x=BALL_R;b.vx=Math.abs(b.vx)*BOUNCE;}
+  if(b.x>W-BALL_R){b.x=W-BALL_R;b.vx=-Math.abs(b.vx)*BOUNCE;}
+  const minD=BALL_R+PEG_R;
+  for(const p of pegs){
+    const dx=b.x-p.x,dy=b.y-p.y,d2=dx*dx+dy*dy;
+    if(d2<minD*minD&&d2>0.0001){
+      const dist=Math.sqrt(d2),nx=dx/dist,ny=dy/dist,ov=minD-dist;
+      b.x+=nx*ov; b.y+=ny*ov;
+      const dot=b.vx*nx+b.vy*ny;
+      b.vx=(b.vx-2*dot*nx)*BOUNCE+(Math.random()-0.5)*0.6;
+      b.vy=(b.vy-2*dot*ny)*BOUNCE;
+      b.vx+=(Math.random()-0.5)*0.4;
+      p.flash=12;
+    }
+  }
+  if(b.y>=H-BOT_PAD){
+    for(let i=0;i<buckets.length;i++){
+      const bk=buckets[i];
+      if(b.x>=bk.x&&b.x<=bk.x+bk.w){
+        b.settled=true; bk.flash=22; flashMultCell(i); awardWin(i);
+        activeBalls=Math.max(0,activeBalls-1); return;
+      }
+    }
+    if(b.y>H+30){b.settled=true;activeBalls=Math.max(0,activeBalls-1);}
+  }
+}
+
+function awardWin(idx){
+  const bet=getBet(),mult=buckets[idx].mult;
+  const win=+(bet*mult).toFixed(2); balance=+(balance+win).toFixed(2);
+  const profit=+(win-bet).toFixed(2);
+  persistBalance(); updateUI();
+  document.getElementById('last-win').textContent='$'+win;
+  if(mult>=3) showToast(`${mult}× — $${win}! ✨`);
+  addHistory(mult,profit);
+}
+
+// ═══ RENDER ═══════════════════════════════════════════════════════════
+let lastT=0;
+function loop(t){
+  const rawDt=Math.min((t-lastT)/16.67,3); lastT=t;
+  const subDt=rawDt/SUBSTEPS;
+  for(let s=0;s<SUBSTEPS;s++) for(const b of balls) stepBall(b,subDt);
+  balls=balls.filter(b=>!b.settled);
+  draw();
+  requestAnimationFrame(loop);
+}
+
+function draw(){
+  ctx.clearRect(0,0,W,H);
+
+  // Soft background wash
+  ctx.fillStyle='rgba(255,251,247,0.97)';
+  ctx.fillRect(0,0,W,H);
+
+  // Subtle dot-grid
+  ctx.save();
+  for(let x=20;x<W;x+=36) for(let y=20;y<H;y+=36){
+    ctx.beginPath(); ctx.arc(x,y,1,0,Math.PI*2);
+    ctx.fillStyle='rgba(244,166,193,0.2)'; ctx.fill();
+  }
+  ctx.restore();
+
+  // Drop guide
+  if(mouseOnCanvas){
+    ctx.save();
+    ctx.setLineDash([3,7]);
+    ctx.strokeStyle='rgba(212,117,138,0.3)'; ctx.lineWidth=1.5;
+    ctx.beginPath(); ctx.moveTo(hoverX,0); ctx.lineTo(hoverX,TOP_PAD); ctx.stroke();
+    ctx.setLineDash([]);
+    ctx.fillStyle='rgba(212,117,138,0.55)';
+    ctx.beginPath(); ctx.arc(hoverX,TOP_PAD,4.5,0,Math.PI*2); ctx.fill();
+    ctx.restore();
+  }
+
+  // Pegs
+  for(const p of pegs){
+    const t=(p.flash||0)/(p.flashMax||12);
+    if(p.flash>0) p.flash--;
+    const grd=ctx.createRadialGradient(p.x-1,p.y-1,0,p.x,p.y,PEG_R);
+    grd.addColorStop(0, t>0 ? '#ffd0de' : '#f9c4d8');
+    grd.addColorStop(1, t>0 ? '#d4758a' : '#e8a0bb');
+    ctx.beginPath(); ctx.arc(p.x,p.y,PEG_R,0,Math.PI*2);
+    ctx.fillStyle=grd; ctx.fill();
+    ctx.strokeStyle=t>0?'rgba(212,117,138,0.7)':'rgba(212,117,138,0.3)';
+    ctx.lineWidth=1; ctx.stroke();
+    if(t>0.2){
+      ctx.save(); ctx.shadowColor='rgba(244,166,193,0.8)'; ctx.shadowBlur=10*t;
+      ctx.fill(); ctx.restore();
+    }
+  }
+
+  // Buckets
+  for(let i=0;i<buckets.length;i++){
+    const bk=buckets[i],t=(bk.flash||0)/22;
+    if(bk.flash>0) bk.flash--;
+    const c=bk.col;
+    const a=t>0?(0.25+t*0.55):0.18;
+    const hex=Math.round(a*255).toString(16).padStart(2,'0');
+    ctx.fillStyle=c.fill+hex;
+    ctx.strokeStyle=t>0?c.stroke:'rgba(212,117,138,0.3)';
+    ctx.lineWidth=1.5;
+    ctx.beginPath(); ctx.roundRect(bk.x+1,bk.y,bk.w-2,BOT_PAD-14,6); ctx.fill(); ctx.stroke();
+    ctx.fillStyle=t>0?c.text:c.text+'99';
+    ctx.font=`italic 8.5px 'Cormorant Garamond'`;
+    ctx.textAlign='center'; ctx.textBaseline='middle';
+    ctx.fillText(bk.mult+'×',bk.x+bk.w/2,bk.y+(BOT_PAD-14)/2);
+  }
+
+  // Balls — rosy pink tones
+  for(const b of balls){
+    for(let i=0;i<b.trail.length;i++){
+      const frac=i/b.trail.length;
+      ctx.beginPath(); ctx.arc(b.trail[i].x,b.trail[i].y,BALL_R*frac*0.55,0,Math.PI*2);
+      ctx.fillStyle=`hsla(${b.hue},80%,75%,${frac*0.22})`; ctx.fill();
+    }
+    const grd=ctx.createRadialGradient(b.x-2,b.y-2.5,0.5,b.x,b.y,BALL_R);
+    grd.addColorStop(0,  `hsl(${b.hue},70%,95%)`);
+    grd.addColorStop(0.4,`hsl(${b.hue},75%,78%)`);
+    grd.addColorStop(1,  `hsl(${b.hue},65%,55%)`);
+    ctx.beginPath(); ctx.arc(b.x,b.y,BALL_R,0,Math.PI*2);
+    ctx.fillStyle=grd; ctx.fill();
+    // soft glow
+    ctx.save();
+    ctx.shadowColor=`hsl(${b.hue},80%,72%)`; ctx.shadowBlur=12;
+    ctx.fillStyle=`hsla(${b.hue},80%,78%,0.18)`;
+    ctx.beginPath(); ctx.arc(b.x,b.y,BALL_R,0,Math.PI*2); ctx.fill();
+    ctx.restore();
+  }
+}
+
+// ═══ UI HELPERS ═══════════════════════════════════════════════════════
+function getBet(){ return Math.max(1,parseFloat(document.getElementById('bet-amount').value)||10); }
+
+function updateUI(){
+  document.getElementById('balance-display').textContent=
+    '$'+balance.toLocaleString(undefined,{minimumFractionDigits:0,maximumFractionDigits:2});
+  updateEarnPanel();
+}
+
+function flashMultCell(i){
+  const el=document.getElementById(`mc-${i}`);
+  if(!el) return; el.classList.remove('flash'); void el.offsetWidth; el.classList.add('flash');
+}
+
+function addHistory(mult,profit){
+  history.unshift({mult,profit}); if(history.length>40) history.pop();
+  const list=document.getElementById('history-list');
+  const frag=document.createElement('div');
+  frag.className='history-item';
+  frag.innerHTML=`<span class="mult">${mult}×</span>
+    <span class="profit ${profit>=0?'pos':'neg'}">${profit>=0?'+':''}${profit}</span>`;
+  list.prepend(frag);
+  while(list.children.length>10) list.removeChild(list.lastChild);
+}
+
+let toastTimer;
+function showToast(msg){
+  const t=document.getElementById('win-toast');
+  t.textContent=msg; t.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer=setTimeout(()=>t.classList.remove('show'),1800);
+}
+
+function scaleBet(f){ document.getElementById('bet-amount').value=Math.max(1,Math.min(balance,Math.round(getBet()*f))); }
+function setBetMax(){ document.getElementById('bet-amount').value=balance; }
+function changeRows(d){
+  const idx=VALID_ROWS.indexOf(ROWS);
+  ROWS=VALID_ROWS[Math.max(0,Math.min(VALID_ROWS.length-1,idx+d))];
+  document.getElementById('rows-display').textContent=ROWS;
+  buildBoard();
+}
+
+// ═══ GAME ACTIONS ══════════════════════════════════════════════════════
+function dropBall(clickX){
+  if(!currentUsername) return;
+  const bet=getBet();
+  if(bet>balance){ shakeBet(); return; }
+  balance=+(balance-bet).toFixed(2); persistBalance(); updateUI();
+  spawnBall(clickX);
+}
+
+let autoRunning=false;
+async function autoRun(){
+  if(autoRunning||!currentUsername) return; autoRunning=true;
+  for(let i=0;i<10;i++){
+    if(balance<getBet()) break;
+    dropBall();
+    await new Promise(r=>setTimeout(r,260));
+  }
+  autoRunning=false;
+}
+
+function shakeBet(){
+  const el=document.getElementById('bet-amount');
+  el.style.borderColor='var(--deep-rose)';
+  el.style.boxShadow='0 0 0 3px rgba(212,117,138,0.18)';
+  setTimeout(()=>{el.style.borderColor='';el.style.boxShadow='';},600);
+}
+
+function canvasX(e){ const r=canvas.getBoundingClientRect(); return (e.clientX-r.left)*(W/r.width); }
+canvas.addEventListener('click',  e=>dropBall(canvasX(e)));
+canvas.addEventListener('mousemove',e=>{ hoverX=canvasX(e); mouseOnCanvas=true; });
+canvas.addEventListener('mouseleave',()=>{ mouseOnCanvas=false; });
+
+// ═══ BOOT ══════════════════════════════════════════════════════════════
+buildBoard();
+renderSavedUsers();
+requestAnimationFrame(loop);
+
+function resize(){
+  const maxW=Math.min(520,window.innerWidth-20);
+  canvas.style.width=maxW+'px'; canvas.style.height=(maxW*(H/W))+'px';
+}
+window.addEventListener('resize',resize); resize();
+</script>
+</body>
+</html>
