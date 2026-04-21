@@ -11,86 +11,32 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,700&family=Cormorant+Garamond:ital,wght@0,400;0,600&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/season-pages.css">
     <style>
-        .wip-container {
+        /* ── Gallery Content (Prefinals-specific) ── */
+        .gallery-content {
+            padding: 40px 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .image-gallery {
             display: flex;
             flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: calc(100vh - 200px);
-            text-align: center;
-            padding: 3rem 2rem;
-        }
-
-        .wip-container h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 3.5rem;
-            color: var(--deep-rose);
-            margin-bottom: 1rem;
-            font-style: italic;
-        }
-
-        .wip-container p {
-            font-family: 'Dancing Script', cursive;
-            font-size: 1.8rem;
-            color: var(--rose-pink);
-            margin: 0;
-        }
-
-        .wip-container .emoji {
-            font-size: 4rem;
-            margin-bottom: 1.5rem;
-            animation: float 3s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-        }
-
-        /* ── Chapter Navigation ── */
-        .dashboard {
-            padding: 40px 20px;
-        }
-
-        .chapter-nav {
-            display: flex;
-            justify-content: center;
             gap: 2rem;
-            padding: 40px;
-            max-width: 100%;
+            margin-bottom: 2rem;
         }
 
-        .nav-chapter-btn {
-            padding: 14px 32px;
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: var(--deep-rose, #b45064);
-            background: transparent;
-            border: 2px solid var(--deep-rose, #b45064);
-            border-radius: 50px;
-            text-decoration: none;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .nav-chapter-btn:hover {
-            color: var(--rose-pink, #d4677a);
-            border-color: var(--rose-pink, #d4677a);
-            transform: translateY(-2px);
+        .gallery-img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(180, 80, 100, 0.15);
+            object-fit: cover;
         }
 
         @media (max-width: 600px) {
-            .chapter-nav {
-                flex-direction: column;
-                gap: 1rem;
-                padding: 20px;
-            }
-
-            .nav-chapter-btn {
-                padding: 12px 24px;
-                font-size: 1rem;
+            .gallery-img {
+                border-radius: 8px;
             }
         }
     </style>
@@ -134,22 +80,25 @@
     </div>
 
     <main>
-        <!-- WIP Content -->
-        <div class="wip-container">
-            <div class="emoji">🌸</div>
-            <h1>Work In Progress</h1>
-            <p>Coming Soon...</p>
+        <div class="header season-header" id="home">
+            <h1>PREFINALS</h1>
+            <div class="header-subtitle">My Passion Plan 💖</div>
         </div>
 
         <div class="dashboard">
+            <div class="gallery-content">
+                <div class="image-gallery">
+                    <img src="assets/Prefi/5.png" alt="Prefinals Image 5" class="gallery-img">
+                    <img src="assets/Prefi/6.png" alt="Prefinals Image 6" class="gallery-img">
+                    <img src="assets/Prefi/7.png" alt="Prefinals Image 7" class="gallery-img">
+                </div>
+            </div>
+
             <div class="chapter-nav">
                 <a href="midterm.html" class="nav-chapter-btn">← MIDTERMS</a>
                 <a href="faves.html" class="nav-chapter-btn">MY FAVES →</a>
             </div>
-        </div>
-    </main>
 
-    <!-- Footer -->
             <div class="footer">
                 <div class="footer-content">
                     <p class="footer-title">✨ Created with love & elegance ✨</p>
@@ -170,5 +119,6 @@
     </main>
 
     <script src="js/script.js"></script>
+    <script src="js/cursor-effects.js"></script>
 </body>
 </html>

@@ -54,7 +54,7 @@ body::after {
     background: radial-gradient(circle, rgba(255, 255, 255, 0.08), transparent);
     border-radius: 50%;
     pointer-events: none;
-    z-index: 0;
+    z-index: -2;
 }
 
 /* ================= NAVIGATION ================= */
@@ -379,7 +379,8 @@ main {
 
 /* Dashboard */
 .dashboard {
-    background: var(--cream);
+    background: rgba(255, 251, 247, 0.85);
+    backdrop-filter: blur(10px);
     border-radius: 30px;
     padding: 3rem;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
@@ -1482,4 +1483,9 @@ main {
     .contact-card h3 {
         font-size: 1rem;
     }
+}
+
+.floating-orb,
+.particles-bg {
+    z-index: -1;
 }
